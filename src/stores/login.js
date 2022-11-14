@@ -1,0 +1,41 @@
+import { defineStore } from "pinia";
+import { db } from "../db";
+
+export const useLoginStore = defineStore("login", {
+  state: () => ({
+    email: undefined,
+    id: undefined,
+  }),
+  getters: {
+    islogged() {
+      return !!this.id;
+    },
+  },
+  actions: {
+    async login(email, password) {
+      const response = await db.users
+        .where("email")
+        .equalsIgnoreCase(email)
+        .and((item) => item.password === password)
+        .first();
+
+      if (response === undefined) throw new Error("User not found");
+
+      this.id = response.user_id;
+      this.email = response.email;
+    },
+
+    async signup(email, password, name, picture) {
+      const id = await db.users.add({
+        email,
+        password,
+        name,
+        picture,
+      });
+
+      this.id = id;
+
+      return id;
+    },
+  },
+});

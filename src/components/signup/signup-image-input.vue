@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <label for="">
+    <input type="file" />
+  </label>
 </template>
 
 <script>
