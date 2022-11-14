@@ -1,30 +1,21 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'header--black': isMenuOpen }">
     <app-logo-icon class="header__logo" />
     <button @click="IsMenuOpen = !IsMenuOpen">
       <img class="header__menu-icon" src="../../assets/hamburger.gif" />
     </button>
-    <div v-show="IsMenuOpen" class="header__menu">
-      <nav>
-        <ul>
-          <li>Incio</li>
-          <li>Series</li>
-          <li>Filmes</li>
-          <li>Bombando</li>
-          <li>Minha Lista</li>
-          <li>Navegar por Idiomas</li>
-        </ul>
-      </nav>
-    </div>
+    <movies-lateral-menu v-show="IsMenuOpen" class="header__menu" />
   </header>
 </template>
 
 <script>
   import AppLogoIcon from "../icons/app-logo-icon.vue";
+  import MoviesLateralMenu from "./movies-lateral-menu.vue";
 
   export default {
     components: {
       AppLogoIcon,
+      MoviesLateralMenu,
     },
     data: () => ({
       IsMenuOpen: false,
@@ -51,6 +42,10 @@
     background-color: #00000099;
     // background: linear-gradient(0, rgba(0, 0, 0, 0.7) 10%, transparent);
 
+    &--black {
+      background-color: #000;
+    }
+
     &__logo {
       order: 2;
       margin: 20px;
@@ -65,12 +60,8 @@
 
     &__menu {
       position: absolute;
-      top: 80px;
+      top: 60px;
       left: 0;
-
-      ul {
-        display: flex;
-      }
     }
   }
 </style>
