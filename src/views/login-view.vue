@@ -38,8 +38,8 @@
       },
     },
     watch: {
-      islogged(newState) {
-        console.log(newState);
+      islogged(isLogged) {
+        if (isLogged) this.$router.push({ name: "browse" });
       },
     },
   };
