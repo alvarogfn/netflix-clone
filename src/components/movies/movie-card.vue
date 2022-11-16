@@ -1,13 +1,14 @@
 <template>
-  <a>
+  <router-link :to="{ name: 'watch', params: { id: 1 } }">
     <img :src="thumb" />
-  </a>
+  </router-link>
 </template>
 
 <script>
   export default {
     props: {
       thumb: String,
+      id: String,
     },
   };
 </script>

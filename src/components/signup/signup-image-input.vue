@@ -1,6 +1,11 @@
 <template>
   <label for="">
-    <input type="file" />
+    <input
+      type="file"
+      @change="$emit('update:value', $event.target.files[0])"
+      accept="image/png, image/jpeg"
+      name="avatar"
+    />
   </label>
 </template>
 

@@ -1,0 +1,2372 @@
+{
+  "genres": [
+    { "id": 1, "name": "Action", "tmdb_id": 28 },
+    { "id": 39, "name": "Action & Adventure", "tmdb_id": 10759 },
+    { "id": 30, "name": "Adult", "tmdb_id": null },
+    { "id": 2, "name": "Adventure", "tmdb_id": 12 },
+    { "id": 3, "name": "Animation", "tmdb_id": 16 },
+    { "id": 33, "name": "Anime", "tmdb_id": null },
+    { "id": 31, "name": "Biography", "tmdb_id": null },
+    { "id": 4, "name": "Comedy", "tmdb_id": 35 },
+    { "id": 5, "name": "Crime", "tmdb_id": 80 },
+    { "id": 6, "name": "Documentary", "tmdb_id": 99 },
+    { "id": 7, "name": "Drama", "tmdb_id": 18 },
+    { "id": 8, "name": "Family", "tmdb_id": 10751 },
+    { "id": 9, "name": "Fantasy", "tmdb_id": 14 },
+    { "id": 34, "name": "Food", "tmdb_id": null },
+    { "id": 28, "name": "Game Show", "tmdb_id": null },
+    { "id": 10, "name": "History", "tmdb_id": 36 },
+    { "id": 11, "name": "Horror", "tmdb_id": 27 },
+    { "id": 21, "name": "Kids", "tmdb_id": 10762 },
+    { "id": 12, "name": "Music", "tmdb_id": 10402 },
+    { "id": 32, "name": "Musical", "tmdb_id": null },
+    { "id": 13, "name": "Mystery", "tmdb_id": 9648 },
+    { "id": 36, "name": "Nature", "tmdb_id": null },
+    { "id": 22, "name": "News", "tmdb_id": 10763 },
+    { "id": 23, "name": "Reality", "tmdb_id": 10764 },
+    { "id": 14, "name": "Romance", "tmdb_id": 10749 },
+    { "id": 40, "name": "Sci-Fi & Fantasy", "tmdb_id": 10765 },
+    { "id": 15, "name": "Science Fiction", "tmdb_id": 878 },
+    { "id": 25, "name": "Soap", "tmdb_id": 10766 },
+    { "id": 29, "name": "Sports", "tmdb_id": null },
+    { "id": 37, "name": "Supernatural", "tmdb_id": null },
+    { "id": 26, "name": "Talk", "tmdb_id": 10767 },
+    { "id": 17, "name": "Thriller", "tmdb_id": 53 },
+    { "id": 35, "name": "Travel", "tmdb_id": null },
+    { "id": 38, "name": "TV Movie", "tmdb_id": 10770 },
+    { "id": 18, "name": "War", "tmdb_id": 10752 },
+    { "id": 41, "name": "War & Politics", "tmdb_id": 10768 },
+    { "id": 19, "name": "Western", "tmdb_id": 37 }
+  ],
+  "list": {
+    "titles": [
+      {
+        "id": 3185268,
+        "title": "Zootopia+",
+        "year": 2022,
+        "imdb_id": "tt13622956",
+        "tmdb_id": 114463,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3162020,
+        "title": "Warrior Nun",
+        "year": 2020,
+        "imdb_id": "tt9059350",
+        "tmdb_id": 87689,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3133089,
+        "title": "Titans",
+        "year": 2018,
+        "imdb_id": "tt1043813",
+        "tmdb_id": 75450,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3171681,
+        "title": "The Mosquito Coast",
+        "year": 2021,
+        "imdb_id": "tt11041132",
+        "tmdb_id": 93716,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1491945,
+        "title": "Black Panther: Wakanda Forever",
+        "year": 2022,
+        "imdb_id": "tt9114286",
+        "tmdb_id": 505642,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 4103505,
+        "title": "The Dragon Prince",
+        "year": 2018,
+        "imdb_id": "tt8688814",
+        "tmdb_id": 81046,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 546307,
+        "title": "Jurassic World Camp Cretaceous: Hidden Adventure",
+        "year": 2022,
+        "imdb_id": "tt22872778",
+        "tmdb_id": 1036956,
+        "tmdb_type": "movie",
+        "type": "tv_special"
+      },
+      {
+        "id": 3157435,
+        "title": "The Lord of the Rings: The Rings of Power",
+        "year": 2022,
+        "imdb_id": "tt7631058",
+        "tmdb_id": 84773,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3165325,
+        "title": "House of the Dragon",
+        "year": 2022,
+        "imdb_id": "tt11198330",
+        "tmdb_id": 94997,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3159069,
+        "title": "Andor",
+        "year": 2022,
+        "imdb_id": "tt9253284",
+        "tmdb_id": 83867,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3165452,
+        "title": "Shantaram",
+        "year": 2022,
+        "imdb_id": "tt0429087",
+        "tmdb_id": 95341,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3189194,
+        "title": "The Bastard Son & The Devil Himself",
+        "year": 2022,
+        "imdb_id": "tt13649396",
+        "tmdb_id": 210235,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1504520,
+        "title": "Black Adam",
+        "year": 2022,
+        "imdb_id": "tt6443346",
+        "tmdb_id": 436270,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1639246,
+        "title": "Thirteen Lives",
+        "year": 2022,
+        "imdb_id": "tt12262116",
+        "tmdb_id": 698948,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1688064,
+        "title": "The School for Good and Evil",
+        "year": 2022,
+        "imdb_id": "tt2935622",
+        "tmdb_id": 779782,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3181732,
+        "title": "Our Flag Means Death",
+        "year": 2022,
+        "imdb_id": "tt11000902",
+        "tmdb_id": 109939,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1615842,
+        "title": "The Woman King",
+        "year": 2022,
+        "imdb_id": "tt8093700",
+        "tmdb_id": 724495,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1437213,
+        "title": "Top Gun: Maverick",
+        "year": 2022,
+        "imdb_id": "tt1745960",
+        "tmdb_id": 361743,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1550054,
+        "title": "Obi-Wan Kenobi",
+        "year": 2022,
+        "imdb_id": "tt8466564",
+        "tmdb_id": 92830,
+        "tmdb_type": "tv",
+        "type": "tv_miniseries"
+      },
+      {
+        "id": 3155583,
+        "title": "Wayne",
+        "year": 2019,
+        "imdb_id": "tt7765404",
+        "tmdb_id": 84231,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3164396,
+        "title": "Ms. Marvel",
+        "year": 2022,
+        "imdb_id": "tt10857164",
+        "tmdb_id": 92782,
+        "tmdb_type": "tv",
+        "type": "tv_miniseries"
+      },
+      {
+        "id": 3164600,
+        "title": "Squid Game",
+        "year": 2021,
+        "imdb_id": "tt10919420",
+        "tmdb_id": 93405,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1584304,
+        "title": "Thor: Love and Thunder",
+        "year": 2022,
+        "imdb_id": "tt10648342",
+        "tmdb_id": 616037,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3162828,
+        "title": "Primal",
+        "year": 2019,
+        "imdb_id": "tt10332508",
+        "tmdb_id": 89456,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3170487,
+        "title": "Leverage: Redemption",
+        "year": 2021,
+        "imdb_id": "tt12197698",
+        "tmdb_id": 106502,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3182399,
+        "title": "The Terminal List",
+        "year": 2022,
+        "imdb_id": "tt11743610",
+        "tmdb_id": 120911,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1521342,
+        "title": "All Quiet on the Western Front",
+        "year": 2022,
+        "imdb_id": "tt1016150",
+        "tmdb_id": 49046,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1589116,
+        "title": "Moon Knight",
+        "year": 2022,
+        "imdb_id": "tt10234724",
+        "tmdb_id": 92749,
+        "tmdb_type": "tv",
+        "type": "tv_miniseries"
+      },
+      {
+        "id": 1589918,
+        "title": "Spider-Man: No Way Home",
+        "year": 2021,
+        "imdb_id": "tt10872600",
+        "tmdb_id": 634649,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3158257,
+        "title": "The Falcon and the Winter Soldier",
+        "year": 2021,
+        "imdb_id": "tt9208876",
+        "tmdb_id": 88396,
+        "tmdb_type": "tv",
+        "type": "tv_miniseries"
+      },
+      {
+        "id": 3162388,
+        "title": "Hawkeye",
+        "year": 2021,
+        "imdb_id": "tt10160804",
+        "tmdb_id": 88329,
+        "tmdb_type": "tv",
+        "type": "tv_miniseries"
+      },
+      {
+        "id": 3170089,
+        "title": "Cyberpunk: Edgerunners",
+        "year": 2022,
+        "imdb_id": "tt12590266",
+        "tmdb_id": 105248,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3172165,
+        "title": "Dota: Dragon's Blood",
+        "year": 2021,
+        "imdb_id": "tt14069590",
+        "tmdb_id": 118956,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3178198,
+        "title": "Arcane",
+        "year": 2021,
+        "imdb_id": "tt11126994",
+        "tmdb_id": 94605,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3178311,
+        "title": "The Book of Boba Fett",
+        "year": 2021,
+        "imdb_id": "tt13668894",
+        "tmdb_id": 115036,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1560295,
+        "title": "Doctor Strange in the Multiverse of Madness",
+        "year": 2022,
+        "imdb_id": "tt9419884",
+        "tmdb_id": 453395,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1616014,
+        "title": "The Gray Man",
+        "year": 2022,
+        "imdb_id": "tt1649418",
+        "tmdb_id": 725201,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3164117,
+        "title": "What If...?",
+        "year": 2021,
+        "imdb_id": "tt10168312",
+        "tmdb_id": 91363,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3164369,
+        "title": "The Owl House",
+        "year": 2020,
+        "imdb_id": "tt8050756",
+        "tmdb_id": 92685,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3171025,
+        "title": "Peacemaker",
+        "year": 2022,
+        "imdb_id": "tt13146488",
+        "tmdb_id": 110492,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3171999,
+        "title": "Marvel Studios: Legends",
+        "year": 2021,
+        "imdb_id": "tt13650480",
+        "tmdb_id": 114695,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3180045,
+        "title": "Reacher",
+        "year": 2022,
+        "imdb_id": "tt9288030",
+        "tmdb_id": 108978,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1615420,
+        "title": "Bullet Train",
+        "year": 2022,
+        "imdb_id": "tt12593682",
+        "tmdb_id": 718930,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3119872,
+        "title": "The Boys",
+        "year": 2019,
+        "imdb_id": "tt1190634",
+        "tmdb_id": 76479,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1195869,
+        "title": "Jurassic World: Dominion",
+        "year": 2022,
+        "imdb_id": "tt8041270",
+        "tmdb_id": 507086,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1450054,
+        "title": "Avengers: Endgame",
+        "year": 2019,
+        "imdb_id": "tt4154796",
+        "tmdb_id": 299534,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1516721,
+        "title": "Everything Everywhere All at Once",
+        "year": 2022,
+        "imdb_id": "tt6710474",
+        "tmdb_id": 545611,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 350163,
+        "title": "Halo",
+        "year": 2022,
+        "imdb_id": "tt2934286",
+        "tmdb_id": 52814,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 167043,
+        "title": "Captain Marvel",
+        "year": 2019,
+        "imdb_id": "tt4154664",
+        "tmdb_id": 299537,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3130479,
+        "title": "The Umbrella Academy",
+        "year": 2019,
+        "imdb_id": "tt1312171",
+        "tmdb_id": 75006,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3153801,
+        "title": "The Mandalorian",
+        "year": 2019,
+        "imdb_id": "tt8111088",
+        "tmdb_id": 82856,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3153842,
+        "title": "The Witcher",
+        "year": 2019,
+        "imdb_id": "tt5180504",
+        "tmdb_id": 71912,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3175655,
+        "title": "All of Us Are Dead",
+        "year": 2022,
+        "imdb_id": "tt14169960",
+        "tmdb_id": 99966,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1357314,
+        "title": "Spider-Man: Far from Home",
+        "year": 2019,
+        "imdb_id": "tt6320628",
+        "tmdb_id": 429617,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1515072,
+        "title": "Uncharted",
+        "year": 2022,
+        "imdb_id": "tt1464335",
+        "tmdb_id": 335787,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1595029,
+        "title": "The Northman",
+        "year": 2022,
+        "imdb_id": "tt11138512",
+        "tmdb_id": 639933,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 540733,
+        "title": "The Old Man",
+        "year": 2022,
+        "imdb_id": "tt5645432",
+        "tmdb_id": 111800,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3135392,
+        "title": "Trollhunters: Tales of Arcadia",
+        "year": 2016,
+        "imdb_id": "tt1734135",
+        "tmdb_id": 68267,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1137596,
+        "title": "Ford v Ferrari",
+        "year": 2019,
+        "imdb_id": "tt1950186",
+        "tmdb_id": 359724,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3185315,
+        "title": "Chainsaw Man",
+        "year": 2022,
+        "imdb_id": "tt13616990",
+        "tmdb_id": 114410,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1193410,
+        "title": "John Wick: Chapter 3 - Parabellum",
+        "year": 2019,
+        "imdb_id": "tt6146586",
+        "tmdb_id": 458156,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1343132,
+        "title": "Shazam!",
+        "year": 2019,
+        "imdb_id": "tt0448115",
+        "tmdb_id": 287947,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1357366,
+        "title": "Spies in Disguise",
+        "year": 2019,
+        "imdb_id": "tt5814534",
+        "tmdb_id": 431693,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1359294,
+        "title": "Star Wars: Episode IX - The Rise of Skywalker",
+        "year": 2019,
+        "imdb_id": "tt2527338",
+        "tmdb_id": 181812,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1588222,
+        "title": "The Bad Guys",
+        "year": 2022,
+        "imdb_id": "tt8115900",
+        "tmdb_id": 629542,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 122224,
+        "title": "Alita: Battle Angel",
+        "year": 2019,
+        "imdb_id": "tt0437086",
+        "tmdb_id": 399579,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 194978,
+        "title": "Death on the Nile",
+        "year": 2022,
+        "imdb_id": "tt7657566",
+        "tmdb_id": 505026,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3105068,
+        "title": "See",
+        "year": 2019,
+        "imdb_id": "tt7949218",
+        "tmdb_id": 80752,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1129886,
+        "title": "Fantastic Beasts: The Secrets of Dumbledore",
+        "year": 2022,
+        "imdb_id": "tt4123432",
+        "tmdb_id": 338953,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3170607,
+        "title": "Teenage Bounty Hunters",
+        "year": 2020,
+        "imdb_id": "tt10584608",
+        "tmdb_id": 90766,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3171197,
+        "title": "Blood of Zeus",
+        "year": 2020,
+        "imdb_id": "tt10009170",
+        "tmdb_id": 111111,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3179898,
+        "title": "Vikings: Valhalla",
+        "year": 2022,
+        "imdb_id": "tt11311302",
+        "tmdb_id": 116135,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1500837,
+        "title": "The King's Man",
+        "year": 2021,
+        "imdb_id": "tt6856242",
+        "tmdb_id": 476669,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1608765,
+        "title": "Lightyear",
+        "year": 2022,
+        "imdb_id": "tt10298810",
+        "tmdb_id": 718789,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1167187,
+        "title": "Fast & Furious Presents: Hobbs & Shaw",
+        "year": 2019,
+        "imdb_id": "tt6806448",
+        "tmdb_id": 384018,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1494390,
+        "title": "Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)",
+        "year": 2020,
+        "imdb_id": "tt7713068",
+        "tmdb_id": 495764,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1586594,
+        "title": "El Camino: A Breaking Bad Movie",
+        "year": 2019,
+        "imdb_id": "tt9243946",
+        "tmdb_id": 559969,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1150103,
+        "title": "Godzilla: King of the Monsters",
+        "year": 2019,
+        "imdb_id": "tt3741700",
+        "tmdb_id": 373571,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3160193,
+        "title": "Star Trek: Picard",
+        "year": 2020,
+        "imdb_id": "tt8806524",
+        "tmdb_id": 85949,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3170425,
+        "title": "Jujutsu Kaisen",
+        "year": 2020,
+        "imdb_id": "tt12343534",
+        "tmdb_id": 95479,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1451289,
+        "title": "Terminator: Dark Fate",
+        "year": 2019,
+        "imdb_id": "tt6450804",
+        "tmdb_id": 290859,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1588152,
+        "title": "Samaritan",
+        "year": 2022,
+        "imdb_id": "tt5500218",
+        "tmdb_id": 629176,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1620816,
+        "title": "The Lost City",
+        "year": 2022,
+        "imdb_id": "tt13320622",
+        "tmdb_id": 752623,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 138099,
+        "title": "Avengers: Age of Ultron",
+        "year": 2015,
+        "imdb_id": "tt2395427",
+        "tmdb_id": 99861,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 138100,
+        "title": "Avengers: Infinity War",
+        "year": 2018,
+        "imdb_id": "tt4154756",
+        "tmdb_id": 299536,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 140508,
+        "title": "Bad Boys for Life",
+        "year": 2020,
+        "imdb_id": "tt1502397",
+        "tmdb_id": 38700,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 153257,
+        "title": "Black Panther",
+        "year": 2018,
+        "imdb_id": "tt1825683",
+        "tmdb_id": 284054,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 363870,
+        "title": "Killjoys",
+        "year": 2015,
+        "imdb_id": "tt3952222",
+        "tmdb_id": 62413,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 194187,
+        "title": "Deadpool",
+        "year": 2016,
+        "imdb_id": "tt1431045",
+        "tmdb_id": 293660,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1100053,
+        "title": "Pokémon Detective Pikachu",
+        "year": 2019,
+        "imdb_id": "tt5884052",
+        "tmdb_id": 447404,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3142204,
+        "title": "Watchmen",
+        "year": 2019,
+        "imdb_id": "tt7049682",
+        "tmdb_id": 79788,
+        "tmdb_type": "tv",
+        "type": "tv_miniseries"
+      },
+      {
+        "id": 3162826,
+        "title": "9-1-1: Lone Star",
+        "year": 2020,
+        "imdb_id": "tt10323338",
+        "tmdb_id": 89393,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3170189,
+        "title": "Alice in Borderland",
+        "year": 2020,
+        "imdb_id": "tt10795658",
+        "tmdb_id": 110316,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3179581,
+        "title": "Star Wars: The Bad Batch",
+        "year": 2021,
+        "imdb_id": "tt12708542",
+        "tmdb_id": 105971,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1240560,
+        "title": "Mad Max: Fury Road",
+        "year": 2015,
+        "imdb_id": "tt1392190",
+        "tmdb_id": 76341,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1620488,
+        "title": "Day Shift",
+        "year": 2022,
+        "imdb_id": "tt13314558",
+        "tmdb_id": 755566,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 312247,
+        "title": "Batwoman",
+        "year": 2019,
+        "imdb_id": "tt8712204",
+        "tmdb_id": 89247,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 323535,
+        "title": "Cobra Kai",
+        "year": 2018,
+        "imdb_id": "tt7221388",
+        "tmdb_id": 77169,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 327970,
+        "title": "Daredevil",
+        "year": 2015,
+        "imdb_id": "tt3322312",
+        "tmdb_id": 61889,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 130817,
+        "title": "Ant-Man",
+        "year": 2015,
+        "imdb_id": "tt0478970",
+        "tmdb_id": 102899,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 139792,
+        "title": "Baby Driver",
+        "year": 2017,
+        "imdb_id": "tt3890160",
+        "tmdb_id": 339403,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 144358,
+        "title": "Batman v Superman: Dawn of Justice",
+        "year": 2016,
+        "imdb_id": "tt2975590",
+        "tmdb_id": 209112,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 166939,
+        "title": "Captain America: Civil War",
+        "year": 2016,
+        "imdb_id": "tt3498820",
+        "tmdb_id": 271110,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 194188,
+        "title": "Deadpool 2",
+        "year": 2018,
+        "imdb_id": "tt5463162",
+        "tmdb_id": 383498,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1106885,
+        "title": "Doctor Strange",
+        "year": 2016,
+        "imdb_id": "tt1211837",
+        "tmdb_id": 284052,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3111490,
+        "title": "Star vs. the Forces of Evil",
+        "year": 2015,
+        "imdb_id": "tt2758770",
+        "tmdb_id": 61923,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1112684,
+        "title": "Dunkirk",
+        "year": 2017,
+        "imdb_id": "tt5013056",
+        "tmdb_id": 374720,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3130097,
+        "title": "The Tick",
+        "year": 2016,
+        "imdb_id": "tt5540054",
+        "tmdb_id": 67487,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1154249,
+        "title": "Guardians of the Galaxy Vol. 2",
+        "year": 2017,
+        "imdb_id": "tt3896198",
+        "tmdb_id": 283995,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3164326,
+        "title": "Heels",
+        "year": 2021,
+        "imdb_id": "tt6554240",
+        "tmdb_id": 92553,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3164559,
+        "title": "Jupiter's Legacy",
+        "year": 2021,
+        "imdb_id": "tt5774002",
+        "tmdb_id": 93484,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3183123,
+        "title": "SPY x FAMILY",
+        "year": 2022,
+        "imdb_id": "tt13706018",
+        "tmdb_id": 120089,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1195868,
+        "title": "Jurassic World",
+        "year": 2015,
+        "imdb_id": "tt0369610",
+        "tmdb_id": 135397,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1232710,
+        "title": "Logan",
+        "year": 2017,
+        "imdb_id": "tt3315342",
+        "tmdb_id": 263115,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1325013,
+        "title": "Rogue One: A Star Wars Story",
+        "year": 2016,
+        "imdb_id": "tt3748528",
+        "tmdb_id": 330459,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1342008,
+        "title": "Shaft",
+        "year": 2019,
+        "imdb_id": "tt4463894",
+        "tmdb_id": 486131,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1354993,
+        "title": "Sonic the Hedgehog",
+        "year": 2020,
+        "imdb_id": "tt3794354",
+        "tmdb_id": 454626,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1357316,
+        "title": "Spider-Man: Homecoming",
+        "year": 2017,
+        "imdb_id": "tt2250912",
+        "tmdb_id": 315635,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1357317,
+        "title": "Spider-Man: Into the Spider-Verse",
+        "year": 2018,
+        "imdb_id": "tt4633694",
+        "tmdb_id": 324857,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1359306,
+        "title": "Star Wars: The Force Awakens",
+        "year": 2015,
+        "imdb_id": "tt2488496",
+        "tmdb_id": 140607,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1359310,
+        "title": "Star Wars: Episode VIII - The Last Jedi",
+        "year": 2017,
+        "imdb_id": "tt2527336",
+        "tmdb_id": 181808,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1431650,
+        "title": "Thor: Ragnarok",
+        "year": 2017,
+        "imdb_id": "tt3501632",
+        "tmdb_id": 284053,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1455450,
+        "title": "Venom",
+        "year": 2018,
+        "imdb_id": "tt1270797",
+        "tmdb_id": 335983,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1471728,
+        "title": "Wonder Woman",
+        "year": 2017,
+        "imdb_id": "tt0451279",
+        "tmdb_id": 297762,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 130818,
+        "title": "Ant-Man and the Wasp",
+        "year": 2018,
+        "imdb_id": "tt5095030",
+        "tmdb_id": 363088,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 132421,
+        "title": "Aquaman",
+        "year": 2018,
+        "imdb_id": "tt1477834",
+        "tmdb_id": 297802,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 341248,
+        "title": "Fear the Walking Dead",
+        "year": 2015,
+        "imdb_id": "tt3743822",
+        "tmdb_id": 62286,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 157269,
+        "title": "No Time to Die",
+        "year": 2021,
+        "imdb_id": "tt2382320",
+        "tmdb_id": 370172,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 388699,
+        "title": "One Punch Man",
+        "year": 2015,
+        "imdb_id": "tt4508902",
+        "tmdb_id": 63926,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3114004,
+        "title": "Supergirl",
+        "year": 2015,
+        "imdb_id": "tt4016454",
+        "tmdb_id": 62688,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3124893,
+        "title": "The Last Kingdom",
+        "year": 2015,
+        "imdb_id": "tt4179452",
+        "tmdb_id": 63333,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3127764,
+        "title": "The Punisher",
+        "year": 2017,
+        "imdb_id": "tt5675620",
+        "tmdb_id": 67178,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1129885,
+        "title": "Fantastic Beasts and Where to Find Them",
+        "year": 2016,
+        "imdb_id": "tt3183660",
+        "tmdb_id": 259316,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1142273,
+        "title": "Furious 7",
+        "year": 2015,
+        "imdb_id": "tt2820852",
+        "tmdb_id": 168259,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3163865,
+        "title": "Infinity Train",
+        "year": 2019,
+        "imdb_id": "tt8146754",
+        "tmdb_id": 91425,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1193411,
+        "title": "John Wick: Chapter 2",
+        "year": 2017,
+        "imdb_id": "tt4425200",
+        "tmdb_id": 324552,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1195407,
+        "title": "Jumanji: Welcome to the Jungle",
+        "year": 2017,
+        "imdb_id": "tt2283362",
+        "tmdb_id": 353486,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1196323,
+        "title": "Justice League",
+        "year": 2017,
+        "imdb_id": "tt0974015",
+        "tmdb_id": 141052,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1205325,
+        "title": "Kingsman: The Golden Circle",
+        "year": 2017,
+        "imdb_id": "tt4649466",
+        "tmdb_id": 343668,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1257215,
+        "title": "Mission: Impossible - Fallout",
+        "year": 2018,
+        "imdb_id": "tt4912910",
+        "tmdb_id": 353081,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1257217,
+        "title": "Mission: Impossible - Rogue Nation",
+        "year": 2015,
+        "imdb_id": "tt2381249",
+        "tmdb_id": 177677,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1317301,
+        "title": "Ready Player One",
+        "year": 2018,
+        "imdb_id": "tt1677720",
+        "tmdb_id": 333339,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1346993,
+        "title": "Sicario",
+        "year": 2015,
+        "imdb_id": "tt3397884",
+        "tmdb_id": 273481,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1357037,
+        "title": "Spectre",
+        "year": 2015,
+        "imdb_id": "tt2379713",
+        "tmdb_id": 206647,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1398135,
+        "title": "The Hunger Games: Mockingjay - Part 2",
+        "year": 2015,
+        "imdb_id": "tt1951266",
+        "tmdb_id": 131634,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1472955,
+        "title": "X-Men: Apocalypse",
+        "year": 2016,
+        "imdb_id": "tt3385516",
+        "tmdb_id": 246655,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1490260,
+        "title": "Eternals",
+        "year": 2021,
+        "imdb_id": "tt9032400",
+        "tmdb_id": 524434,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1496510,
+        "title": "The Suicide Squad",
+        "year": 2021,
+        "imdb_id": "tt6334354",
+        "tmdb_id": 436969,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1501613,
+        "title": "Black Widow",
+        "year": 2021,
+        "imdb_id": "tt3480822",
+        "tmdb_id": 497698,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1561438,
+        "title": "DC League of Super-Pets",
+        "year": 2022,
+        "imdb_id": "tt8912936",
+        "tmdb_id": 539681,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1567837,
+        "title": "Shang-Chi and the Legend of the Ten Rings",
+        "year": 2021,
+        "imdb_id": "tt9376612",
+        "tmdb_id": 566525,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1593433,
+        "title": "The Unbearable Weight of Massive Talent",
+        "year": 2022,
+        "imdb_id": "tt11291274",
+        "tmdb_id": 648579,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1612493,
+        "title": "Zack Snyder's Justice League",
+        "year": 2021,
+        "imdb_id": "tt12361974",
+        "tmdb_id": 791373,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 329288,
+        "title": "Deadly Class",
+        "year": 2018,
+        "imdb_id": "tt5924572",
+        "tmdb_id": 75663,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 537671,
+        "title": "Dracula",
+        "year": 2020,
+        "imdb_id": "tt9139220",
+        "tmdb_id": 86850,
+        "tmdb_type": "tv",
+        "type": "tv_miniseries"
+      },
+      {
+        "id": 369120,
+        "title": "DC's Legends of Tomorrow",
+        "year": 2016,
+        "imdb_id": "tt4532368",
+        "tmdb_id": 62643,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 372446,
+        "title": "Lost in Space",
+        "year": 2018,
+        "imdb_id": "tt5232792",
+        "tmdb_id": 75758,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 184033,
+        "title": "Creed",
+        "year": 2015,
+        "imdb_id": "tt3076658",
+        "tmdb_id": 312221,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3111445,
+        "title": "Star Trek: Discovery",
+        "year": 2017,
+        "imdb_id": "tt5171438",
+        "tmdb_id": 67198,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1145472,
+        "title": "Gemini Man",
+        "year": 2019,
+        "imdb_id": "tt1025100",
+        "tmdb_id": 453405,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3159755,
+        "title": "Hanna",
+        "year": 2019,
+        "imdb_id": "tt6932244",
+        "tmdb_id": 54155,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3164931,
+        "title": "Jurassic World: Camp Cretaceous",
+        "year": 2020,
+        "imdb_id": "tt10436228",
+        "tmdb_id": 93741,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3168647,
+        "title": "Outer Banks",
+        "year": 2020,
+        "imdb_id": "tt10293938",
+        "tmdb_id": 100757,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3173640,
+        "title": "My Name",
+        "year": 2021,
+        "imdb_id": "tt12940504",
+        "tmdb_id": 110356,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1182575,
+        "title": "Incredibles 2",
+        "year": 2018,
+        "imdb_id": "tt3606756",
+        "tmdb_id": 260513,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1195870,
+        "title": "Jurassic World: Fallen Kingdom",
+        "year": 2018,
+        "imdb_id": "tt4881806",
+        "tmdb_id": 351286,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1207603,
+        "title": "Kong: Skull Island",
+        "year": 2017,
+        "imdb_id": "tt3731562",
+        "tmdb_id": 293167,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1243529,
+        "title": "Maleficent: Mistress of Evil",
+        "year": 2019,
+        "imdb_id": "tt4777008",
+        "tmdb_id": 420809,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 2270908,
+        "title": "Kung Fury",
+        "year": 2015,
+        "imdb_id": "tt3472226",
+        "tmdb_id": 251516,
+        "tmdb_type": "movie",
+        "type": "short_film"
+      },
+      {
+        "id": 1302001,
+        "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
+        "year": 2017,
+        "imdb_id": "tt1790809",
+        "tmdb_id": 166426,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1318351,
+        "title": "Red Notice",
+        "year": 2021,
+        "imdb_id": "tt7991608",
+        "tmdb_id": 512195,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1353638,
+        "title": "Solo: A Star Wars Story",
+        "year": 2018,
+        "imdb_id": "tt3778644",
+        "tmdb_id": 348350,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1406149,
+        "title": "The Man from U.N.C.L.E.",
+        "year": 2015,
+        "imdb_id": "tt1638355",
+        "tmdb_id": 203801,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1409517,
+        "title": "The Nice Guys",
+        "year": 2016,
+        "imdb_id": "tt3799694",
+        "tmdb_id": 290250,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1526285,
+        "title": "Invincible",
+        "year": 2021,
+        "imdb_id": "tt6741278",
+        "tmdb_id": 95557,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1621469,
+        "title": "Ambulance",
+        "year": 2022,
+        "imdb_id": "tt4998632",
+        "tmdb_id": 763285,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 315161,
+        "title": "Blindspot",
+        "year": 2015,
+        "imdb_id": "tt4474344",
+        "tmdb_id": 62710,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 518833,
+        "title": "Marvel's The Defenders",
+        "year": 2017,
+        "imdb_id": "tt4230076",
+        "tmdb_id": 62285,
+        "tmdb_type": "tv",
+        "type": "tv_miniseries"
+      },
+      {
+        "id": 129106,
+        "title": "Angel Has Fallen",
+        "year": 2019,
+        "imdb_id": "tt6189022",
+        "tmdb_id": 423204,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 171195,
+        "title": "Chappie",
+        "year": 2015,
+        "imdb_id": "tt1823672",
+        "tmdb_id": 198184,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 373126,
+        "title": "Luke Cage",
+        "year": 2016,
+        "imdb_id": "tt3322314",
+        "tmdb_id": 62126,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3108077,
+        "title": "Six",
+        "year": 2017,
+        "imdb_id": "tt5541338",
+        "tmdb_id": 66871,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3154479,
+        "title": "Harley Quinn",
+        "year": 2019,
+        "imdb_id": "tt7658402",
+        "tmdb_id": 74440,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3170946,
+        "title": "Barbarians",
+        "year": 2020,
+        "imdb_id": "tt9184986",
+        "tmdb_id": 93785,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3176004,
+        "title": "The Promised Neverland",
+        "year": 2019,
+        "imdb_id": "tt8788458",
+        "tmdb_id": 83097,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1190302,
+        "title": "Jason Bourne",
+        "year": 2016,
+        "imdb_id": "tt4196776",
+        "tmdb_id": 324668,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1282745,
+        "title": "Ocean's Eight",
+        "year": 2018,
+        "imdb_id": "tt5164214",
+        "tmdb_id": 402900,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1315738,
+        "title": "Rambo: Last Blood",
+        "year": 2019,
+        "imdb_id": "tt1206885",
+        "tmdb_id": 522938,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1356320,
+        "title": "Southpaw",
+        "year": 2015,
+        "imdb_id": "tt1798684",
+        "tmdb_id": 307081,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1358200,
+        "title": "Spy",
+        "year": 2015,
+        "imdb_id": "tt3079380",
+        "tmdb_id": 238713,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1359256,
+        "title": "Star Trek Beyond",
+        "year": 2016,
+        "imdb_id": "tt2660888",
+        "tmdb_id": 188927,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1390755,
+        "title": "The Fate of the Furious",
+        "year": 2017,
+        "imdb_id": "tt4630562",
+        "tmdb_id": 337339,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1397210,
+        "title": "The Hitman's Bodyguard",
+        "year": 2017,
+        "imdb_id": "tt1959563",
+        "tmdb_id": 390043,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1438996,
+        "title": "Train to Busan",
+        "year": 2016,
+        "imdb_id": "tt5700672",
+        "tmdb_id": 396535,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1462044,
+        "title": "Warcraft",
+        "year": 2016,
+        "imdb_id": "tt0803096",
+        "tmdb_id": 68735,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1507820,
+        "title": "The 355",
+        "year": 2022,
+        "imdb_id": "tt8356942",
+        "tmdb_id": 522016,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1583847,
+        "title": "Nobody",
+        "year": 2021,
+        "imdb_id": "tt7888964",
+        "tmdb_id": 615457,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1586906,
+        "title": "Venom: Let There Be Carnage",
+        "year": 2021,
+        "imdb_id": "tt7097896",
+        "tmdb_id": 580489,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1616827,
+        "title": "Sonic the Hedgehog 2",
+        "year": 2022,
+        "imdb_id": "tt12412888",
+        "tmdb_id": 675353,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 136610,
+        "title": "Atomic Blonde",
+        "year": 2017,
+        "imdb_id": "tt2406566",
+        "tmdb_id": 341013,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 344390,
+        "title": "Frontier",
+        "year": 2016,
+        "imdb_id": "tt4686698",
+        "tmdb_id": 64555,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 160426,
+        "title": "Bright",
+        "year": 2017,
+        "imdb_id": "tt5519340",
+        "tmdb_id": 400106,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 369142,
+        "title": "Legion",
+        "year": 2017,
+        "imdb_id": "tt5114356",
+        "tmdb_id": 67195,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 169729,
+        "title": "Central Intelligence",
+        "year": 2016,
+        "imdb_id": "tt1489889",
+        "tmdb_id": 302699,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 183690,
+        "title": "Crawl",
+        "year": 2019,
+        "imdb_id": "tt8364368",
+        "tmdb_id": 511987,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3106072,
+        "title": "Shadowhunters",
+        "year": 2016,
+        "imdb_id": "tt4145054",
+        "tmdb_id": 63210,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3111780,
+        "title": "Station 19",
+        "year": 2018,
+        "imdb_id": "tt7053188",
+        "tmdb_id": 76773,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1150091,
+        "title": "Godzilla vs. Kong",
+        "year": 2021,
+        "imdb_id": "tt5034838",
+        "tmdb_id": 399566,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3159357,
+        "title": "Amphibia",
+        "year": 2019,
+        "imdb_id": "tt8050740",
+        "tmdb_id": 85349,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3172045,
+        "title": "Vincenzo",
+        "year": 2021,
+        "imdb_id": "tt13433812",
+        "tmdb_id": 117376,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3173694,
+        "title": "Tokyo Revengers",
+        "year": 2021,
+        "imdb_id": "tt13196080",
+        "tmdb_id": 105009,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3175744,
+        "title": "My Hero Academia",
+        "year": 2016,
+        "imdb_id": "tt5626028",
+        "tmdb_id": 65930,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1195601,
+        "title": "Jungle Cruise",
+        "year": 2021,
+        "imdb_id": "tt0870154",
+        "tmdb_id": 451048,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1204816,
+        "title": "King Arthur: Legend of the Sword",
+        "year": 2017,
+        "imdb_id": "tt1972591",
+        "tmdb_id": 274857,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1304000,
+        "title": "Polar",
+        "year": 2019,
+        "imdb_id": "tt4139588",
+        "tmdb_id": 483906,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1405461,
+        "title": "The Magnificent Seven",
+        "year": 2016,
+        "imdb_id": "tt2404435",
+        "tmdb_id": 333484,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1507697,
+        "title": "Midway",
+        "year": 2019,
+        "imdb_id": "tt6924650",
+        "tmdb_id": 522162,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1566260,
+        "title": "Tenet",
+        "year": 2020,
+        "imdb_id": "tt6723592",
+        "tmdb_id": 577922,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1583797,
+        "title": "The Tomorrow War",
+        "year": 2021,
+        "imdb_id": "tt9777666",
+        "tmdb_id": 588228,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1612212,
+        "title": "The Witcher: Nightmare of the Wolf",
+        "year": 2021,
+        "imdb_id": "tt11657662",
+        "tmdb_id": 666243,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 39274,
+        "title": "Ash vs Evil Dead",
+        "year": 2015,
+        "imdb_id": "tt4189022",
+        "tmdb_id": 62264,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 125703,
+        "title": "American Made",
+        "year": 2017,
+        "imdb_id": "tt3532216",
+        "tmdb_id": 337170,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 130072,
+        "title": "Anna",
+        "year": 2019,
+        "imdb_id": "tt7456310",
+        "tmdb_id": 484641,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 332402,
+        "title": "Disenchantment",
+        "year": 2018,
+        "imdb_id": "tt5363918",
+        "tmdb_id": 73021,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 162771,
+        "title": "Bumblebee",
+        "year": 2018,
+        "imdb_id": "tt4701182",
+        "tmdb_id": 424783,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 189060,
+        "title": "Dangal",
+        "year": 2016,
+        "imdb_id": "tt5074352",
+        "tmdb_id": 360814,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 195595,
+        "title": "Deepwater Horizon",
+        "year": 2016,
+        "imdb_id": "tt1860357",
+        "tmdb_id": 296524,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 3127210,
+        "title": "The Passage",
+        "year": 2019,
+        "imdb_id": "tt1074206",
+        "tmdb_id": 77459,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3133616,
+        "title": "Tom Clancy's Jack Ryan",
+        "year": 2018,
+        "imdb_id": "tt5057054",
+        "tmdb_id": 73375,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 3175881,
+        "title": "The Family Man",
+        "year": 2019,
+        "imdb_id": "tt9544034",
+        "tmdb_id": 93352,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 1183129,
+        "title": "Inferno",
+        "year": 2016,
+        "imdb_id": "tt3062096",
+        "tmdb_id": 207932,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1188728,
+        "title": "Jack Reacher: Never Go Back",
+        "year": 2016,
+        "imdb_id": "tt3393786",
+        "tmdb_id": 343611,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1209561,
+        "title": "Kung Fu Panda 3",
+        "year": 2016,
+        "imdb_id": "tt2267968",
+        "tmdb_id": 140300,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1315815,
+        "title": "Rampage",
+        "year": 2018,
+        "imdb_id": "tt2231461",
+        "tmdb_id": 427641,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1346997,
+        "title": "Sicario: Day of the Soldado",
+        "year": 2018,
+        "imdb_id": "tt5052474",
+        "tmdb_id": 400535,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1389629,
+        "title": "The Equalizer 2",
+        "year": 2018,
+        "imdb_id": "tt3766354",
+        "tmdb_id": 345887,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1451780,
+        "title": "Upgrade",
+        "year": 2018,
+        "imdb_id": "tt6499752",
+        "tmdb_id": 500664,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1559743,
+        "title": "Mortal Kombat",
+        "year": 2021,
+        "imdb_id": "tt0293429",
+        "tmdb_id": 460465,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1560906,
+        "title": "Army of the Dead",
+        "year": 2021,
+        "imdb_id": "tt0993840",
+        "tmdb_id": 503736,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1584535,
+        "title": "The Last Duel",
+        "year": 2021,
+        "imdb_id": "tt4244994",
+        "tmdb_id": 617653,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1590821,
+        "title": "Wrath of Man",
+        "year": 2021,
+        "imdb_id": "tt11083552",
+        "tmdb_id": 637649,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 1671816,
+        "title": "Batman: The Dark Knight Returns, Part 1",
+        "year": 2012,
+        "imdb_id": "tt2313197",
+        "tmdb_id": 123025,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 11422,
+        "title": "13 Hours",
+        "year": 2016,
+        "imdb_id": "tt4172430",
+        "tmdb_id": 300671,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 32002,
+        "title": "9-1-1",
+        "year": 2018,
+        "imdb_id": "tt7235466",
+        "tmdb_id": 75219,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 32803,
+        "title": "A Series of Unfortunate Events",
+        "year": 2017,
+        "imdb_id": "tt4834206",
+        "tmdb_id": 65294,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 34768,
+        "title": "Agent Carter",
+        "year": 2015,
+        "imdb_id": "tt3475734",
+        "tmdb_id": 61550,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 123368,
+        "title": "Allied",
+        "year": 2016,
+        "imdb_id": "tt3640424",
+        "tmdb_id": 369885,
+        "tmdb_type": "movie",
+        "type": "movie"
+      },
+      {
+        "id": 358582,
+        "title": "Into the Badlands",
+        "year": 2015,
+        "imdb_id": "tt3865236",
+        "tmdb_id": 47450,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 364526,
+        "title": "Knightfall",
+        "year": 2017,
+        "imdb_id": "tt4555364",
+        "tmdb_id": 73117,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      },
+      {
+        "id": 370715,
+        "title": "Limitless",
+        "year": 2015,
+        "imdb_id": "tt4422836",
+        "tmdb_id": 62687,
+        "tmdb_type": "tv",
+        "type": "tv_series"
+      }
+    ],
+    "page": 1,
+    "total_results": 35617,
+    "total_pages": 143
+  },
+  "titles": [
+    {
+      "id": 3173903,
+      "title": "Breaking Bad",
+      "original_title": "Breaking Bad",
+      "plot_overview": "When Walter White, a New Mexico chemistry teacher, is diagnosed with Stage III cancer and given a prognosis of only two years left to live. He becomes filled with a sense of fearlessness and an unrelenting desire to secure his family's financial future at any cost as he enters the dangerous world of drugs and crime.",
+      "type": "tv_series",
+      "runtime_minutes": 45,
+      "year": 2008,
+      "end_year": 2013,
+      "release_date": "2008-01-20",
+      "imdb_id": "tt0903747",
+      "tmdb_id": 1396,
+      "tmdb_type": "tv",
+      "genres": [7],
+      "genre_names": ["Drama"],
+      "user_rating": 9.2,
+      "critic_score": 85,
+      "us_rating": "TV-MA",
+      "poster": "https://cdn.watchmode.com/posters/03173903_poster_w185.jpg",
+      "backdrop": "https://cdn.watchmode.com/backdrops/03173903_bd_w780.jpg",
+      "original_language": "en",
+      "similar_titles": [
+        316213, 3109684, 335115, 3108093, 350168, 373995, 52048, 312149,
+        3131957, 3131293, 398260, 3110052
+      ],
+      "networks": [8],
+      "network_names": ["AMC"],
+      "trailer": "https://www.youtube.com/watch?v=XZ8daibM3AE",
+      "trailer_thumbnail": "https://cdn.watchmode.com/video_thumbnails/536008_pthumbnail_320.jpg",
+      "relevance_percentile": 98.92,
+      "sources": [
+        {
+          "source_id": 203,
+          "name": "Netflix",
+          "type": "sub",
+          "region": "US",
+          "ios_url": "nflx://www.netflix.com/title/70143836",
+          "android_url": "nflx://www.netflix.com/Browse?q=action%3Dplay%26source%3Dmerchweb%26target_url%3Dhttp%3A%2F%2Fmovi.es%2FVoft6",
+          "web_url": "http://www.netflix.com/title/70143836",
+          "format": "4K",
+          "price": null,
+          "seasons": 5,
+          "episodes": 62
+        },
+        {
+          "source_id": 349,
+          "name": "iTunes",
+          "type": "buy",
+          "region": "US",
+          "ios_url": "com.apple.TVShows://product/Pilot,%20Season%201/271382034/tvSeason",
+          "android_url": null,
+          "web_url": "https://itunes.apple.com/us/tv-season/pilot/id271383858?i=271866344&amp;uo=4&amp;at=1000l3V2",
+          "format": "HD",
+          "price": 1.99,
+          "seasons": 5,
+          "episodes": 62
+        },
+        {
+          "source_id": 307,
+          "name": "VUDU",
+          "type": "buy",
+          "region": "US",
+          "ios_url": "vuduapp://play?contentId=207577",
+          "android_url": "vuduapp://207577",
+          "web_url": "https://www.vudu.com/content/movies/details/Breaking-Bad-Pilot/207577",
+          "format": "HD",
+          "price": 1.99,
+          "seasons": 5,
+          "episodes": 62
+        }
+      ]
+    }
+  ]
+}

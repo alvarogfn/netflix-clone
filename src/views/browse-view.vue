@@ -1,20 +1,22 @@
 <template>
   <div class="container">
     <movies-header />
-    <movies-main />
-    <section class="container__categories categories">
-      <ul class="categories__list">
-        <li
-          class="categories__item"
-          v-for="(section, index) in movieSections"
-          :key="index"
-        >
-          <movies-main-section
-            :title="section.title"
-            :movies="section.movies"
-          />
-        </li>
-      </ul>
+    <section class="content">
+      <movies-main />
+      <section class="container__categories categories">
+        <ul class="categories__list">
+          <li
+            class="categories__item"
+            v-for="(section, index) in movieSections"
+            :key="index"
+          >
+            <movies-main-section
+              :title="section.title"
+              :movies="section.movies"
+            />
+          </li>
+        </ul>
+      </section>
     </section>
   </div>
 </template>
@@ -192,5 +194,9 @@
 
     &__item {
     }
+  }
+
+  .content {
+    padding-top: 50px;
   }
 </style>

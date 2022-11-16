@@ -4,11 +4,18 @@ import { db } from "../db";
 export const useLoginStore = defineStore("login", {
   state: () => ({
     email: undefined,
+    picture: undefined,
+    name: undefined,
     id: undefined,
+    history: [],
   }),
   getters: {
     islogged() {
       return !!this.id;
+    },
+    pictureHref() {
+      const href = URL.createObjectURL(this.picture);
+      return href;
     },
   },
   actions: {
@@ -23,6 +30,8 @@ export const useLoginStore = defineStore("login", {
 
       this.id = response.user_id;
       this.email = response.email;
+      this.picture = response.picture;
+      this.name = response.name;
     },
 
     async signup(email, password, name, picture) {
