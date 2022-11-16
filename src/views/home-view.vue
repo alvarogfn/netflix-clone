@@ -21,7 +21,8 @@
     min-height: 100vh;
     background-color: #000;
 
-    background-image: url("../assets/home-background.jpg");
+    background-image: linear-gradient(#0000003a, #0000003a),
+      url("../assets/home-background.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;

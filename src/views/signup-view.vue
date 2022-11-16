@@ -1,17 +1,22 @@
 <template>
   <main class="signup">
-    <article class="signup__form form">
-      <form @submit.prevent="submit">
+    <article class="signup__form">
+      <form class="form" @submit.prevent="submit">
         <h1 class="form__title">Unlimited movies, TV shows, and more.</h1>
-        <h2 class="form__subtitle">Watch anywhere. Cancel anytime.</h2>
+        <p class="form__paragraph">Watch anywhere. Cancel anytime.</p>
         <p class="form__paragraph">
           Ready to watch? Enter your email to create or restart your membership.
         </p>
         <div class="form__email">
           <label>
-            <input v-model="email" class="form__input" />
+            <input
+              v-model="email"
+              class="form__input"
+              placeholder="Email Address"
+              required
+            />
           </label>
-          <button class="form__submit">Vamos la ></button>
+          <button class="form__submit">Get started ></button>
         </div>
       </form>
     </article>
@@ -41,15 +46,43 @@
 
 <style lang="scss" scoped>
   @use "../styles/colors.scss" as *;
+
+  .signup {
+    margin-top: 70px;
+    padding-inline: 20px;
+  }
   .form {
+    text-align: center;
+
+    &__title {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    &__paragraph {
+      margin: 10px;
+      font-size: 1.2rem;
+    }
+
     &__email {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: column nowrap;
+      row-gap: 15px;
 
       label {
         display: flex;
         flex-grow: 1;
-        height: 100%;
+      }
+
+      input {
+        height: 40px;
+        border: 1px solid gray;
+        padding-left: 10px;
+
+        &::placeholder {
+          font-size: 0.8rem;
+          font-weight: 400;
+        }
       }
     }
 
@@ -62,8 +95,13 @@
     }
 
     &__submit {
+      margin: 0 auto;
       background-color: $red;
-      padding: 20px;
+
+      height: 38px;
+      width: 120px;
+
+      border-radius: 4px;
     }
   }
 </style>

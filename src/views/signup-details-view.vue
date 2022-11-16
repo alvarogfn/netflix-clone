@@ -11,7 +11,7 @@
         <signup-input v-model:value="name" label="name" />
         <signup-input v-model:value="email" label="email" />
         <signup-input v-model:value="password" label="password" />
-        <signup-image-input v-on:change="() => {}" label="picture" />
+        <signup-image-input v-model:value="picture" label="picture" />
         <button-red content="Iniciar Assinatura" />
       </form>
     </main>
@@ -31,7 +31,7 @@
     data: () => ({
       name: "",
       password: "",
-      picture: new Blob(),
+      picture: undefined,
     }),
     computed: {
       ...mapWritableState(useLoginStore, ["email", "id"]),
