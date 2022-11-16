@@ -5,7 +5,7 @@
     </router-link>
     <app-logo-icon v-else class="header__logo" />
     <router-link class="header__link" :to="{ name: 'login' }">
-      entrar
+      Sign in
     </router-link>
   </header>
 </template>
@@ -23,23 +23,35 @@
     display: flex;
     justify-content: space-between;
 
+    padding-top: 50px;
+    padding-inline: 20px;
+
+    width: 100vw;
+
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 1) 60%
+    );
     &__logo {
       fill: $red;
-      width: 180px;
+      width: 90px;
     }
 
     &__link {
+      width: 65px;
+      height: 30px;
+
       display: flex;
       align-items: center;
       justify-content: center;
       flex-flow: column wrap;
 
-      padding: 0px 20px;
-
       background-color: $red;
       color: #fff;
 
-      font-weight: 500;
+      font-weight: 400;
       text-transform: capitalize;
 
       border-radius: 5px;
