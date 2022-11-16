@@ -1,5 +1,5 @@
 <template>
-  <div class="logged">
+  <div class="app">
     <router-view></router-view>
   </div>
 </template>
@@ -18,7 +18,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .logged {
+  .app {
     background-color: #141414;
     min-height: 100vh;
   }

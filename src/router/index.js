@@ -3,7 +3,8 @@ import HomeView from "../views/home-view.vue";
 import SignupView from "../views/signup-view.vue";
 import LoginView from "../views/login-view.vue";
 import SignupDetailsView from "../views/signup-details-view.vue";
-import LoggedView from "../views/logged-view.vue";
+import AppView from "../views/app-view.vue";
+import { useLoginStore } from "../stores/login";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,6 +12,27 @@ const router = createRouter({
     {
       path: "/",
       component: HomeView,
+      beforeEnter: async (to, from, next) => {
+        const store = useLoginStore();
+        const redirectName = to.redirectedFrom;
+
+        if (store.islogged) return next({ ...redirectName });
+
+        const email = localStorage.getItem("email");
+        const password = localStorage.getItem("password");
+
+        if (!email || !password) return next();
+
+        try {
+          const isAuth = await store.login(email, password);
+          if (isAuth) return next({ ...redirectName });
+          return next();
+        } catch (e) {
+          localStorage.removeItem("email");
+          localStorage.removeItem("password");
+          return next();
+        }
+      },
       children: [
         {
           name: "home",
@@ -30,8 +52,14 @@ const router = createRouter({
       component: SignupDetailsView,
     },
     {
-      path: "/",
-      component: LoggedView,
+      component: AppView,
+      beforeEnter: async (to, from, next) => {
+        const store = useLoginStore();
+
+        if (store.islogged) return next();
+
+        next({ name: "home" });
+      },
       children: [
         {
           path: "/browse",

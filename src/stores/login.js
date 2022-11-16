@@ -32,6 +32,8 @@ export const useLoginStore = defineStore("login", {
       this.email = response.email;
       this.picture = response.picture;
       this.name = response.name;
+
+      return this.islogged;
     },
 
     async signup(email, password, name, picture) {

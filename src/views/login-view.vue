@@ -43,17 +43,6 @@
       },
     },
     watch: {},
-    created() {
-      try {
-        const email = localStorage.getItem("email") ?? "";
-        const password = localStorage.getItem("password") ?? "";
-        this.login(email, password);
-        this.$router.push({ name: "browse" });
-      } catch (e) {
-        localStorage.removeItem("email");
-        localStorage.removeItem("password");
-      }
-    },
   };
 </script>
 
