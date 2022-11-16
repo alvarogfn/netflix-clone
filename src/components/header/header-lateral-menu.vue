@@ -16,7 +16,9 @@
             </router-link>
           </li>
           <li>
-            <a class="menu__anchor">Bombando</a>
+            <router-link class="menu__anchor" :to="{ name: 'metrics' }">
+              Bombando
+            </router-link>
           </li>
         </ul>
       </nav>
