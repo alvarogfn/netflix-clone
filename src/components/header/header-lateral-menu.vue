@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <section class="menu__section">
+    <section class="menu__section menu__section--profile">
       <profile-card-link
         class="menu__profile"
         :name="name"
@@ -10,12 +10,14 @@
     <section class="menu__section menu__section--nav">
       <nav class="menu__nav">
         <ul class="menu__list">
-          <li class="menu__item">Inicio</li>
-          <li class="menu__item">Series</li>
-          <li class="menu__item">Filmes</li>
-          <li class="menu__item">Bombando</li>
-          <li class="menu__item">Minha Lista</li>
-          <li class="menu__item">Navegar por Idiomas</li>
+          <li class="menu__item">
+            <router-link class="menu__anchor" :to="{ name: 'browse' }">
+              Inicio
+            </router-link>
+          </li>
+          <li>
+            <a class="menu__anchor">Bombando</a>
+          </li>
         </ul>
       </nav>
     </section>
@@ -46,15 +48,12 @@
       color: #999;
       font-weight: 700;
 
-      padding: 10px 15px;
-
-      a {
-        &:hover {
-          color: #fff;
-        }
+      &--profile {
+        padding: 10px 15px 20px;
       }
 
       &--nav {
+        padding-top: 5px;
         border-top: 1px solid #666;
       }
     }
@@ -62,10 +61,22 @@
     &__list {
       display: flex;
       flex-flow: column nowrap;
-      row-gap: 20px;
     }
 
-    &__item {
+    &__anchor {
+      width: 100vw;
+      padding: 7.5px 0 7.5px 20px;
+
+      border-left: 3px solid transparent;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .router-link-active {
+      color: #fff;
+      border-left: 3px solid red;
     }
   }
 </style>

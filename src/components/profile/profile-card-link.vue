@@ -44,6 +44,8 @@
       height: 100%;
       aspect-ratio: 1 / 1;
       object-fit: contain;
+
+      border-radius: 5px;
     }
   }
 </style>

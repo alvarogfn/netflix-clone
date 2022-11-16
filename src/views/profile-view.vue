@@ -34,7 +34,7 @@
     computed: {
       ...mapState(useLoginStore, ["name", "pictureHref", "email", "history"]),
     },
-    components: { MoviesMainSection, MoviesHeader },
+    components: { MoviesMainSection, HeaderBrowse },
     created() {
       console.log(this.pictureHref);
     },
