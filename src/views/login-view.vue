@@ -32,15 +32,27 @@
       async submit() {
         try {
           await this.login(this.email, this.password);
+          if (this.islogged) {
+            localStorage.setItem("email", this.email);
+            localStorage.setItem("password", this.password);
+            this.$router.push({ name: "browse" });
+          }
         } catch (e) {
           this.userNotFound = true;
         }
       },
     },
-    watch: {
-      islogged(isLogged) {
-        if (isLogged) this.$router.push({ name: "browse" });
-      },
+    watch: {},
+    created() {
+      try {
+        const email = localStorage.getItem("email") ?? "";
+        const password = localStorage.getItem("password") ?? "";
+        this.login(email, password);
+        this.$router.push({ name: "browse" });
+      } catch (e) {
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+      }
     },
   };
 </script>
