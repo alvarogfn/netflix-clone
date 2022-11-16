@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <movies-header />
+    <header-browse />
     <section class="content">
       <movies-main />
       <section class="container__categories categories">
@@ -22,12 +22,12 @@
 </template>
 
 <script>
-  import MoviesHeader from "../components/movies/movies-header.vue";
+  import HeaderBrowse from "../components/header/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import MoviesMain from "../components/movies/movies-main.vue";
 
   export default {
-    components: { MoviesHeader, MoviesMainSection, MoviesMain },
+    components: { HeaderBrowse, MoviesMainSection, MoviesMain },
     data: () => ({
       mainMovie: {},
       movieSections: [

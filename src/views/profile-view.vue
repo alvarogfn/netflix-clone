@@ -1,6 +1,6 @@
 <template>
   <div>
-    <movies-header></movies-header>
+    <header-browse></header-browse>
     <main>
       <p>{{ name }}</p>
       <p>{{ email }}</p>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import MoviesHeader from "../components/movies/movies-header.vue";
+  import HeaderBrowse from "../components/header/header-browse.vue";
   import { mapState } from "pinia";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import { useLoginStore } from "../stores/login";

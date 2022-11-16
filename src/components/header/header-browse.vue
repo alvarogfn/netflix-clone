@@ -10,7 +10,7 @@
 
 <script>
   import AppLogoLink from "../utils/app-logo-link.vue";
-  import MoviesLateralMenu from "./movies-lateral-menu.vue";
+  import MoviesLateralMenu from "./header-lateral-menu.vue";
 
   export default {
     components: {
