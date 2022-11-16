@@ -19,7 +19,7 @@
     font-weight: 500;
     text-transform: lowercase;
 
-    border-radius: 5px;
+    border-radius: 2px;
 
     &::first-letter {
       text-transform: capitalize;

@@ -1,8 +1,8 @@
 <template>
   <label class="input">
-    <span class="input__label">{{ label }}</span>
     <input
       :value="value"
+      :placeholder="label"
       class="input__value"
       @input="$emit('update:value', $event.target.value)"
     />
@@ -22,8 +22,19 @@
   .input {
     display: flex;
     flex-flow: column nowrap;
+    font-size: 0.9rem;
+
     &__value {
-      border: 1px solid black;
+      padding: 15px 10px;
+
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 1px #0005 inset;
+
+      border-radius: 2px;
+
+      &::placeholder {
+        text-transform: capitalize;
+      }
     }
   }
 </style>
