@@ -1,24 +1,24 @@
 <template>
   <header class="header" :class="{ 'header--black': isMenuOpen }">
-    <app-logo-icon class="header__logo" />
-    <button @click="IsMenuOpen = !IsMenuOpen">
+    <app-logo-link class="header__logo" />
+    <button @click="isMenuOpen = !isMenuOpen">
       <img class="header__menu-icon" src="../../assets/hamburger.gif" />
     </button>
-    <movies-lateral-menu v-show="IsMenuOpen" class="header__menu" />
+    <movies-lateral-menu v-show="isMenuOpen" class="header__menu" />
   </header>
 </template>
 
 <script>
-  import AppLogoIcon from "../icons/app-logo-icon.vue";
+  import AppLogoLink from "../utils/app-logo-link.vue";
   import MoviesLateralMenu from "./movies-lateral-menu.vue";
 
   export default {
     components: {
-      AppLogoIcon,
       MoviesLateralMenu,
+      AppLogoLink,
     },
     data: () => ({
-      IsMenuOpen: false,
+      isMenuOpen: false,
     }),
   };
 </script>

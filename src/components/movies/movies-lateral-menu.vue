@@ -1,12 +1,16 @@
 <template>
   <div class="menu">
     <section class="menu__section">
-      <profile-card-link class="menu__profile" />
+      <profile-card-link
+        class="menu__profile"
+        :name="name"
+        :picture="pictureHref"
+      />
     </section>
     <section class="menu__section menu__section--nav">
       <nav class="menu__nav">
         <ul class="menu__list">
-          <li class="menu__item">Incio</li>
+          <li class="menu__item">Inicio</li>
           <li class="menu__item">Series</li>
           <li class="menu__item">Filmes</li>
           <li class="menu__item">Bombando</li>
@@ -25,7 +29,7 @@
 
   export default {
     computed: {
-      ...mapState(useLoginStore, ["email"]),
+      ...mapState(useLoginStore, ["email", "name", "pictureHref"]),
     },
     components: { ProfileCardLink },
   };
@@ -43,6 +47,12 @@
       font-weight: 700;
 
       padding: 10px 15px;
+
+      a {
+        &:hover {
+          color: #fff;
+        }
+      }
 
       &--nav {
         border-top: 1px solid #666;
