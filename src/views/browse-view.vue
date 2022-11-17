@@ -1,19 +1,16 @@
 <template>
-  <div class="container">
+  <div class="browse">
     <header-browse />
-    <section class="content">
+    <section class="browse__content">
       <movies-main />
-      <section class="container__categories categories">
+      <section class="browse__categories categories">
         <ul class="categories__list">
           <li
             class="categories__item"
-            v-for="(section, index) in movieSections"
+            v-for="(genre, index) in genres"
             :key="index"
           >
-            <movies-main-section
-              :title="section.title"
-              :movies="section.movies"
-            />
+            <movies-main-section :title="genre.name" :id="genre.genre_id" />
           </li>
         </ul>
       </section>
@@ -22,13 +19,16 @@
 </template>
 
 <script>
+  import { mapActions } from "pinia";
   import HeaderBrowse from "../components/header/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import MoviesMain from "../components/movies/movies-main.vue";
+  import { useAppStore } from "../stores/app";
 
   export default {
     components: { HeaderBrowse, MoviesMainSection, MoviesMain },
     data: () => ({
+      genres: [],
       mainMovie: {},
       movieSections: [
         {
@@ -169,16 +169,24 @@
         },
       ],
     }),
+    methods: {
+      ...mapActions(useAppStore, ["getAllGenres"]),
+    },
+    async created() {
+      const response = await this.getAllGenres();
+      this.genres = response;
+    },
   };
 </script>
 
 <style lang="scss" scoped>
-  .container {
+  .browse {
     display: flex;
     flex-flow: column nowrap;
-    background-color: #141414;
-    min-height: 100vh;
-    max-height: 100%;
+
+    &__content {
+      padding-top: 60px;
+    }
 
     &__categories {
       padding-left: 15px;
@@ -191,12 +199,5 @@
       flex-flow: column nowrap;
       row-gap: 30px;
     }
-
-    &__item {
-    }
-  }
-
-  .content {
-    padding-top: 50px;
   }
 </style>

@@ -1,25 +1,63 @@
 <template>
-  <div>
+  <div v-if="movie">
     <header-watch />
     <main>
       <iframe
-        src="https://www.youtube-nocookie.com/embed/j2Cv_aqWFqY?controls=0"
+        width="560"
+        height="315"
+        :src="iframe"
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
       <section>
-        <h1>Chainsaw man ending 3 - devil</h1>
+        <h1>{{ movie.title }}</h1>
+        <p>{{ movie.year }}</p>
+        <p>{{ movie.us_rating }}</p>
+        <p>{{ movie.sources[0].format }}</p>
+        <p>{{ movie.sources[0].seasons }}</p>
+        <p>{{ movie.plot_overview }}</p>
+        <p>{{ movie.imdb_id }}</p>
       </section>
     </main>
   </div>
 </template>
 
 <script>
+  import { mapActions, mapState } from "pinia";
   import HeaderWatch from "../components/header/header-watch.vue";
+  import { useAppStore } from "../stores/app";
+  import { useLoginStore } from "../stores/login";
 
-  export default { components: { HeaderWatch } };
+  export default {
+    components: { HeaderWatch },
+    data: () => ({
+      movie: undefined,
+    }),
+    computed: {
+      ...mapState(useLoginStore, ["id"]),
+      iframe() {
+        const regExp =
+          /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = this.movie.trailer.match(regExp);
+        console.log(match[2]);
+        return `https://www.youtube.com/embed/${match[2]}`;
+      },
+    },
+    methods: {
+      ...mapActions(useAppStore, ["getMovieById", "addToHistory"]),
+    },
+    async created() {
+      const id = this.$route.params.id;
+
+      if (!id) return;
+
+      this.addToHistory({ user_id: this.id, movie_id: id });
+
+      this.movie = await this.getMovieById(id);
+    },
+  };
 </script>
 
 <style lang="scss" scoped>

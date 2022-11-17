@@ -16,9 +16,6 @@
         this.$router.back();
       },
     },
-    created() {
-      console.log(this.$route.params["id"]);
-    },
   };
 </script>
 
