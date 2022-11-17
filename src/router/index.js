@@ -60,6 +60,7 @@ const router = createRouter({
 
         next({ name: "home" });
       },
+      redirect: { name: "browse" },
       children: [
         {
           path: "/browse",
