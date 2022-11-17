@@ -6,7 +6,7 @@ export const useAppStore = defineStore("app", {
   state: () => ({}),
   actions: {
     async getUserById(id) {
-      const response = await db.user.get(id);
+      const response = await db.users.get(+id);
       return response;
     },
     async getAllGenres() {
@@ -124,6 +124,29 @@ export const useAppStore = defineStore("app", {
       );
 
       return histories;
+    },
+
+    async topMovieWatchers() {
+      const history = await db.history.toArray();
+
+      const topWatchers = history.reduce((acc, { user_id }) => {
+        if (acc[user_id] === undefined) acc[user_id] = 0;
+        else acc[user_id] += 1;
+        return acc;
+      }, {});
+
+      let users = Object.keys(topWatchers);
+
+      users = await Promise.all(
+        users.map(async (id) => await this.getUserById(id))
+      );
+
+      return users.map((user) => {
+        return {
+          user,
+          movies: topWatchers[user.user_id],
+        };
+      });
     },
   },
 });

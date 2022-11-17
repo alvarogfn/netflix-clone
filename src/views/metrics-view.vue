@@ -4,22 +4,36 @@
     <main>
       <movies-main-section
         title="Top Movies Watch in EUA"
-        :movies="[
-          {
-            thumb:
-              'https://i0.wp.com/www.jbox.com.br/wp/wp-content/uploads/2022/02/bleach-temporada-3-dvd-destacada.jpg?fit=774%2C489&quality=99&strip=all&ssl=1',
-          },
-        ]"
+        :movies="topMovies"
       />
+      <metrics-top-watchers-list :users="users" />
     </main>
   </div>
 </template>
 
 <script>
+  import { mapActions } from "pinia";
   import HeaderBrowse from "../components/header/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
+  import MetricsTopWatchersList from "../components/metrics/metrics-top-watchers-list.vue";
+  import { useAppStore } from "../stores/app";
 
-  export default { components: { HeaderBrowse, MoviesMainSection } };
+  export default {
+    components: { HeaderBrowse, MoviesMainSection, MetricsTopWatchersList },
+    data: () => ({
+      users: [],
+      topMovies: [],
+    }),
+    methods: {
+      ...mapActions(useAppStore, ["topMovieWatchers", "getAllMovies"]),
+    },
+    async created() {
+      this.topMovies = (await this.getAllMovies()).sort(
+        (a, b) => a.relevance_percentile - b.relevance_percentile
+      );
+      this.users = await this.topMovieWatchers();
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
