@@ -5,12 +5,11 @@
       <movies-main />
       <section class="browse__categories categories">
         <ul class="categories__list">
-          <li
-            class="categories__item"
-            v-for="(genre, index) in genres"
-            :key="index"
-          >
-            <movies-main-section :title="genre.name" :id="genre.genre_id" />
+          <li class="categories__item" v-for="genre in genres" :key="genre">
+            <movies-main-section
+              :title="genre.name"
+              :movies="filterMoviesByGenre(genre.genre_id)"
+            />
           </li>
         </ul>
       </section>
@@ -29,152 +28,19 @@
     components: { HeaderBrowse, MoviesMainSection, MoviesMain },
     data: () => ({
       genres: [],
-      mainMovie: {},
-      movieSections: [
-        {
-          title: "Programas para toda familia",
-          movies: [
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-          ],
-        },
-        {
-          title: "Novidades das series a que voce ja assistiu",
-          movies: [
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-          ],
-        },
-        {
-          title: "Programas para toda familia",
-          movies: [
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-          ],
-        },
-        {
-          title: "Novidades das series a que voce ja assistiu",
-          movies: [
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-          ],
-        },
-        {
-          title: "Programas para toda familia",
-          movies: [
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-          ],
-        },
-        {
-          title: "Novidades das series a que voce ja assistiu",
-          movies: [
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-          ],
-        },
-        {
-          title: "Programas para toda familia",
-          movies: [
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-          ],
-        },
-        {
-          title: "Novidades das series a que voce ja assistiu",
-          movies: [
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-            {
-              thumb:
-                "https://occ-0-999-2567.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABQ94zuZk-nr5fUE0hX0b1QTxRqftRmYdV97decHANZkQNK8MmOuVGLpgxGJvy_RMfl4UBvigYJnUluud1n5dE--qdMrMlmwF43fG8WkYSSIHkU8ORSuYInVb.jpg?r=480",
-            },
-          ],
-        },
-      ],
+      movies: [],
     }),
     methods: {
-      ...mapActions(useAppStore, ["getAllGenres"]),
+      ...mapActions(useAppStore, ["getAllMovies", "getAllGenres"]),
+      filterMoviesByGenre(genre) {
+        return this.movies.filter((movie) => {
+          return movie.genres.includes(genre);
+        });
+      },
     },
     async created() {
-      const response = await this.getAllGenres();
-      this.genres = response;
+      this.genres = await this.getAllGenres();
+      this.movies = await this.getAllMovies();
     },
   };
 </script>

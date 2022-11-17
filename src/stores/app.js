@@ -13,6 +13,11 @@ export const useAppStore = defineStore("app", {
       const response = await db.genres.toArray();
       return response;
     },
+
+    async getAllMovies() {
+      return db.movies.toArray();
+    },
+
     async getMovieById(id) {
       const movie = await db.movies.get(+id);
 
@@ -44,11 +49,37 @@ export const useAppStore = defineStore("app", {
       console.log(movies);
     },
 
-    async getMoviesByGenre(genre) {
+    async getMoviesByGenre(genre_id) {
       const movies = await db.movies
-        .where("genres_name")
-        .equals(genre)
+        .where("genres")
+        .equals(+genre_id)
         .toArray();
+      return movies;
+    },
+
+    async getMoviesByGenres(genres_id) {
+      let movies = await Promise.all(
+        genres_id.map(async (genre_id) => {
+          return {
+            [genre_id]: await this.getMoviesByGenre(genre_id),
+          };
+        })
+      );
+
+      movies = movies.reduce((acc, act) => {
+        acc[Object.keys(act)[0]] = Object.values(act)[0];
+
+        return acc;
+      }, {});
+
+      return movies;
+    },
+
+    async getAllMoviesByAllGenres() {
+      const genres = await this.getAllGenres();
+      const movies = await this.getMoviesByGenres(
+        genres.map(({ genre_id }) => genre_id)
+      );
 
       return movies;
     },
