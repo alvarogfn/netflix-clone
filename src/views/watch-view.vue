@@ -3,6 +3,7 @@
     <header-watch />
     <main>
       <iframe
+        v-if="iframe"
         width="560"
         height="315"
         :src="iframe"
@@ -11,14 +12,14 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
+      <img v-else :src="movie.backdrop" />
       <section>
         <h1>{{ movie.title }}</h1>
         <p>{{ movie.year }}</p>
         <p>{{ movie.us_rating }}</p>
-        <p>{{ movie.sources[0].format }}</p>
-        <p>{{ movie.sources[0].seasons }}</p>
+        <p>{{ movie.sources?.[0].format }}</p>
+        <p>{{ movie.sources?.[0].seasons }}</p>
         <p>{{ movie.plot_overview }}</p>
-        <p>{{ movie.imdb_id }}</p>
       </section>
     </main>
   </div>
@@ -38,11 +39,12 @@
     computed: {
       ...mapState(useLoginStore, ["id"]),
       iframe() {
-        const regExp =
-          /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-        const match = this.movie.trailer.match(regExp);
-        console.log(match[2]);
-        return `https://www.youtube.com/embed/${match[2]}`;
+        if (this.movie.trailer) {
+          const regExp =
+            /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+          const match = this.movie.trailer.match(regExp);
+          return `https://www.youtube.com/embed/${match[2]}`;
+        } else return undefined;
       },
     },
     methods: {
