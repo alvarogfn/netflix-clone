@@ -6,18 +6,7 @@
       <p>{{ email }}</p>
       <img :src="pictureHref" alt="Profile Picture" />
       <section>
-        <movies-main-section
-          title="Ultimos filmes vistos"
-          :movies="
-            [
-              { thumb: pictureHref },
-              { thumb: pictureHref },
-              { thumb: pictureHref },
-              { thumb: pictureHref },
-              { thumb: pictureHref },
-            ].slice(0, 5)
-          "
-        />
+        <movies-main-section title="Ultimos filmes vistos" :movies="movies" />
       </section>
     </main>
   </div>
@@ -25,18 +14,30 @@
 
 <script>
   import HeaderBrowse from "../components/header/header-browse.vue";
-  import { mapState } from "pinia";
+  import { mapActions, mapState } from "pinia";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import { useLoginStore } from "../stores/login";
+  import { useAppStore } from "../stores/app";
 
   export default {
-    data: () => ({}),
+    data: () => ({
+      movies: [],
+    }),
     computed: {
-      ...mapState(useLoginStore, ["name", "pictureHref", "email", "history"]),
+      ...mapState(useLoginStore, [
+        "name",
+        "pictureHref",
+        "email",
+        "history",
+        "id",
+      ]),
+    },
+    methods: {
+      ...mapActions(useAppStore, ["getUserHistory"]),
     },
     components: { MoviesMainSection, HeaderBrowse },
-    created() {
-      console.log(this.pictureHref);
+    async created() {
+      this.movies = await this.getUserHistory(this.id, 5);
     },
   };
 </script>

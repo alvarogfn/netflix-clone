@@ -76,5 +76,23 @@ export const useAppStore = defineStore("app", {
 
       return response;
     },
+
+    async getUserHistory(user_id, limit) {
+      let histories = await db.history
+        .where("user_id")
+        .equals(user_id)
+        .limit(limit)
+        .toArray();
+
+      histories = histories.sort((a, b) => a.played_at - b.played_at);
+
+      histories = await Promise.all(
+        histories.map(async (history) => {
+          return this.getMovieById(history.movie_id);
+        })
+      );
+
+      return histories;
+    },
   },
 });

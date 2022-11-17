@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'watch', params: { id: 1 } }">
+  <router-link :to="{ name: 'watch', params: { id } }">
     <img :src="thumb" />
   </router-link>
 </template>

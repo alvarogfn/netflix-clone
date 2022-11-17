@@ -3,12 +3,12 @@
     <h1 class="movie-section__title">{{ title }}</h1>
     <div class="movie-section__movies">
       <ul class="movie-section__list">
-        <li
-          class="movie-section__item"
-          v-for="movie in movies"
-          :key="movie.key"
-        >
-          <movie-card class="movie-section__movie" :thumb="movie.thumb" />
+        <li class="movie-section__item" v-for="movie in movies" :key="movie.id">
+          <movie-card
+            class="movie-section__movie"
+            :thumb="movie.backdrop"
+            :id="movie.movie_id"
+          />
         </li>
       </ul>
     </div>
