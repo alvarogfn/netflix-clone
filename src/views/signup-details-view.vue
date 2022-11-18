@@ -8,14 +8,27 @@
         </h1>
         <p class="form__paragraph">Just a few more steps to go!</p>
         <p class="form__paragraph">We also hate forms.</p>
-        <signup-input v-model:value="name" label="Add your name" />
-        <signup-input v-model:value="email" label="add your email" />
-        <signup-input v-model:value="password" label="create your password" />
+        <signup-input v-model:value="name" label="Add your name" required />
+        <signup-input
+          v-model:value="email"
+          type="email"
+          label="add your email"
+          required
+        />
+        <signup-input
+          v-model:value="password"
+          label="create your password"
+          type="password"
+          required
+        />
         <signup-image-input
+          required
           v-model:value="picture"
           label="Select your profile picture"
         />
-        <button class="form__submit">Iniciar Assinatura</button>
+        <button class="form__submit" :disabled="!isSubmittable">
+          Iniciar Assinatura
+        </button>
       </form>
     </main>
   </div>
@@ -37,12 +50,22 @@
     }),
     computed: {
       ...mapWritableState(useLoginStore, ["email", "id"]),
+      isSubmittable() {
+        return this.email && this.password && this.name && this.picture;
+      },
     },
     methods: {
-      ...mapActions(useLoginStore, ["signup"]),
+      ...mapActions(useLoginStore, ["signup", "login"]),
+
       async submit() {
+        if (!this.isSubmittable) return;
+
         await this.signup(this.email, this.password, this.name, this.picture);
-        if (this.id) this.$router.push({ name: "home" });
+        if (!this.id) return;
+
+        const isAuth = await this.login(this.email, this.password);
+
+        if (isAuth) this.$router.push({ name: "browse" });
       },
     },
   };
@@ -87,6 +110,13 @@
       padding: 15px;
       font-weight: 600;
       color: #fff;
+
+      transition: filter 200ms opacity 200ms;
+
+      &:disabled {
+        filter: grayscale(100%);
+        opacity: 0.3;
+      }
     }
   }
 </style>

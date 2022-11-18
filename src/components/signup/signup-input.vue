@@ -3,6 +3,8 @@
     <input
       :value="value"
       :placeholder="label"
+      :required="required"
+      :type="type"
       class="input__value"
       @input="$emit('update:value', $event.target.value)"
     />
@@ -14,6 +16,8 @@
     props: {
       label: String,
       value: String,
+      type: String,
+      required: Boolean,
     },
   };
 </script>

@@ -4,9 +4,10 @@
     <input
       type="file"
       @change="loadImage"
-      accept="image/png, image/jpeg"
+      accept="image/png, image/jpeg, image/webp, image/gif"
       name="avatar"
       id="avatar"
+      :required="required"
     />
   </label>
 </template>
@@ -15,6 +16,7 @@
   export default {
     props: {
       label: String,
+      required: Boolean,
     },
     data: () => ({
       href: "",
@@ -26,7 +28,6 @@
     },
     methods: {
       loadImage($event) {
-        console.log("Oi");
         if (typeof this.href === "string") {
           URL.revokeObjectURL(this.image);
         }
