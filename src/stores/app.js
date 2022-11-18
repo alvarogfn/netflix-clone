@@ -49,13 +49,19 @@ export const useAppStore = defineStore("app", {
     },
 
     async getMostViewedMovies() {
-      return (await db.movies.toArray())
-        .sort((a, b) => a.played_at - b.played_at)
-        .sort((a, b) => a.views - b.views);
+      const data = await db.movies.toArray();
+
+      data.sort((a, b) => (a.views ?? 0) - (b.views ?? 0)).reverse();
+
+      return data;
     },
 
     async getMostViewedGenres() {
-      return (await db.genres.toArray()).sort((a, b) => a.views - b.views);
+      const data = (await db.genres.toArray())
+        .sort((a, b) => a.views - b.views)
+        .reverse();
+
+      return data;
     },
 
     async getMovieById(id) {
@@ -127,9 +133,10 @@ export const useAppStore = defineStore("app", {
     async addNewMovieView(movie_id) {
       const views = await db.history
         .where("movie_id")
-        .equals(+movie_id)
+        .anyOf(movie_id, +movie_id)
         .count();
-      return db.movies.update(movie_id, { views });
+
+      return await db.movies.update(+movie_id, { views });
     },
 
     async addNewGenresView(movie_id) {
@@ -200,7 +207,7 @@ export const useAppStore = defineStore("app", {
         .limit(limit)
         .toArray();
 
-      histories = histories.sort((a, b) => a.played_at - b.played_at);
+      histories = histories.sort((a, b) => a.played_at - b.played_at).reverse();
 
       histories = await Promise.all(
         histories.map(async (history) => {

@@ -29,18 +29,21 @@
       movies: [],
     }),
     methods: {
-      ...mapActions(useAppStore, ["getAllMovies", "getAllGenres"]),
+      ...mapActions(useAppStore, [
+        "getAllMovies",
+        "getAllGenresByUserRelevance",
+      ]),
       filterMoviesByGenre(genre) {
         return this.movies.filter((movie) => {
           return movie.genres.includes(genre);
         });
       },
       sortMoviesByViews(movies) {
-        return movies.sort((a, b) => a.views - b.views);
+        return movies.sort((a, b) => a.views - b.views).reverse();
       },
     },
     async created() {
-      this.genres = await this.getAllGenres({ byUserPreference: true });
+      this.genres = await this.getAllGenresByUserRelevance();
       this.movies = await this.getAllMovies();
     },
   };

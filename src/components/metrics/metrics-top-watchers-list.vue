@@ -42,11 +42,11 @@
     },
     computed: {
       ranking() {
-        return this.users.slice().sort((a, b) => a.movies - b.movies);
+        return this.users
+          .slice()
+          .sort((a, b) => a.movies - b.movies)
+          .reverse();
       },
-    },
-    created() {
-      this.users.forEach((user) => console.log(user.user_id));
     },
   };
 </script>

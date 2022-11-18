@@ -41,7 +41,7 @@
         "getMostViewedGenres",
       ]),
       sortByViews(arr) {
-        return arr.sort((a, b) => a.views - b.views);
+        return arr.sort((a, b) => a.views - b.views).reverse();
       },
       getMostViewedMoviesByGenre(genre) {
         return this.sortByViews(
