@@ -53,6 +53,10 @@
 
     padding-left: 15px;
 
+    &__header {
+      padding-left: 15px;
+    }
+
     &__content {
       padding-top: 60px;
     }

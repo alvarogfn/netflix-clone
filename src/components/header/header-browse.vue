@@ -82,6 +82,8 @@
     flex-flow: row nowrap;
     align-items: center;
 
+    column-gap: 20px;
+
     height: 60px;
 
     background-color: #00000099;
