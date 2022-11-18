@@ -1,8 +1,13 @@
 <template>
-  <div v-if="movie">
-    <header-watch />
-    <main>
+  <div class="watch" :class="{ 'watch--desktop': !mobile }" v-if="movie">
+    <header-watch
+      class="watch__header"
+      :class="{ 'watch__header--desktop': !mobile }"
+    />
+    <main class="watch__content">
       <iframe
+        class="watch__video"
+        :class="{ 'watch__video--desktop': !mobile }"
         v-if="iframe"
         width="560"
         height="315"
@@ -13,13 +18,11 @@
         allowfullscreen
       ></iframe>
       <img v-else :src="movie.backdrop" />
-      <section>
-        <h1>{{ movie.title }}</h1>
-        <p>{{ movie.year }}</p>
-        <p>{{ movie.us_rating }}</p>
-        <p>{{ movie.sources?.[0].format }}</p>
-        <p>{{ movie.sources?.[0].seasons }}</p>
-        <p>{{ movie.plot_overview }}</p>
+      <section class="watch__details" v-if="mobile">
+        <h1 class="watch__title">{{ movie.title }}</h1>
+        <p class="watch__year">{{ movie.year }}</p>
+        <p class="watch__rating">{{ movie.rating }}</p>
+        <p class="watch__plot">{{ movie.plot }}</p>
       </section>
     </main>
   </div>
@@ -35,15 +38,16 @@
     components: { HeaderWatch },
     data: () => ({
       movie: undefined,
+      mobile: true,
     }),
     computed: {
       ...mapState(useLoginStore, ["id"]),
       iframe() {
-        if (this.movie.trailer) {
+        if (this.movie.video) {
           const regExp =
             /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-          const match = this.movie.trailer.match(regExp);
-          return `https://www.youtube.com/embed/${match[2]}`;
+          const match = this.movie.video.match(regExp);
+          return `https://www.youtube.com/embed/${match[2]}?autoplay=1`;
         } else return undefined;
       },
     },
@@ -58,43 +62,89 @@
       this.addToHistory({ user_id: this.id, movie_id: id });
 
       this.movie = await this.getMovieById(id);
+
+      const matches = window.matchMedia("screen and (min-width: 885px)");
+      this.mobile = !matches.matches;
+      matches.onchange = (match) => {
+        this.mobile = !match.matches;
+      };
+    },
+
+    watch: {
+      mobile(state) {
+        console.log(state);
+      },
     },
   };
 </script>
 
 <style lang="scss" scoped>
-  div {
+  .watch {
     display: flex;
     flex-flow: column nowrap;
 
     min-height: 100vh;
 
     background-color: #000;
-  }
 
-  header {
-    height: 50px;
+    &:hover {
+      .watch__header {
+        &--desktop {
+          transition: 200ms;
+          opacity: 1;
+        }
+      }
+    }
 
-    position: fixed;
-  }
+    &__header {
+      &--desktop {
+        z-index: 2;
+        position: fixed;
+        top: 0;
+        left: 0;
 
-  main {
-    color: #fff;
-  }
+        height: 60px;
 
-  iframe {
-    width: 100%;
-    height: 300px;
-    background-color: #000;
-    border: none;
-  }
+        opacity: 0;
+      }
+    }
 
-  section {
-    padding: 0 10px;
-  }
+    &__video {
+      width: 100%;
+      height: calc(300px + 5vw);
+      background-color: #000;
+      border: none;
 
-  h1 {
-    margin-top: 10px;
-    font-size: 1.3rem;
+      &--desktop {
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+      }
+    }
+
+    &__details {
+      padding-inline: 10px;
+      font-size: 0.8rem;
+
+      color: #fff;
+    }
+
+    &__title {
+      margin: 0;
+    }
+
+    &__year {
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    &__rating {
+      background-color: orangered;
+    }
+
+    &__plot {
+      margin-top: 30px;
+    }
   }
 </style>
