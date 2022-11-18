@@ -175,7 +175,7 @@ export const useAppStore = defineStore("app", {
       const alreadyWatched = await db.history
         .where("user_id")
         .equals(+user_id)
-        .and((item) => item.movie_id === +movie_id)
+        .and((item) => +item.movie_id === +movie_id)
         .first();
 
       if (alreadyWatched && alreadyWatched.history_id) {
