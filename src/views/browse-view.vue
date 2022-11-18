@@ -7,7 +7,7 @@
         <movies-main-section
           class="browse__categories"
           :title="genre.name"
-          :movies="filterMoviesByGenre(genre.genre_id)"
+          :movies="sortMoviesByViews(filterMoviesByGenre(genre.genre_id))"
           v-if="filterMoviesByGenre(genre.genre_id).length > 0"
         />
       </template>
@@ -35,9 +35,12 @@
           return movie.genres.includes(genre);
         });
       },
+      sortMoviesByViews(movies) {
+        return movies.sort((a, b) => a.views - b.views);
+      },
     },
     async created() {
-      this.genres = await this.getAllGenres();
+      this.genres = await this.getAllGenres({ byUserPreference: true });
       this.movies = await this.getAllMovies();
     },
   };

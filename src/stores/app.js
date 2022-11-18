@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useLoginStore } from "./login";
 import { watchmode } from "../apis/watchmode";
 import { db } from "../db";
 
@@ -9,9 +10,31 @@ export const useAppStore = defineStore("app", {
       const response = await db.users.get(+id);
       return response;
     },
-    async getAllGenres() {
-      const response = await db.genres.toArray();
-      return response;
+    async getAllGenres({ byUserPreference }) {
+      const loginStore = useLoginStore();
+
+      const genres = await db.genres.toArray();
+      if (!byUserPreference) return genres;
+
+      const user = await db.users.get(+loginStore.id);
+      if (user.preferences.size === 0) return genres;
+
+      const genresByPriority = [];
+
+      user.preferences.forEach((value, key) => {
+        const genre = genres.filter((genre) => genre.genre_id === key)[0];
+        if (genre !== undefined) genresByPriority.splice(0, value, genre);
+      });
+
+      genresByPriority.push(
+        ...genres.filter((genre) => {
+          return !genresByPriority.some(
+            (genreByPriority) => genreByPriority.genre_id === genre.genre_id
+          );
+        })
+      );
+
+      return genresByPriority;
     },
 
     async getAllMovies() {
@@ -134,8 +157,8 @@ export const useAppStore = defineStore("app", {
     async addNewUserView({ user_id, movie_id }) {
       const alreadyWatched = await db.history
         .where("user_id")
-        .equals(user_id)
-        .and((item) => item.movie_id === movie_id)
+        .equals(+user_id)
+        .and((item) => item.movie_id === +movie_id)
         .first();
 
       if (alreadyWatched && alreadyWatched.history_id) {
@@ -145,6 +168,8 @@ export const useAppStore = defineStore("app", {
 
         return response;
       }
+
+      await db.history.add({ user_id, movie_id, played_at: Date.now() });
 
       await this.addNewUserPreference(user_id, movie_id);
       await this.addNewMovieView(movie_id);
