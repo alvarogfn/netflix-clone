@@ -17,7 +17,12 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
-      <img v-else :src="movie.backdrop" />
+      <img
+        class="watch__video watch__video--thumb"
+        :class="{ 'watch__video--desktop': !mobile }"
+        v-else
+        :src="movie.backdrop"
+      />
       <section class="watch__details" v-if="mobile">
         <h1 class="watch__title">{{ movie.title }}</h1>
         <p class="watch__year">{{ movie.year }}</p>
@@ -115,6 +120,10 @@
         height: 100vh;
         position: fixed;
       }
+
+      &--thumb {
+        object-fit: contain;
+      }
     }
 
     &__details {
@@ -131,10 +140,12 @@
     &__year {
       margin-top: 10px;
       color: rgba(255, 255, 255, 0.5);
+      max-width: 20px;
     }
 
     &__rating {
       background-color: orangered;
+      max-width: 20px;
     }
 
     &__plot {
