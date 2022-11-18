@@ -11,6 +11,7 @@
   export default {
     props: {
       title: String,
+      listHeight: { type: String, default: "200px" },
     },
   };
 </script>
@@ -34,7 +35,7 @@
 
       max-width: calc(100vw - 17px);
 
-      min-height: 200px;
+      min-height: v-bind(listHeight);
     }
 
     &__title {
@@ -45,6 +46,17 @@
       font-weight: 700;
       display: flex;
       align-items: flex-end;
+    }
+  }
+
+  @media screen and (min-width: 885px) {
+    .container {
+      &__list {
+        gap: 3px;
+      }
+      &__title {
+        font-size: 1rem;
+      }
     }
   }
 </style>

@@ -1,30 +1,18 @@
 <template>
-  <main class="signup">
-    <article class="signup__form">
-      <form class="form" @submit.prevent="submit">
-        <h1 class="form__title">Unlimited movies, TV shows, and more.</h1>
-        <p class="form__paragraph">Watch anywhere. Cancel anytime.</p>
-        <p class="form__paragraph">
-          Ready to watch? Enter your email to create or restart your membership.
-        </p>
-        <div class="form__email">
-          <label>
-            <input
-              v-model="email"
-              class="form__input"
-              placeholder="Email Address"
-              required
-            />
-          </label>
-          <button class="form__submit">Get started ></button>
-        </div>
-      </form>
-    </article>
-  </main>
+  <div class="home">
+    <div class="home__signup">
+      <header-home class="home__header" />
+      <main class="home__register">
+        <signup-home-form />
+      </main>
+    </div>
+  </div>
 </template>
 
 <script>
   import { mapActions, mapWritableState } from "pinia";
+  import HeaderHome from "../components/header/header-home.vue";
+  import SignupHomeForm from "../components/signup/signup-home-form.vue";
   import { useLoginStore } from "../stores/login";
 
   export default {
@@ -41,67 +29,69 @@
         this.$router.push({ name: "signup" });
       },
     },
+    components: { HeaderHome, SignupHomeForm },
   };
 </script>
 
 <style lang="scss" scoped>
   @use "../styles/colors.scss" as *;
 
-  .signup {
-    margin-top: 70px;
-    padding-inline: 20px;
-  }
-  .form {
-    text-align: center;
+  .home {
+    display: flex;
+    flex-flow: column nowrap;
 
-    &__title {
-      font-size: 1.6rem;
-      font-weight: 600;
-    }
+    margin: 0 auto;
 
-    &__paragraph {
-      margin: 10px;
-      font-size: 1.2rem;
-    }
+    min-height: 100vh;
 
-    &__email {
+    color: #fff;
+
+    background-color: black;
+
+    &__signup {
       display: flex;
       flex-flow: column nowrap;
-      row-gap: 15px;
+      row-gap: 70px;
 
-      label {
-        display: flex;
-        flex-grow: 1;
-      }
+      padding: 22px;
 
-      input {
-        height: 40px;
-        border: 1px solid gray;
-        padding-left: 10px;
+      background-color: #000;
+      background-image: linear-gradient(
+          0deg,
+          #000000dd 0%,
+          #00000050 20%,
+          #00000050 50%,
+          #00000050 80%,
+          #000000dd 99%
+        ),
+        url("../assets/home-background.jpg");
 
-        &::placeholder {
-          font-size: 0.8rem;
-          font-weight: 400;
-        }
+      background-repeat: no-repeat, no-repeat;
+      background-size: cover, cover;
+      background-position: right center, center center;
+
+      border-bottom: 7px solid #292929;
+
+      min-height: 550px;
+    }
+  }
+
+  @media screen and (min-width: 550px) {
+    .home {
+      &__signup {
+        padding: 25px 45px;
+        row-gap: 100px;
       }
     }
+  }
 
-    &__input {
-      flex: 1;
-      background-color: #fff;
-      height: 100%;
+  @media screen and (min-width: 950px) {
+    .home {
+      &__signup {
+        padding: 30px 60px;
 
-      color: black;
-    }
-
-    &__submit {
-      margin: 0 auto;
-      background-color: $red;
-
-      height: 38px;
-      width: 120px;
-
-      border-radius: 4px;
+        padding-bottom: 200px;
+      }
     }
   }
 </style>

@@ -23,17 +23,6 @@
     display: flex;
     justify-content: space-between;
 
-    padding-top: 50px;
-    padding-inline: 20px;
-
-    width: 100vw;
-
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 20%,
-      rgba(0, 0, 0, 1) 60%
-    );
     &__logo {
       fill: $red;
       width: 90px;
@@ -55,6 +44,32 @@
       text-transform: capitalize;
 
       border-radius: 5px;
+    }
+  }
+
+  @media screen and (min-width: 550px) {
+    .header {
+      &__logo {
+        width: 110px;
+      }
+
+      &__link {
+        width: 85px;
+        height: 35px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 950px) {
+    .header {
+      &__logo {
+        width: 130px;
+      }
+
+      &__link {
+        width: 85px;
+        height: 35px;
+      }
     }
   }
 </style>

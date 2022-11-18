@@ -1,33 +1,7 @@
 <template>
-  <div class="container">
-    <home-header></home-header>
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
-<script>
-  import HomeHeader from "../components/header/header-home.vue";
+<script></script>
 
-  export default { components: { HomeHeader } };
-</script>
-
-<style lang="scss" scoped>
-  .container {
-    display: flex;
-    flex-flow: column nowrap;
-
-    margin: 0 auto;
-
-    min-height: 100vh;
-    background-color: #000;
-
-    background-image: linear-gradient(#0000003a, #0000003a),
-      url("../assets/home-background.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 300px;
-
-    color: #fff;
-  }
-</style>
+<style lang="scss" scoped></style>

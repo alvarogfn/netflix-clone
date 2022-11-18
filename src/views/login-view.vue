@@ -1,76 +1,66 @@
 <template>
-  <main class="login">
-    <div v-if="userNotFound">
-      Nao foi possivel localizar esse usuario na base de dados
-    </div>
-    <form class="login__form form" @submit.prevent="submit">
-      <login-input class="form__login" type="email" v-model:value="email" />
-      <login-input class="form__login" v-model:value="password" />
-      <button class="form__button" type="submit">Entrar</button>
-    </form>
-  </main>
+  <div class="login">
+    <header-login />
+    <main class="login__content">
+      <login-form />
+    </main>
+  </div>
 </template>
 
 <script>
-  import { mapActions, mapState } from "pinia";
-  import LoginInput from "../components/login/login-input.vue";
-
-  import { useLoginStore } from "../stores/login";
+  import HeaderLogin from "../components/header/header-login.vue";
+  import LoginForm from "../components/login/login-form.vue";
 
   export default {
-    components: { LoginInput },
-    data: () => ({
-      email: "",
-      password: "",
-      userNotFound: false,
-    }),
-    computed: {
-      ...mapState(useLoginStore, ["islogged"]),
-    },
-    methods: {
-      ...mapActions(useLoginStore, ["login"]),
-      async submit() {
-        try {
-          await this.login(this.email, this.password);
-          if (this.islogged) {
-            localStorage.setItem("email", this.email);
-            localStorage.setItem("password", this.password);
-            this.$router.push({ name: "browse" });
-          }
-        } catch (e) {
-          this.userNotFound = true;
-        }
-      },
-    },
-    watch: {},
+    components: { LoginForm, HeaderLogin },
   };
 </script>
 
 <style lang="scss" scoped>
   @use "../styles/colors.scss" as *;
   .login {
-    margin: 30px 0;
-    // background-color: red;
+    background-color: #000;
+    height: 100vh;
+
+    padding: 20px 10px;
+
+    &__header {
+      fill: $red;
+    }
+
+    &__icon {
+      width: 80px;
+    }
+
+    &__content {
+      padding: 5px 10px;
+    }
+
+    &__title {
+      color: #fff;
+    }
   }
 
-  .form {
-    margin: 0 auto;
+  @media screen and (min-width: 550px) {
+    .login {
+      padding: 20px;
+      &__header {
+        margin-bottom: 10px;
+      }
+      &__icon {
+        width: 190px;
+      }
+    }
+  }
 
-    display: flex;
-    flex-flow: column nowrap;
-    row-gap: 20px;
-
-    max-width: 400px;
-    padding: 50px;
-
-    background-color: rgba(0, 0, 0, 0.521);
-
-    border-radius: 10px;
-
-    &__button {
-      background-color: $red;
-      padding: 10px 0;
-      font-weight: 600;
+  @media screen and (min-width: 740px) {
+    .login {
+      &__header {
+        margin-bottom: 100px;
+      }
+      &__icon {
+        width: 190px;
+      }
     }
   }
 </style>

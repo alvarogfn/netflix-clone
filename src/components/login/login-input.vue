@@ -5,6 +5,7 @@
       class="label__input"
       :value="value"
       :type="type"
+      :placeholder="placeholder"
       :required="required"
       @input="$emit('update:value', $event.target.value)"
     />
@@ -32,12 +33,28 @@
 
     &__input {
       background-color: #333;
-      height: 40px;
 
       border-radius: 5px;
 
+      padding: 15px 18px;
+
       &:hover {
         background-color: #454545;
+      }
+
+      &::placeholder {
+        text-transform: capitalize;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 740px) {
+    .label {
+      &__input {
+        &::placeholder {
+          font-size: 1rem;
+        }
       }
     }
   }

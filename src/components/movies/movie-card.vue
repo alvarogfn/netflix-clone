@@ -1,6 +1,6 @@
 <template>
-  <router-link :to="{ name: 'watch', params: { id } }">
-    <img :src="thumb" />
+  <router-link class="card" :to="{ name: 'watch', params: { id } }">
+    <img class="card__img" :src="thumb" />
   </router-link>
 </template>
 
@@ -17,16 +17,22 @@
 </script>
 
 <style lang="scss" scoped>
-  a {
+  .card {
     display: flex;
     width: 100%;
     height: 100%;
+
+    &__img {
+      height: 100%;
+      width: 100%;
+
+      object-fit: cover;
+    }
   }
 
-  img {
-    height: 100%;
-    width: 100%;
-
-    object-fit: contain;
+  @media screen and (min-width: 885px) {
+    .card__img {
+      border-radius: 3px;
+    }
   }
 </style>

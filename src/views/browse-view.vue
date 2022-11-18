@@ -1,18 +1,16 @@
 <template>
   <div class="browse">
-    <header-browse />
+    <header-browse class="browse__header" />
     <section class="browse__content">
       <movies-main />
-      <section class="browse__categories categories">
-        <ul class="categories__list">
-          <li class="categories__item" v-for="genre in genres" :key="genre">
-            <movies-main-section
-              :title="genre.name"
-              :movies="filterMoviesByGenre(genre.genre_id)"
-            />
-          </li>
-        </ul>
-      </section>
+      <template v-for="genre in genres" :key="genre.genre_id">
+        <movies-main-section
+          class="browse__categories"
+          :title="genre.name"
+          :movies="filterMoviesByGenre(genre.genre_id)"
+          v-if="filterMoviesByGenre(genre.genre_id).length > 0"
+        />
+      </template>
     </section>
   </div>
 </template>
@@ -50,20 +48,25 @@
     display: flex;
     flex-flow: column nowrap;
 
+    padding-left: 15px;
+
     &__content {
       padding-top: 60px;
     }
 
-    &__categories {
-      padding-left: 15px;
+    &__header {
+      position: fixed;
+      left: 0;
     }
   }
 
-  .categories {
-    &__list {
-      display: flex;
-      flex-flow: column nowrap;
-      row-gap: 30px;
+  @media screen and (min-width: 885px) {
+    .browse {
+      padding-left: calc(15px + 2.5vw);
+
+      &__header {
+        padding-left: calc(15px + 2.5vw);
+      }
     }
   }
 </style>

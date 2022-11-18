@@ -1,6 +1,8 @@
 <template>
   <header class="header">
-    <app-logo-icon class="header__icon" />
+    <router-link class="header__home" :to="{ name: 'home' }">
+      <app-logo-icon class="header__icon" />
+    </router-link>
     <router-link class="header__login" :to="{ name: 'login' }">
       Entrar
     </router-link>
@@ -24,7 +26,17 @@
 
     border-bottom: 1px solid #7777;
 
+    &__home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100px;
+    }
+
     &__login {
+      padding: 10px;
+
       font-weight: 500;
       color: #222;
     }
