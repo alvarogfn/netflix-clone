@@ -15,7 +15,7 @@
           v-model:value="picture"
           label="Select your profile picture"
         />
-        <button-red content="Iniciar Assinatura" />
+        <button class="form__submit">Iniciar Assinatura</button>
       </form>
     </main>
   </div>
@@ -27,10 +27,9 @@
   import SignupInput from "../components/signup/signup-input.vue";
   import SignupImageInput from "../components/signup/signup-image-input.vue";
   import { useLoginStore } from "../stores/login";
-  import ButtonRed from "../components/button/button-red.vue";
 
   export default {
-    components: { HeaderSignup, SignupInput, SignupImageInput, ButtonRed },
+    components: { HeaderSignup, SignupInput, SignupImageInput },
     data: () => ({
       name: "",
       password: "",
@@ -50,6 +49,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @use "../styles/colors.scss" as *;
   .signup {
     &__content {
       padding-top: 30px;
@@ -79,6 +79,14 @@
       margin: 0;
       font-size: 0.9rem;
       line-height: 13px;
+    }
+
+    &__submit {
+      background-color: $red;
+      border-radius: 3px;
+      padding: 15px;
+      font-weight: 600;
+      color: #fff;
     }
   }
 </style>
