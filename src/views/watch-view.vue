@@ -52,14 +52,14 @@
       },
     },
     methods: {
-      ...mapActions(useAppStore, ["getMovieById", "addToHistory"]),
+      ...mapActions(useAppStore, ["getMovieById", "addNewUserView"]),
     },
     async created() {
       const id = this.$route.params.id;
 
       if (!id) return;
 
-      this.addToHistory({ user_id: this.id, movie_id: id });
+      this.addNewUserView({ user_id: this.id, movie_id: id });
 
       this.movie = await this.getMovieById(id);
 
@@ -68,12 +68,6 @@
       matches.onchange = (match) => {
         this.mobile = !match.matches;
       };
-    },
-
-    watch: {
-      mobile(state) {
-        console.log(state);
-      },
     },
   };
 </script>

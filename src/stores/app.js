@@ -84,28 +84,71 @@ export const useAppStore = defineStore("app", {
       return movies;
     },
 
-    async addToHistory({ user_id, movie_id }) {
-      const lastWatched = await db.history
+    async addNewMovieView(movie_id) {
+      const views = await db.history
+        .where("movie_id")
+        .equals(+movie_id)
+        .count();
+      return db.movies.update(movie_id, { views });
+    },
+
+    async addNewGenresView(movie_id) {
+      const movie = await db.movies
+        .where("movie_id")
+        .equals(+movie_id)
+        .first();
+
+      return Promise.all(
+        movie.genres.map(async (genre_id) => {
+          const genre = await db.genres.get(+genre_id);
+          if (genre === undefined) return;
+          return db.genres.update(+genre_id, { views: genre.views + 1 });
+        })
+      );
+    },
+
+    async addNewUserPreference(user_id, movie_id) {
+      const movie = await db.movies
+        .where("movie_id")
+        .equals(+movie_id)
+        .first();
+
+      const user = await db.users
+        .where("user_id")
+        .equals(+user_id)
+        .first();
+
+      const preferences = user.preferences;
+
+      const newPreferences = new Map(preferences);
+
+      movie.genres.forEach((genre) => {
+        const preferency = newPreferences.get(genre) ?? 0;
+
+        newPreferences.set(genre, preferency + 1);
+      });
+
+      db.users.update(user_id, { preferences: newPreferences });
+    },
+
+    async addNewUserView({ user_id, movie_id }) {
+      const alreadyWatched = await db.history
         .where("user_id")
         .equals(user_id)
         .and((item) => item.movie_id === movie_id)
         .first();
 
-      if (lastWatched && lastWatched.history_id) {
-        const response = db.history.update(lastWatched.history_id, {
+      if (alreadyWatched && alreadyWatched.history_id) {
+        const response = db.history.update(alreadyWatched.history_id, {
           played_at: Date.now(),
         });
 
         return response;
       }
 
-      const response = await db.history.add({
-        user_id,
-        movie_id,
-        played_at: Date.now(),
-      });
-
-      return response;
+      await this.addNewUserPreference(user_id, movie_id);
+      await this.addNewMovieView(movie_id);
+      await this.addNewGenresView(movie_id);
     },
 
     async getUserHistory(user_id, limit) {

@@ -42,6 +42,8 @@ export const useLoginStore = defineStore("login", {
         password,
         name,
         picture,
+        pictureHref: URL.createObjectURL(picture),
+        preferences: new Map(),
       });
 
       this.id = id;
