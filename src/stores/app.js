@@ -10,11 +10,12 @@ export const useAppStore = defineStore("app", {
       const response = await db.users.get(+id);
       return response;
     },
-    async getAllGenres({ byUserPreference }) {
-      const loginStore = useLoginStore();
 
+    async getAllGenres({ byUserPreference = false }) {
       const genres = await db.genres.toArray();
       if (!byUserPreference) return genres;
+
+      const loginStore = useLoginStore();
 
       const user = await db.users.get(+loginStore.id);
       if (user.preferences.size === 0) return genres;
@@ -39,6 +40,16 @@ export const useAppStore = defineStore("app", {
 
     async getAllMovies() {
       return db.movies.toArray();
+    },
+
+    async getMostViewedMovies() {
+      return (await db.movies.toArray())
+        .sort((a, b) => a.played_at - b.played_at)
+        .sort((a, b) => a.views - b.views);
+    },
+
+    async getMostViewedGenres() {
+      return (await db.genres.toArray()).sort((a, b) => a.views - b.views);
     },
 
     async getMovieById(id) {

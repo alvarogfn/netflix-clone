@@ -1,6 +1,9 @@
 <template>
   <section>
-    <list-horizontal title="Users who watched the most movies">
+    <list-horizontal
+      title="Users who watched the most movies"
+      list-height="100px"
+    >
       <li
         class="top-users__item"
         v-for="({ user }, index) in ranking"
