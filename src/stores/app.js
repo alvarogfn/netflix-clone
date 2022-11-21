@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { useLoginStore } from "./login";
-import { watchmode } from "../apis/watchmode";
 import { db } from "../db";
 
 export const useAppStore = defineStore("app", {
@@ -66,23 +65,6 @@ export const useAppStore = defineStore("app", {
 
     async getMovieById(id) {
       const movie = await db.movies.get(+id);
-
-      if (movie === undefined) {
-        const response = await watchmode.get(`title/${id}/details`);
-
-        const movie = response.data;
-
-        const movieId = movie.id;
-
-        delete movie.id;
-
-        const addedID = await db.movies.put({
-          movie_id: movieId,
-          ...movie,
-        });
-
-        return await db.movies.get(addedID);
-      }
 
       return movie;
     },
