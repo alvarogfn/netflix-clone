@@ -2,7 +2,7 @@
 
 ## [See website](https://netflix-clone-alvarogfn.vercel.app/)
 
-## [See detailed documentation](https://alvarogfn.github.io/spotify-clone/)
+## [See detailed documentation](https://alvarogfn.github.io/netflix-clone/)
 
 ## Installing the dependencies
 
