@@ -1,0 +1,1 @@
+import{_ as t,c as r,o as d,a as e}from"./app.b4b70f03.js";const g=JSON.parse('{"title":"Application routing","description":"","frontmatter":{},"headers":[],"relativePath":"architecture/routing.md"}'),a={name:"architecture/routing.md"},o=e("",2),i=[o];function n(c,s,_,h,p,u){return d(),r("div",null,i)}const m=t(a,[["render",n]]);export{g as __pageData,m as default};
