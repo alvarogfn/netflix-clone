@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  base: "/docs/",
+  base: "/netflix-clone/",
   title: "Netflix Clone",
   lang: "en-US",
   description:
