@@ -1,14 +1,6 @@
-# .
+# Clone do Spotify em Vue.js
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Documentation
 
 ## Project Setup
 
@@ -28,13 +20,21 @@ npm run dev
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Compile and Minify for Production with Docker
+
+```sh
+  docker compose up
+```
+
+The application will be exposed at `http://localhost:3003` on your computer.
+
+### Run Unit Tests with [Vitest](https://vitest.dev/) (NOT IMPLEMENTED)
 
 ```sh
 npm run test:unit
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+### Run End-to-End Tests with [Cypress](https://www.cypress.io/) (NOT IMPLEMENTED)
 
 ```sh
 npm run test:e2e:dev
