@@ -2,6 +2,7 @@
   <div class="profile">
     <header-browse class="profile__header" />
     <main class="profile__content">
+      <button class="profile__logout" @click="logout">logout</button>
       <title-text-label
         class="profile__field profile__field--name"
         title="name"
@@ -43,6 +44,7 @@
     },
     methods: {
       ...mapActions(useAppStore, ["getUserHistory"]),
+      ...mapActions(useLoginStore, ["logout"]),
     },
     components: { MoviesMainSection, HeaderBrowse, TitleTextLabel },
     async created() {
@@ -70,10 +72,11 @@
     &__content {
       display: grid;
       grid-template-areas:
-        "a"
-        "b"
-        "c"
-        "d";
+        "picture"
+        "logout"
+        "name"
+        "email"
+        "history";
 
       padding: 80px 10px;
 
@@ -86,11 +89,11 @@
       text-transform: capitalize;
 
       &--name {
-        grid-area: b;
+        grid-area: name;
       }
 
       &--email {
-        grid-area: c;
+        grid-area: email;
       }
     }
 
@@ -98,7 +101,7 @@
       align-self: center;
       justify-self: center;
 
-      grid-area: a;
+      grid-area: picture;
 
       max-width: 200px;
 
@@ -106,7 +109,20 @@
     }
 
     &__history {
-      grid-area: d;
+      grid-area: history;
+    }
+
+    &__logout {
+      background-color: $red;
+      color: #fff;
+      padding: 10px;
+      border-radius: 2px;
+
+      width: 100px;
+
+      grid-area: logout;
+
+      justify-self: flex-end;
     }
   }
 
@@ -119,10 +135,10 @@
         padding-left: calc(15px + 5vw);
 
         grid-template-areas:
-          "a b b"
-          "a c c"
-          "a . ."
-          "d d d";
+          "picture . logout"
+          "picture email email"
+          "picture name name"
+          "history history history";
       }
     }
   }

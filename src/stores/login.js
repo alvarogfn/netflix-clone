@@ -50,5 +50,12 @@ export const useLoginStore = defineStore("login", {
 
       return id;
     },
+
+    async logout() {
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+      this.$reset();
+      window.location.reload();
+    },
   },
 });
