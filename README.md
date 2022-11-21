@@ -1,4 +1,4 @@
-# Clone do Spotify em Vue.js
+# Clone da Netflix em Vue.js
 
 ## Documentation
 
