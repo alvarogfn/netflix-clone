@@ -58,6 +58,15 @@
     height: 100vh;
     max-height: 100%;
     background-color: #141414;
+
+    &__header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+    }
+
     &__content {
       display: grid;
       grid-template-areas:
@@ -103,7 +112,12 @@
 
   @media screen and (min-width: 885px) {
     .profile {
+      &__header {
+        padding-left: calc(15px + 5vw);
+      }
       &__content {
+        padding-left: calc(15px + 5vw);
+
         grid-template-areas:
           "a b b"
           "a c c"
