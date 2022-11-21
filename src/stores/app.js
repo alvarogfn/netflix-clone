@@ -69,22 +69,6 @@ export const useAppStore = defineStore("app", {
       return movie;
     },
 
-    async getMoviesByIds(ids) {
-      const movies = await db.movies
-        .where("movie_id")
-        .anyOf(ids.map((id) => +id));
-
-      console.log(movies);
-    },
-
-    async getMoviesByGenre(genre_id) {
-      const movies = await db.movies
-        .where("genres")
-        .equals(+genre_id)
-        .toArray();
-      return movies;
-    },
-
     async getMoviesByGenres(genres_id) {
       let movies = await Promise.all(
         genres_id.map(async (genre_id) => {
@@ -99,15 +83,6 @@ export const useAppStore = defineStore("app", {
 
         return acc;
       }, {});
-
-      return movies;
-    },
-
-    async getAllMoviesByAllGenres() {
-      const genres = await this.getAllGenres();
-      const movies = await this.getMoviesByGenres(
-        genres.map(({ genre_id }) => genre_id)
-      );
 
       return movies;
     },
