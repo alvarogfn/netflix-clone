@@ -6,8 +6,8 @@
 
 <script setup lang="ts">
   import { db } from "./db";
-  import genres from "../database/genres.json";
-  import movies from "../database/movies.json";
+  import { data as genres } from "../database/genres";
+  import { data as movies } from "../database/movies";
   import { onMounted } from "vue";
 
   onMounted(async () => {
