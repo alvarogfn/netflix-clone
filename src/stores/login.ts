@@ -1,25 +1,27 @@
 import { defineStore } from "pinia";
 import { db } from "../db";
 
+interface State {
+  email: string | null;
+  picture: string | null;
+  name: string | null;
+  id: number | null;
+}
+
 export const useLoginStore = defineStore("login", {
-  state: () => ({
-    email: undefined,
-    picture: undefined,
-    name: undefined,
-    id: undefined,
-    history: [],
+  state: (): State => ({
+    email: null,
+    picture: null,
+    name: null,
+    id: null,
   }),
   getters: {
-    islogged() {
-      return !!this.id;
-    },
-    pictureHref() {
-      const href = URL.createObjectURL(this.picture);
-      return href;
+    isAuth(): boolean {
+      return this.id !== null;
     },
   },
   actions: {
-    async login(email, password) {
+    async login(email: string, password: string) {
       const response = await db.users
         .where("email")
         .equalsIgnoreCase(email)
@@ -28,21 +30,19 @@ export const useLoginStore = defineStore("login", {
 
       if (response === undefined) throw new Error("User not found");
 
-      this.id = response.user_id;
+      this.id = response.id!;
       this.email = response.email;
-      this.picture = response.picture;
       this.name = response.name;
 
-      return this.islogged;
+      return this.isAuth;
     },
 
-    async signup(email, password, name, picture) {
+    async signup(email: string, password: string, name: string, picture: Blob) {
       const id = await db.users.add({
         email,
         password,
         name,
         picture,
-        pictureHref: URL.createObjectURL(picture),
         preferences: new Map(),
       });
 

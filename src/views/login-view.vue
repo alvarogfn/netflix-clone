@@ -7,13 +7,9 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import HeaderLogin from "../components/header/header-login.vue";
   import LoginForm from "../components/login/login-form.vue";
-
-  export default {
-    components: { LoginForm, HeaderLogin },
-  };
 </script>
 
 <style lang="scss" scoped>

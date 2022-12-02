@@ -4,17 +4,17 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import { useLoginStore } from "../stores/login";
 
-  export default {
-    beforeRouteEnter(to, from, next) {
-      const store = useLoginStore();
-      if (store.islogged) return next();
+  // export default {
+  //   beforeRouteEnter(to, from, next) {
+  //     const store = useLoginStore();
+  //     if (store.isAuth) return next();
 
-      next({ name: "home" });
-    },
-  };
+  //     next({ name: "home" });
+  //   },
+  // };
 </script>
 
 <style lang="scss" scoped>

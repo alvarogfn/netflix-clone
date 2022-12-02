@@ -4,6 +4,9 @@ interface Users {
   id?: number;
   email: string;
   password: string;
+  name: string;
+  picture: Blob;
+  preferences: Map<string, number>;
 }
 
 interface History {
