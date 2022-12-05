@@ -7,55 +7,48 @@
         title="Top Movies Watch in EUA"
         :movies="topMovies"
       />
-      <template v-for="genre in genres" :key="genre.genre_id">
+      <template v-for="genre in genres" :key="genre.id">
         <movies-main-section
           :title="'Most viewed titles in ' + genre.name"
-          :movies="getMostViewedMoviesByGenre(genre.genre_id)"
-          v-if="getMostViewedMoviesByGenre(genre.genre_id).length > 0"
+          :movies="getMostViewedMoviesByGenre(genre.id!)"
+          v-if="getMostViewedMoviesByGenre(genre.id!).length > 0"
         />
       </template>
     </main>
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
   import { mapActions } from "pinia";
   import HeaderBrowse from "../components/header/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import MetricsTopWatchersList from "../components/metrics/metrics-top-watchers-list.vue";
   import { useAppStore } from "../stores/app";
+  import { onMounted, ref } from "vue";
+  import type { Genre, Movie, User } from "@/db";
+  const appStore = useAppStore();
 
-  export default {
-    components: { HeaderBrowse, MoviesMainSection, MetricsTopWatchersList },
-    data: () => ({
-      users: [],
-      topMovies: [],
-      genres: [],
-      movies: [],
-    }),
-    methods: {
-      ...mapActions(useAppStore, [
-        "topMovieWatchers",
-        "getAllMovies",
-        "getMostViewedMovies",
-        "getMostViewedGenres",
-      ]),
-      sortByViews(arr) {
-        return arr.sort((a, b) => a.views - b.views).reverse();
-      },
-      getMostViewedMoviesByGenre(genre) {
-        return this.sortByViews(
-          this.movies.filter((movie) => movie.genres.includes(genre))
-        );
-      },
-    },
-    async created() {
-      this.topMovies = await this.getMostViewedMovies();
-      this.users = await this.topMovieWatchers();
-      this.genres = await this.getMostViewedGenres();
-      this.movies = await this.getAllMovies();
-    },
-  };
+  const users = ref<{ user: string; movies: Movie[] }[]>([]);
+  const topMovies = ref<Movie[]>([]);
+  const genres = ref<Genre[]>([]);
+  const movies = ref<Movie[]>([]);
+
+  function sortByViews(movies: Movie[]) {
+    return movies.sort((a, b) => a.views - b.views).reverse();
+  }
+
+  function getMostViewedMoviesByGenre(genre_id: number) {
+    return sortByViews(
+      movies.value.filter((movie) => movie.genres.includes(genre_id))
+    );
+  }
+
+  onMounted(async () => {
+    topMovies.value = await appStore.getMostViewedMovies();
+    users.value = await appStore.topMovieWatchers();
+    genres.value = await appStore.getMostViewedGenres();
+    movies.value = await appStore.getAllMovies();
+  });
 </script>
 
 <style lang="scss" scoped>
