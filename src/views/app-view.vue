@@ -4,18 +4,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-  import { useLoginStore } from "../stores/login";
-
-  // export default {
-  //   beforeRouteEnter(to, from, next) {
-  //     const store = useLoginStore();
-  //     if (store.isAuth) return next();
-
-  //     next({ name: "home" });
-  //   },
-  // };
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
   .app {

@@ -1,6 +1,6 @@
-import type { Genres } from "../src/db";
+import type { Genre } from "../src/db";
 
-export const data: Genres[] = [
+export const data: Genre[] = [
   {
     id: 1,
     name: "Action",

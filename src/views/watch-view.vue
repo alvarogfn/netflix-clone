@@ -34,6 +34,7 @@
 </template>
 
 <script setup lang="ts">
+  import type { Movie } from "@/db";
   import { ref, computed, onMounted } from "vue";
   import { useRoute } from "vue-router";
   import HeaderWatch from "../components/header/header-watch.vue";
@@ -44,7 +45,7 @@
 
   const route = useRoute();
 
-  const movie = ref(undefined);
+  const movie = ref<Movie | null>(null);
   const mobile = ref(true);
 
   const appStore = useAppStore();

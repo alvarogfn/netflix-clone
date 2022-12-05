@@ -1,6 +1,6 @@
 import Dexie from "dexie";
 
-interface Users {
+interface User {
   id?: number;
   email: string;
   password: string;
@@ -16,7 +16,7 @@ interface History {
   played_at: number;
 }
 
-export interface Movies {
+export interface Movie {
   id?: number;
   title: string;
   year: number | null;
@@ -29,7 +29,7 @@ export interface Movies {
   views: number;
 }
 
-export interface Genres {
+export interface Genre {
   id?: number;
   name: string;
 }
@@ -37,10 +37,10 @@ export interface Genres {
  * Creation of class to define dexie database typing.
  */
 export class AppDatabase extends Dexie {
-  public users!: Dexie.Table<Users, number>;
+  public users!: Dexie.Table<User, number>;
   public history!: Dexie.Table<History, number>;
-  public movies!: Dexie.Table<Movies, number>;
-  public genres!: Dexie.Table<Genres, number>;
+  public movies!: Dexie.Table<Movie, number>;
+  public genres!: Dexie.Table<Genre, number>;
 
   constructor() {
     super("app");

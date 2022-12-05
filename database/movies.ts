@@ -1,6 +1,6 @@
-import type { Movies } from "../src/db";
+import type { Movie } from "../src/db";
 
-export const data: Movies[] = [
+export const data: Movie[] = [
   {
     title: "Boruto: Naruto The Movie",
     year: 2000,

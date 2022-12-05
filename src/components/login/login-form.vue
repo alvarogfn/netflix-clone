@@ -2,7 +2,7 @@
   <form class="form" @submit.prevent="submit">
     <h1 class="form__title">Sign In</h1>
     <div class="form__fieldset">
-      <div class="form__error" v-if="userNotFound">
+      <div class="form__error" v-if="error">
         Sorry, we can't find an account with this email address. Please try
         again or
         <router-link class="form__link" :to="{ name: 'home' }">
