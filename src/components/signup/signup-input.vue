@@ -6,7 +6,7 @@
       :required="required"
       :type="type"
       class="input__value"
-      @input="$emit('update:value', $event.target.value)"
+      @input="$emit('update:value', ($event.target as HTMLInputElement).value)"
     />
   </label>
 </template>

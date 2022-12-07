@@ -55,7 +55,7 @@
   });
 
   async function submit() {
-    if (!isSubmittable) return;
+    if (!isSubmittable.value) return;
 
     const response = await loginStore.signup(
       email.value!,
