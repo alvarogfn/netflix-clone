@@ -1,13 +1,16 @@
+/* eslint-disable no-undef */
 require("@rushstack/eslint-patch/modern-module-resolution");
 
 module.exports = {
   root: true,
+  plugins: ["cypress"],
   extends: [
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/eslint-config-typescript",
     "@vue/eslint-config-prettier",
   ],
+  env: { "cypress/globals": true },
   parserOptions: {
     ecmaVersion: "latest",
   },
