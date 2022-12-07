@@ -7,23 +7,27 @@
       :type="type"
       :placeholder="placeholder"
       :required="required"
-      @input="$emit('update:value', $event.target.value)"
+      @input="emit('update:value', ($event.target as HTMLInputElement).value)"
     />
   </label>
 </template>
 
-<script>
-  export default {
-    props: {
-      label: String,
-      type: String,
-      required: Boolean,
-      placeholder: String,
-      value: {
-        type: String,
-      },
-    },
-  };
+<script lang="ts" setup>
+  interface Props {
+    label: string;
+    type: string;
+    required: boolean;
+    placeholder: string;
+    value: string;
+  }
+
+  interface Emit {
+    (e: "update:value", value: string): void;
+  }
+
+  defineProps<Props>();
+
+  const emit = defineEmits<Emit>();
 </script>
 
 <style lang="scss" scoped>

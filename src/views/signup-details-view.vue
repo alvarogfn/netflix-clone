@@ -34,41 +34,40 @@
   </div>
 </template>
 
-<script>
-  import { mapActions, mapWritableState } from "pinia";
+<script lang="ts" setup>
   import HeaderSignup from "../components/header/header-signup.vue";
   import SignupInput from "../components/signup/signup-input.vue";
   import SignupImageInput from "../components/signup/signup-image-input.vue";
   import { useLoginStore } from "../stores/login";
+  import { ref, computed } from "vue";
+  import { useRouter } from "vue-router";
 
-  export default {
-    components: { HeaderSignup, SignupInput, SignupImageInput },
-    data: () => ({
-      name: "",
-      password: "",
-      picture: undefined,
-    }),
-    computed: {
-      ...mapWritableState(useLoginStore, ["email", "id"]),
-      isSubmittable() {
-        return this.email && this.password && this.name && this.picture;
-      },
-    },
-    methods: {
-      ...mapActions(useLoginStore, ["signup", "login"]),
+  const loginStore = useLoginStore();
+  const router = useRouter();
 
-      async submit() {
-        if (!this.isSubmittable) return;
+  const name = ref("");
+  const password = ref("");
+  const picture = ref<Blob | null>(null);
+  const email = ref(loginStore.email ?? "");
 
-        await this.signup(this.email, this.password, this.name, this.picture);
-        if (!this.id) return;
+  const isSubmittable = computed(() => {
+    return email.value && password.value && name.value && picture.value;
+  });
 
-        const isAuth = await this.login(this.email, this.password);
+  async function submit() {
+    if (!isSubmittable.value) return;
 
-        if (isAuth) this.$router.push({ name: "browse" });
-      },
-    },
-  };
+    const response = await loginStore.signup(
+      email.value!,
+      password.value!,
+      name.value!,
+      picture.value!
+    );
+
+    if (!response) return;
+    const isAuth = await loginStore.login(email.value, password.value);
+    if (isAuth) router.push({ name: "browse" });
+  }
 </script>
 
 <style lang="scss" scoped>

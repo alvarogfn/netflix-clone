@@ -9,28 +9,9 @@
   </div>
 </template>
 
-<script>
-  import { mapActions, mapWritableState } from "pinia";
+<script setup lang="ts">
   import HeaderHome from "../components/header/header-home.vue";
   import SignupHomeForm from "../components/signup/signup-home-form.vue";
-  import { useLoginStore } from "../stores/login";
-
-  export default {
-    data: () => ({
-      email: "",
-    }),
-    computed: {
-      ...mapWritableState(useLoginStore, { storeEmail: "email" }),
-    },
-    methods: {
-      ...mapActions(useLoginStore, ["signup"]),
-      async submit() {
-        this.storeEmail = this.email;
-        this.$router.push({ name: "signup" });
-      },
-    },
-    components: { HeaderHome, SignupHomeForm },
-  };
 </script>
 
 <style lang="scss" scoped>

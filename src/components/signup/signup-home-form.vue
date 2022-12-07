@@ -18,26 +18,22 @@
   </div>
 </template>
 
-<script>
-  import { mapActions, mapWritableState } from "pinia";
+<script setup lang="ts">
+  import { ref } from "vue";
+  import { useRouter } from "vue-router";
 
   import { useLoginStore } from "../../stores/login";
 
-  export default {
-    data: () => ({
-      email: "",
-    }),
-    computed: {
-      ...mapWritableState(useLoginStore, { storeEmail: "email" }),
-    },
-    methods: {
-      ...mapActions(useLoginStore, ["signup"]),
-      async submit() {
-        this.storeEmail = this.email;
-        this.$router.push({ name: "signup" });
-      },
-    },
-  };
+  const loginStore = useLoginStore();
+
+  const router = useRouter();
+
+  const email = ref<string>("");
+
+  function submit() {
+    loginStore.email = email.value;
+    router.push({ name: "signup" });
+  }
 </script>
 
 <style lang="scss" scoped>

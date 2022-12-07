@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useLoginStore } from "./login";
-import { db } from "../db";
+import { db, type Movie, type User } from "../db";
 
 export const useAppStore = defineStore("app", {
   state: () => ({}),
@@ -195,7 +195,7 @@ export const useAppStore = defineStore("app", {
           user,
           movies: topWatchers[user.user_id],
         };
-      });
+      }) as unknown as { user: User; movies: Movie[] }[];
     },
   },
 });

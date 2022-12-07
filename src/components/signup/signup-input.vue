@@ -6,20 +6,20 @@
       :required="required"
       :type="type"
       class="input__value"
-      @input="$emit('update:value', $event.target.value)"
+      @input="$emit('update:value', ($event.target as HTMLInputElement).value)"
     />
   </label>
 </template>
 
-<script>
-  export default {
-    props: {
-      label: String,
-      value: String,
-      type: String,
-      required: Boolean,
-    },
-  };
+<script setup lang="ts">
+  interface Props {
+    label: string;
+    value: string;
+    type?: string;
+    required: boolean;
+  }
+
+  withDefaults(defineProps<Props>(), { type: "text" });
 </script>
 
 <style lang="scss" scoped>

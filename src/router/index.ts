@@ -14,9 +14,9 @@ const router = createRouter({
       component: HomeView,
       beforeEnter: async (to, from, next) => {
         const store = useLoginStore();
-        const redirectName = to.redirectedFrom;
+        const redirect = to.redirectedFrom!;
 
-        if (store.islogged) return next({ ...redirectName });
+        if (store.isAuth) return next({ ...redirect });
 
         const email = localStorage.getItem("email");
         const password = localStorage.getItem("password");
@@ -25,7 +25,7 @@ const router = createRouter({
 
         try {
           const isAuth = await store.login(email, password);
-          if (isAuth) return next({ ...redirectName });
+          if (isAuth) return next({ ...redirect });
           return next();
         } catch (e) {
           localStorage.removeItem("email");
@@ -54,13 +54,12 @@ const router = createRouter({
     {
       component: AppView,
       beforeEnter: async (to, from, next) => {
-        const store = useLoginStore();
-
-        if (store.islogged) return next();
-
+        const loginStore = useLoginStore();
+        if (loginStore.isAuth) return next();
         next({ name: "home" });
       },
-      redirect: { name: "browse" },
+      path: "",
+      redirect: "browse",
       children: [
         {
           path: "/browse",

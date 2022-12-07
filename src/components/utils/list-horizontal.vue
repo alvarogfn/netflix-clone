@@ -7,13 +7,13 @@
   </section>
 </template>
 
-<script>
-  export default {
-    props: {
-      title: String,
-      listHeight: { type: String, default: "200px" },
-    },
-  };
+<script setup lang="ts">
+  interface Props {
+    title: string;
+    listHeight?: string;
+  }
+
+  withDefaults(defineProps<Props>(), { listHeight: "200px" });
 </script>
 
 <style lang="scss" scoped>

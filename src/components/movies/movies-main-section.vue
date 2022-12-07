@@ -1,35 +1,28 @@
 <template>
   <section class="movie-section">
     <list-horizontal :title="title" list-height="150px">
-      <li
-        class="movie-section__item"
-        v-for="movie in movies"
-        :key="movie.movie_id"
-      >
+      <li class="movie-section__item" v-for="movie in movies" :key="movie.id">
         <movie-card
           class="movie-section__card"
           :thumb="movie.backdrop"
-          :id="movie.movie_id"
+          :id="movie.id!"
         />
       </li>
     </list-horizontal>
   </section>
 </template>
 
-<script>
+<script setup lang="ts">
+  import type { Movie as MovieProp } from "@/db";
   import ListHorizontal from "../utils/list-horizontal.vue";
   import MovieCard from "./movie-card.vue";
 
-  export default {
-    components: { MovieCard, ListHorizontal },
-    props: {
-      title: String,
-      movies: {
-        type: Array,
-        default: () => [],
-      },
-    },
-  };
+  interface Props {
+    title: string;
+    movies?: MovieProp[];
+  }
+
+  withDefaults(defineProps<Props>(), { movies: () => [] });
 </script>
 
 <style lang="scss" scoped>

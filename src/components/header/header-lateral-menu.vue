@@ -3,8 +3,9 @@
     <section class="menu__section menu__section--profile">
       <profile-card-link
         class="menu__profile"
-        :name="name"
-        :picture="pictureHref"
+        :name="loginStore.name!"
+        :picture="picture"
+        :id="loginStore.id!"
       />
     </section>
     <section class="menu__section menu__section--nav">
@@ -26,17 +27,14 @@
   </div>
 </template>
 
-<script>
-  import { mapState } from "pinia";
+<script lang="ts" setup>
+  import { useBlobURL } from "@/composables/useBlobURL";
   import { useLoginStore } from "../../stores/login";
   import ProfileCardLink from "../profile/profile-card-link.vue";
 
-  export default {
-    computed: {
-      ...mapState(useLoginStore, ["email", "name", "pictureHref"]),
-    },
-    components: { ProfileCardLink },
-  };
+  const loginStore = useLoginStore();
+
+  const picture = useBlobURL(loginStore.picture!);
 </script>
 
 <style lang="scss" scoped>

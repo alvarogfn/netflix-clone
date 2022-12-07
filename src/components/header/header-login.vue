@@ -6,11 +6,8 @@
   </header>
 </template>
 
-<script>
+<script lang="ts" setup>
   import AppLogoIcon from "../icons/app-logo-icon.vue";
-  export default {
-    components: { AppLogoIcon },
-  };
 </script>
 
 <style lang="scss" scoped>

@@ -2,7 +2,7 @@
   <form class="form" @submit.prevent="submit">
     <h1 class="form__title">Sign In</h1>
     <div class="form__fieldset">
-      <div class="form__error" v-if="userNotFound">
+      <div class="form__error" v-if="error">
         Sorry, we can't find an account with this email address. Please try
         again or
         <router-link class="form__link" :to="{ name: 'home' }">
@@ -25,37 +25,33 @@
   </form>
 </template>
 
-<script>
-  import { mapActions, mapState } from "pinia";
+<script setup lang="ts">
   import LoginInput from "./login-input.vue";
   import { useLoginStore } from "../../stores/login";
+  import { ref } from "vue";
+  import { useRouter } from "vue-router";
 
-  export default {
-    components: { LoginInput },
-    data: () => ({
-      email: "",
-      password: "",
-      userNotFound: false,
-    }),
-    computed: {
-      ...mapState(useLoginStore, ["islogged"]),
-    },
-    methods: {
-      ...mapActions(useLoginStore, ["login"]),
-      async submit() {
-        try {
-          await this.login(this.email, this.password);
-          if (this.islogged) {
-            localStorage.setItem("email", this.email);
-            localStorage.setItem("password", this.password);
-            this.$router.push({ name: "browse" });
-          }
-        } catch (e) {
-          this.userNotFound = true;
-        }
-      },
-    },
-  };
+  const loginStore = useLoginStore();
+  const router = useRouter();
+
+  const email = ref<string | null>(null);
+  const password = ref<string | null>(null);
+  const error = ref<boolean>(false);
+
+  async function submit() {
+    if (email.value === null || password.value === null) return;
+    try {
+      const result = await loginStore.login(email.value, password.value);
+
+      if (!result) return;
+
+      localStorage.setItem("email", email.value);
+      localStorage.setItem("password", password.value);
+      router.push({ name: "browse" });
+    } catch (e) {
+      error.value = true;
+    }
+  }
 </script>
 
 <style lang="scss" scoped>

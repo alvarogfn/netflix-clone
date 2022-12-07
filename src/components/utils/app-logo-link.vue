@@ -4,10 +4,8 @@
   </router-link>
 </template>
 
-<script>
+<script setup lang="ts">
   import AppLogoIcon from "../icons/app-logo-icon.vue";
-
-  export default { components: { AppLogoIcon } };
 </script>
 
 <style lang="scss" scoped>

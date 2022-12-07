@@ -5,13 +5,13 @@
   </div>
 </template>
 
-<script>
-  export default {
-    props: {
-      title: String,
-      content: String,
-    },
-  };
+<script setup lang="ts">
+  interface Props {
+    title: string;
+    content: string;
+  }
+
+  defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>

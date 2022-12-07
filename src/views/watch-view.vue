@@ -33,48 +33,47 @@
   </div>
 </template>
 
-<script>
-  import { mapActions, mapState } from "pinia";
+<script setup lang="ts">
+  import type { Movie } from "@/db";
+  import { ref, computed, onMounted } from "vue";
+  import { useRoute } from "vue-router";
   import HeaderWatch from "../components/header/header-watch.vue";
   import { useAppStore } from "../stores/app";
   import { useLoginStore } from "../stores/login";
 
-  export default {
-    components: { HeaderWatch },
-    data: () => ({
-      movie: undefined,
-      mobile: true,
-    }),
-    computed: {
-      ...mapState(useLoginStore, ["id"]),
-      iframe() {
-        if (this.movie.video) {
-          const regExp =
-            /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-          const match = this.movie.video.match(regExp);
-          return `https://www.youtube.com/embed/${match[2]}?autoplay=1`;
-        } else return undefined;
-      },
-    },
-    methods: {
-      ...mapActions(useAppStore, ["getMovieById", "addNewUserView"]),
-    },
-    async created() {
-      const id = this.$route.params.id;
+  const loginStore = useLoginStore();
 
-      if (!id) return;
+  const route = useRoute();
 
-      this.addNewUserView({ user_id: this.id, movie_id: id });
+  const movie = ref<Movie | null>(null);
+  const mobile = ref(true);
 
-      this.movie = await this.getMovieById(id);
+  const appStore = useAppStore();
 
-      const matches = window.matchMedia("screen and (min-width: 885px)");
-      this.mobile = !matches.matches;
-      matches.onchange = (match) => {
-        this.mobile = !match.matches;
-      };
-    },
-  };
+  const iframe = computed(() => {
+    if (movie.value?.video) {
+      const regExp =
+        /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+      const match = movie.value?.video.match(regExp);
+      return `https://www.youtube.com/embed/${match[2]}?autoplay=1`;
+    } else return undefined;
+  });
+
+  onMounted(async () => {
+    const id = route.params.id;
+
+    if (!id) return;
+
+    appStore.addNewUserView({ user_id: loginStore.id, movie_id: id });
+
+    movie.value = await appStore.getMovieById(id);
+
+    const matches = window.matchMedia("screen and (min-width: 885px)");
+    mobile.value = !matches.matches;
+    matches.onchange = (match) => {
+      mobile.value = !match.matches;
+    };
+  });
 </script>
 
 <style lang="scss" scoped>

@@ -4,22 +4,20 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import { db } from "./db";
-  import genres from "../database/genres.json";
-  import movies from "../database/movies.json";
+  import { data as genres } from "../database/genres";
+  import { data as movies } from "../database/movies";
+  import { onMounted } from "vue";
 
-  export default {
-    data: () => ({}),
-    async created() {
-      try {
-        await db.genres.bulkAdd(genres);
-        await db.movies.bulkAdd(movies);
-      } catch (e) {
-        if (e.name === "BulkError") return;
-      }
-    },
-  };
+  onMounted(async () => {
+    try {
+      await db.genres.bulkAdd(genres);
+      await db.movies.bulkAdd(movies);
+    } catch (e) {
+      if (e instanceof Error && e.name === "BulkErrror") return;
+    }
+  });
 </script>
 
 <style lang="scss" scoped></style>

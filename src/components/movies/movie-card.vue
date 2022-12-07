@@ -4,16 +4,13 @@
   </router-link>
 </template>
 
-<script>
-  export default {
-    props: {
-      thumb: String,
-      id: {
-        type: Number,
-        default: 0,
-      },
-    },
-  };
+<script lang="ts" setup>
+  interface Props {
+    thumb: string;
+    id: number;
+  }
+
+  defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>

@@ -9,11 +9,11 @@
         v-for="({ user }, index) in ranking"
         :key="user.id"
       >
-        <metrics-position-card :position="++index">
+        <metrics-position-card :position="index + 1">
           <picture-with-name-card
             class="top-users__card"
             :name="user.name"
-            :picture="getHref(user.picture)"
+            :picture="useBlobURL(user.picture!).value"
           />
         </metrics-position-card>
       </li>
@@ -21,34 +21,26 @@
   </section>
 </template>
 
-<script>
+<script lang="ts" setup>
+  import { useBlobURL } from "@/composables/useBlobURL";
+  import type { Movie, User } from "@/db";
+  import { computed } from "vue";
   import ListHorizontal from "../utils/list-horizontal.vue";
   import PictureWithNameCard from "../utils/picture-with-name-card.vue";
   import MetricsPositionCard from "./metrics-position-card.vue";
 
-  export default {
-    components: {
-      ListHorizontal,
-      MetricsPositionCard,
-      PictureWithNameCard,
-    },
-    props: {
-      users: Array,
-    },
-    methods: {
-      getHref(blob) {
-        return URL.createObjectURL(blob);
-      },
-    },
-    computed: {
-      ranking() {
-        return this.users
-          .slice()
-          .sort((a, b) => a.movies - b.movies)
-          .reverse();
-      },
-    },
-  };
+  interface Props {
+    users: { user: User; movies: Movie[] }[];
+  }
+
+  const props = defineProps<Props>();
+
+  const ranking = computed(() => {
+    return props.users
+      .slice()
+      .sort((a, b) => a.movies.length - b.movies.length)
+      .reverse();
+  });
 </script>
 
 <style lang="scss" scoped>
