@@ -5,7 +5,7 @@
         <movie-card
           class="movie-section__card"
           :thumb="movie.backdrop"
-          :id="movie.id"
+          :id="movie.id!"
         />
       </li>
     </list-horizontal>
@@ -19,10 +19,10 @@
 
   interface Props {
     title: string;
-    movies: MovieProp[];
+    movies?: MovieProp[];
   }
 
-  const props = withDefaults(defineProps<Props>(), { movies: () => [] });
+  withDefaults(defineProps<Props>(), { movies: () => [] });
 </script>
 
 <style lang="scss" scoped>

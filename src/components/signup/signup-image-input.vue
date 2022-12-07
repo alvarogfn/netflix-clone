@@ -24,7 +24,7 @@
     (e: "update:value", value: Blob): void;
   }
 
-  const props = defineProps<Props>();
+  defineProps<Props>();
   const emit = defineEmits<Emit>();
 
   const href = ref<string | null>(null);

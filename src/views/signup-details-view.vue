@@ -40,7 +40,7 @@
   import SignupImageInput from "../components/signup/signup-image-input.vue";
   import { useLoginStore } from "../stores/login";
   import { ref, computed } from "vue";
-  import { useRoute, useRouter } from "vue-router";
+  import { useRouter } from "vue-router";
 
   const loginStore = useLoginStore();
   const router = useRouter();

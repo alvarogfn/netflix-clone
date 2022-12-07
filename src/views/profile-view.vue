@@ -6,12 +6,12 @@
       <title-text-label
         class="profile__field profile__field--name"
         title="name"
-        :content="loginStore.name"
+        :content="loginStore.name!"
       />
       <title-text-label
         class="profile__field profile__field--email"
         title="email"
-        :content="loginStore.email"
+        :content="loginStore.email!"
       />
       <img class="profile__img" :src="url" alt="Profile Picture" />
       <section class="profile__history">
@@ -23,7 +23,6 @@
 
 <script setup lang="ts">
   import HeaderBrowse from "../components/header/header-browse.vue";
-  import { mapActions, mapState } from "pinia";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import { useLoginStore } from "../stores/login";
   import { useAppStore } from "../stores/app";

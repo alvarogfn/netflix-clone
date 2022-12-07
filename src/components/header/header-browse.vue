@@ -41,7 +41,6 @@
 <script setup lang="ts">
   import { useBlobURL } from "@/composables/useBlobURL";
   import { useMatchMedia } from "@/composables/useMatchMedia";
-  import { mapState } from "pinia";
   import { ref } from "vue";
   import { useLoginStore } from "../../stores/login";
   import AppLogoIcon from "../icons/app-logo-icon.vue";

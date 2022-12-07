@@ -13,7 +13,7 @@
     listHeight?: string;
   }
 
-  const props = withDefaults(defineProps<Props>(), { listHeight: "200px" });
+  withDefaults(defineProps<Props>(), { listHeight: "200px" });
 </script>
 
 <style lang="scss" scoped>

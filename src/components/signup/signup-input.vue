@@ -15,11 +15,11 @@
   interface Props {
     label: string;
     value: string;
-    type: string;
+    type?: string;
     required: boolean;
   }
 
-  const props = defineProps<Props>();
+  withDefaults(defineProps<Props>(), { type: "text" });
 </script>
 
 <style lang="scss" scoped>

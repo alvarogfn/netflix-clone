@@ -27,7 +27,7 @@
   import type { Genre, Movie, User } from "@/db";
   const appStore = useAppStore();
 
-  const users = ref<{ user: string; movies: Movie[] }[]>([]);
+  const users = ref<{ user: User; movies: Movie[] }[]>([]);
   const topMovies = ref<Movie[]>([]);
   const genres = ref<Genre[]>([]);
   const movies = ref<Movie[]>([]);

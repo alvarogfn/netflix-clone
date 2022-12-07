@@ -25,7 +25,7 @@
     (e: "update:value", value: string): void;
   }
 
-  const props = defineProps<Props>();
+  defineProps<Props>();
 
   const emit = defineEmits<Emit>();
 </script>

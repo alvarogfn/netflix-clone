@@ -13,7 +13,7 @@
           <picture-with-name-card
             class="top-users__card"
             :name="user.name"
-            :picture="useBlobURL(user.picture!)"
+            :picture="useBlobURL(user.picture!).value"
           />
         </metrics-position-card>
       </li>
