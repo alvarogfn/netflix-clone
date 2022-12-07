@@ -2,18 +2,18 @@
   <div class="profile">
     <header-browse class="profile__header" />
     <main class="profile__content">
-      <button class="profile__logout" @click="logout">logout</button>
+      <button class="profile__logout" @click="loginStore.logout">logout</button>
       <title-text-label
         class="profile__field profile__field--name"
         title="name"
-        :content="name"
+        :content="loginStore.name"
       />
       <title-text-label
         class="profile__field profile__field--email"
         title="email"
-        :content="email"
+        :content="loginStore.email"
       />
-      <img class="profile__img" :src="pictureHref" alt="Profile Picture" />
+      <img class="profile__img" :src="url" alt="Profile Picture" />
       <section class="profile__history">
         <movies-main-section title="Ultimos filmes vistos" :movies="movies" />
       </section>
@@ -21,36 +21,25 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import HeaderBrowse from "../components/header/header-browse.vue";
   import { mapActions, mapState } from "pinia";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import { useLoginStore } from "../stores/login";
   import { useAppStore } from "../stores/app";
   import TitleTextLabel from "../components/utils/title-text-label.vue";
+  import { onMounted, ref } from "vue";
+  import { useBlobURL } from "@/composables/useBlobURL";
 
-  export default {
-    data: () => ({
-      movies: [],
-    }),
-    computed: {
-      ...mapState(useLoginStore, [
-        "name",
-        "pictureHref",
-        "email",
-        "history",
-        "id",
-      ]),
-    },
-    methods: {
-      ...mapActions(useAppStore, ["getUserHistory"]),
-      ...mapActions(useLoginStore, ["logout"]),
-    },
-    components: { MoviesMainSection, HeaderBrowse, TitleTextLabel },
-    async created() {
-      this.movies = await this.getUserHistory(this.id, 99);
-    },
-  };
+  const appStore = useAppStore();
+  const loginStore = useLoginStore();
+  const url = useBlobURL(loginStore.picture!);
+
+  const movies = ref<any[]>([]);
+
+  onMounted(async () => {
+    movies.value = await appStore.getUserHistory(loginStore.id, 99);
+  });
 </script>
 
 <style lang="scss" scoped>

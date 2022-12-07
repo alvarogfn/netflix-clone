@@ -9,7 +9,7 @@ export interface User {
   preferences: Map<string, number>;
 }
 
-interface History {
+export interface History {
   id?: number;
   user_id: number;
   movie_id: number;

@@ -1,17 +1,13 @@
 <template>
-  <header
-    class="header"
-    :class="{ 'header--black': isMenuOpen }"
-    v-if="!is885px"
-  >
-    <button class="header__menu-button" @click="isMenuOpen = !isMenuOpen">
+  <header class="header" :class="{ 'header--black': menuOpen }" v-if="!desktop">
+    <button class="header__menu-button" @click="menuOpen = !menuOpen">
       <img class="header__menu-icon" src="../../assets/hamburger.gif" />
     </button>
     <router-link class="header__link" :to="{ name: 'browse' }">
       <app-logo-icon class="header__logo" />
     </router-link>
 
-    <movies-lateral-menu v-show="isMenuOpen" class="header__menu" />
+    <movies-lateral-menu v-show="menuOpen" class="header__menu" />
   </header>
   <header class="header header--match885px" v-else>
     <router-link
@@ -36,38 +32,25 @@
     </nav>
     <section class="header__profile">
       <router-link class="header__profile-link" :to="{ name: 'profile' }">
-        <img class="header__profile-img" :src="pictureHref" />
+        <img class="header__profile-img" :src="picture" />
       </router-link>
     </section>
   </header>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { useBlobURL } from "@/composables/useBlobURL";
+  import { useMatchMedia } from "@/composables/useMatchMedia";
   import { mapState } from "pinia";
+  import { ref } from "vue";
   import { useLoginStore } from "../../stores/login";
   import AppLogoIcon from "../icons/app-logo-icon.vue";
   import MoviesLateralMenu from "./header-lateral-menu.vue";
+  const loginStore = useLoginStore();
 
-  export default {
-    components: {
-      MoviesLateralMenu,
-      AppLogoIcon,
-    },
-    data: () => ({
-      isMenuOpen: false,
-      is885px: false,
-    }),
-    computed: {
-      ...mapState(useLoginStore, ["pictureHref"]),
-    },
-    created() {
-      const width = window.matchMedia("screen and (min-width: 885px)");
-      this.is885px = width.matches;
-      width.onchange = (media) => {
-        this.is885px = media.matches;
-      };
-    },
-  };
+  const menuOpen = ref<boolean>(false);
+  const desktop = useMatchMedia("screen and (min-width: 885px)");
+  const picture = useBlobURL(loginStore.picture!);
 </script>
 
 <style lang="scss" scoped>

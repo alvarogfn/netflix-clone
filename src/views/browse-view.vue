@@ -2,7 +2,6 @@
   <div class="browse">
     <header-browse class="browse__header" />
     <section class="browse__content">
-      <movies-main />
       <template v-for="genre in genres" :key="genre.id">
         <movies-main-section
           class="browse__categories"
@@ -21,7 +20,6 @@
   import { ref, onMounted } from "vue";
   import HeaderBrowse from "../components/header/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
-  import MoviesMain from "../components/movies/movies-main.vue";
 
   const appStore = useAppStore();
 

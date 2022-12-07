@@ -3,7 +3,7 @@
     <span>{{ label }}</span>
     <input
       type="file"
-      @change="loadImage"
+      @change="submit($event)"
       accept="image/png, image/jpeg, image/webp, image/gif"
       name="avatar"
       id="avatar"
@@ -12,33 +12,38 @@
   </label>
 </template>
 
-<script>
-  export default {
-    props: {
-      label: String,
-      required: Boolean,
-    },
-    data: () => ({
-      href: "",
-    }),
-    computed: {
-      styles() {
-        return { backgroundImage: `url(${this.href})` };
-      },
-    },
-    methods: {
-      loadImage($event) {
-        if (typeof this.href === "string") {
-          URL.revokeObjectURL(this.image);
-        }
+<script lang="ts" setup>
+  import { ref, computed } from "vue";
 
-        const file = $event.target.files[0];
-        this.$emit("update:value", file);
+  interface Props {
+    label: string;
+    required: boolean;
+  }
 
-        this.href = URL.createObjectURL(file);
-      },
-    },
-  };
+  interface Emit {
+    (e: "update:value", value: Blob): void;
+  }
+
+  const props = defineProps<Props>();
+  const emit = defineEmits<Emit>();
+
+  const href = ref<string | null>(null);
+
+  const styles = computed(() => ({ backgroundImage: `url(${href.value})` }));
+
+  function submit(event: Event) {
+    const input = event.currentTarget as HTMLInputElement;
+    const file = input.files![0];
+
+    emit("update:value", file);
+
+    if (!href.value) {
+      href.value = URL.createObjectURL(file);
+      return;
+    }
+
+    URL.revokeObjectURL(href.value);
+  }
 </script>
 
 <style lang="scss" scoped>

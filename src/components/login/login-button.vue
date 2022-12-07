@@ -2,9 +2,7 @@
   <router-link class="link" :to="{ name: 'login' }">entrar</router-link>
 </template>
 
-<script>
-  export default {};
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
   @use "../../styles/colors.scss" as *;

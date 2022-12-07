@@ -1,16 +1,15 @@
 <template>
   <div class="position">
-    <p class="position__number">{{ this.position }}</p>
+    <p class="position__number">{{ position }}</p>
     <slot></slot>
   </div>
 </template>
 
-<script>
-  export default {
-    props: {
-      position: [Number, String],
-    },
-  };
+<script lang="ts" setup>
+  interface Props {
+    position: number | string;
+  }
+  const props = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>

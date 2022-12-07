@@ -6,14 +6,13 @@
   </router-link>
 </template>
 
-<script>
-  export default {
-    props: {
-      name: String,
-      picture: String,
-      id: String,
-    },
-  };
+<script lang="ts" setup>
+  interface Props {
+    name: string;
+    picture: string;
+    id: number;
+  }
+  const props = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>

@@ -3,9 +3,10 @@ import { db } from "../db";
 
 interface State {
   email: string | null;
-  picture: string | null;
+  picture: Blob | null;
   name: string | null;
   id: number | null;
+  preferences: Map<string, number>;
 }
 
 export const useLoginStore = defineStore("login", {
@@ -14,6 +15,7 @@ export const useLoginStore = defineStore("login", {
     picture: null,
     name: null,
     id: null,
+    preferences: new Map(),
   }),
   getters: {
     isAuth(): boolean {
@@ -33,6 +35,8 @@ export const useLoginStore = defineStore("login", {
       this.id = response.id!;
       this.email = response.email;
       this.name = response.name;
+      this.picture = response.picture;
+      this.preferences = response.preferences;
 
       return this.isAuth;
     },

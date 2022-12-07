@@ -11,15 +11,15 @@
   </label>
 </template>
 
-<script>
-  export default {
-    props: {
-      label: String,
-      value: String,
-      type: String,
-      required: Boolean,
-    },
-  };
+<script setup lang="ts">
+  interface Props {
+    label: string;
+    value: string;
+    type: string;
+    required: boolean;
+  }
+
+  const props = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>

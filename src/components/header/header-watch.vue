@@ -1,22 +1,16 @@
 <template>
   <header class="header">
-    <button @click="goBack" class="header__button">
+    <button @click="router.back" class="header__button">
       <go-back-icon class="header__icon" />
     </button>
   </header>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { useRouter } from "vue-router";
   import GoBackIcon from "../icons/go-back-icon.vue";
 
-  export default {
-    components: { GoBackIcon },
-    methods: {
-      goBack() {
-        this.$router.back();
-      },
-    },
-  };
+  const router = useRouter();
 </script>
 
 <style lang="scss" scoped>

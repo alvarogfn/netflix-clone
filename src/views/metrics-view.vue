@@ -19,7 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { mapActions } from "pinia";
   import HeaderBrowse from "../components/header/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import MetricsTopWatchersList from "../components/metrics/metrics-top-watchers-list.vue";
