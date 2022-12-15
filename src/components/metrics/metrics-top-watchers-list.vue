@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
   import { useBlobURL } from "@/composables/useBlobURL";
-  import type { Movie, User } from "@/db";
+  import type { Movie, User } from "@/database/database";
   import { computed } from "vue";
   import ListHorizontal from "../utils/list-horizontal.vue";
   import PictureWithNameCard from "../utils/picture-with-name-card.vue";

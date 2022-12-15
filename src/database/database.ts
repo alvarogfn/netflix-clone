@@ -6,7 +6,7 @@ export interface User {
   password: string;
   name: string;
   picture: Blob;
-  preferences: Map<string, number>;
+  preferences: Map<number, number>;
 }
 
 export interface History {
@@ -32,6 +32,7 @@ export interface Movie {
 export interface Genre {
   id?: number;
   name: string;
+  views: number;
 }
 /**
  * Creation of class to define dexie database typing.

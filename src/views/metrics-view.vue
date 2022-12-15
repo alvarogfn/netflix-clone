@@ -24,7 +24,7 @@
   import MetricsTopWatchersList from "../components/metrics/metrics-top-watchers-list.vue";
   import { useAppStore } from "../stores/app";
   import { onMounted, ref } from "vue";
-  import type { Genre, Movie, User } from "@/db";
+  import type { Genre, Movie, User } from "@/database/database";
   const appStore = useAppStore();
 
   const users = ref<{ user: User; movies: Movie[] }[]>([]);

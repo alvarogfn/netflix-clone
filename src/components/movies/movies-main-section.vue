@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { Movie as MovieProp } from "@/db";
+  import type { Movie as MovieProp } from "@/database/database";
   import ListHorizontal from "../utils/list-horizontal.vue";
   import MovieCard from "./movie-card.vue";
 

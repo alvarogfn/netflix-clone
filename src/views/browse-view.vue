@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { Genre, Movie } from "@/db";
+  import type { Genre, Movie } from "@/database/database";
   import { useAppStore } from "@/stores/app";
   import { ref, onMounted } from "vue";
   import HeaderBrowse from "../components/header/header-browse.vue";

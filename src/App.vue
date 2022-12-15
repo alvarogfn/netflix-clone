@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-  import { db } from "./db";
+  import { db } from "@/database/database";
   import { data as genres } from "../database/genres";
   import { data as movies } from "../database/movies";
   import { onMounted } from "vue";

@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { Movie } from "@/db";
+  import { db, type Movie } from "@/database/database";
   import { ref, computed, onMounted } from "vue";
   import { useRoute } from "vue-router";
   import HeaderWatch from "../components/header/header-watch.vue";
@@ -47,6 +47,7 @@
 
   const movie = ref<Movie | null>(null);
   const mobile = ref(true);
+  const error = ref(false);
 
   const appStore = useAppStore();
 
@@ -55,18 +56,25 @@
       const regExp =
         /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
       const match = movie.value?.video.match(regExp);
+      if (match === null) return "";
       return `https://www.youtube.com/embed/${match[2]}?autoplay=1`;
     } else return undefined;
   });
 
   onMounted(async () => {
-    const id = route.params.id;
+    const id = route.params.id as string;
 
     if (!id) return;
 
     appStore.addNewUserView({ user_id: loginStore.id, movie_id: id });
+    const loadedMovie = await db.movies.get(parseInt(id));
 
-    movie.value = await appStore.getMovieById(id);
+    if (!loadedMovie) {
+      error.value = true;
+      return;
+    }
+
+    movie.value = loadedMovie;
 
     const matches = window.matchMedia("screen and (min-width: 885px)");
     mobile.value = !matches.matches;

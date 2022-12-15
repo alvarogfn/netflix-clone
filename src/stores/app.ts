@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
 import { useLoginStore } from "./login";
-import { db, type Movie, type User } from "../db";
+import { db, type Genre, type Movie, type User } from "../database/database";
 
 export const useAppStore = defineStore("app", {
   state: () => ({}),
   actions: {
-    async getUserById(id) {
-      const response = await db.users.get(+id);
+    async getUserById(id: number) {
+      const response = await db.users.get(id);
       return response;
     },
 
@@ -15,22 +15,26 @@ export const useAppStore = defineStore("app", {
 
       const loginStore = useLoginStore();
 
-      const user = await db.users.get(+loginStore.id);
+      if (loginStore.id === null) throw new Error("");
+
+      const user = await db.users.get(loginStore.id);
+
+      if (user === undefined) throw new Error();
 
       if (!user.preferences) return genres;
       if (user.preferences && user.preferences.size === 0) return genres;
 
-      const genresByPriority = [];
+      const genresByPriority: Genre[] = [];
 
       user.preferences.forEach((value, key) => {
-        const genre = genres.filter((genre) => genre.genre_id === key)[0];
+        const genre = genres.filter((genre) => genre.id! === key)[0];
         if (genre !== undefined) genresByPriority.splice(0, value, genre);
       });
 
       genresByPriority.push(
         ...genres.filter((genre) => {
           return !genresByPriority.some(
-            (genreByPriority) => genreByPriority.genre_id === genre.genre_id
+            (genreByPriority) => genreByPriority.id! === genre.id!
           );
         })
       );
@@ -63,22 +67,17 @@ export const useAppStore = defineStore("app", {
       return data;
     },
 
-    async getMovieById(id) {
-      const movie = await db.movies.get(+id);
+    async getMovieById(id: number) {
+      const movie = await db.movies.get(id);
 
       return movie;
     },
 
-    async getMoviesByGenres(genres_id) {
-      let movies = await Promise.all(
-        genres_id.map(async (genre_id) => {
-          return {
-            [genre_id]: await this.getMoviesByGenre(genre_id),
-          };
-        })
-      );
+    async getMoviesByGenres(ids: number[]) {
+      let movies = await db.movies.where("genres").anyOf(ids).toArray();
 
       movies = movies.reduce((acc, act) => {
+        console.log(acc, act);
         acc[Object.keys(act)[0]] = Object.values(act)[0];
 
         return acc;

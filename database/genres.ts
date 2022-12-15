@@ -1,4 +1,4 @@
-import type { Genre } from "../src/db";
+import type { Genre } from "../src/database/database";
 
 export const data: Genre[] = [
   {
