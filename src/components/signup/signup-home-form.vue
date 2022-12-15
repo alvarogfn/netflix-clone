@@ -1,20 +1,10 @@
 <template>
   <div class="register">
-    <h1 class="register__title">Unlimited movies, TV shows, and more.</h1>
+    <h1 class="register__title"></h1>
     <p class="register__paragraph">Watch anywhere. Cancel anytime.</p>
     <p class="register__paragraph">
       Ready to watch? Enter your email to create or restart your membership.
     </p>
-    <form class="register__form" @submit.prevent="submit">
-      <input
-        v-model="email"
-        class="register__input"
-        type="email"
-        placeholder="Email Address"
-        required
-      />
-      <button class="register__submit">Get Started ></button>
-    </form>
   </div>
 </template>
 
@@ -23,6 +13,7 @@
   import { useRouter } from "vue-router";
 
   import { useLoginStore } from "../../stores/login";
+  import FormInput from "../shared/form/form-input.vue";
 
   const loginStore = useLoginStore();
 
@@ -37,10 +28,11 @@
 </script>
 
 <style lang="scss" scoped>
-  @use "../../styles/colors.scss" as *;
+  @use "@/styles/components.scss" as *;
 
   .register {
     text-align: center;
+
     &__title {
       font-size: 1.7rem;
     }
@@ -81,19 +73,12 @@
     }
 
     &__submit {
-      margin: 40px auto;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      background-color: $red;
+      @include button();
 
       width: 130px;
       height: 40px;
 
-      border-radius: 3px;
+      font-size: 0.85rem;
     }
   }
 
@@ -144,7 +129,7 @@
 
         &:focus {
           border-radius: initial;
-          border: 1px solid rgb(0, 162, 255);
+          border: 1px solid #00a2ff;
         }
       }
 
