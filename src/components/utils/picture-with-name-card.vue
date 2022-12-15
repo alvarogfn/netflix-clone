@@ -1,17 +1,20 @@
 <template>
   <div>
     <p>{{ name }}</p>
-    <img :src="picture" />
+    <img :src="src" />
   </div>
 </template>
 
 <script setup lang="ts">
+  import { useBlobURL } from "@/composables/useBlobURL";
+
   interface Props {
     name: string;
-    picture?: string;
+    picture: Blob;
   }
 
-  defineProps<Props>();
+  const props = defineProps<Props>();
+  const src = useBlobURL(props.picture);
 </script>
 
 <style lang="scss" scoped>

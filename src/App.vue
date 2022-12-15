@@ -12,8 +12,14 @@
 
   onMounted(async () => {
     try {
-      await db.genres.bulkAdd(genres);
-      await db.movies.bulkAdd(movies);
+      const genresArr = await db.genres.toArray();
+      const moviesArr = await db.movies.toArray();
+      if (genresArr.length === 0) {
+        await db.genres.bulkAdd(genres);
+      }
+      if (moviesArr.length === 0) {
+        await db.movies.bulkAdd(movies);
+      }
     } catch (e) {
       if (e instanceof Error && e.name === "BulkErrror") return;
     }

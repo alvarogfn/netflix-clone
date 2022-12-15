@@ -5,7 +5,7 @@
       <metrics-top-watchers-list :users="users" />
       <movies-main-section
         title="Top Movies Watch in EUA"
-        :movies="topMovies"
+        :movies="mostViewedMovies"
       />
       <template v-for="genre in genres" :key="genre.id">
         <movies-main-section
@@ -22,13 +22,13 @@
   import HeaderBrowse from "../components/header/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import MetricsTopWatchersList from "../components/metrics/metrics-top-watchers-list.vue";
-  import { useAppStore } from "../stores/app";
   import { onMounted, ref } from "vue";
-  import type { Genre, Movie, User } from "@/database/database";
-  const appStore = useAppStore();
+  import { db, type Genre, type Movie, type User } from "@/database/database";
+  import { topUsersMetrics } from "@/services/history";
+  const users = ref<{ user: User; views: number }[]>([]);
 
-  const users = ref<{ user: User; movies: Movie[] }[]>([]);
-  const topMovies = ref<Movie[]>([]);
+  const mostViewedMovies = ref<Movie[]>([]);
+
   const genres = ref<Genre[]>([]);
   const movies = ref<Movie[]>([]);
 
@@ -43,10 +43,14 @@
   }
 
   onMounted(async () => {
-    topMovies.value = await appStore.getMostViewedMovies();
-    users.value = await appStore.topMovieWatchers();
-    genres.value = await appStore.getMostViewedGenres();
-    movies.value = await appStore.getAllMovies();
+    mostViewedMovies.value = await db.movies
+      .orderBy("views")
+      .reverse()
+      .toArray();
+
+    users.value = await topUsersMetrics();
+    genres.value = await db.genres.orderBy("views").reverse().toArray();
+    movies.value = await db.movies.toArray();
   });
 </script>
 

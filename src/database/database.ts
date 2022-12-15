@@ -46,11 +46,11 @@ export class AppDatabase extends Dexie {
   constructor() {
     super("app");
 
-    this.version(1).stores({
+    this.version(2).stores({
       users: "++id,&email,password",
       history: "++id,user_id,movie_id,played_at",
-      movies: "++id,title,*genres,*genres_name",
-      genres: "++id,name",
+      movies: "++id,title,*genres,*genres_name,views",
+      genres: "++id,name,views",
     });
   }
 }
