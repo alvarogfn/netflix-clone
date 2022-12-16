@@ -34,45 +34,47 @@
 </template>
 
 <script setup lang="ts">
-  import type { Movie } from "@/db";
+  import { useMatchMedia } from "@/composables/useMatchMedia";
+  import { db, type Movie } from "@/database/database";
   import { ref, computed, onMounted } from "vue";
   import { useRoute } from "vue-router";
   import HeaderWatch from "../components/header/header-watch.vue";
-  import { useAppStore } from "../stores/app";
   import { useLoginStore } from "../stores/login";
+  import { addNewUserView } from "@/services/history";
 
   const loginStore = useLoginStore();
 
   const route = useRoute();
 
   const movie = ref<Movie | null>(null);
-  const mobile = ref(true);
-
-  const appStore = useAppStore();
+  const error = ref(false);
+  const mobile = useMatchMedia("screen and (min-width: 885px)");
 
   const iframe = computed(() => {
     if (movie.value?.video) {
       const regExp =
         /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
       const match = movie.value?.video.match(regExp);
+      if (match === null) return "";
       return `https://www.youtube.com/embed/${match[2]}?autoplay=1`;
     } else return undefined;
   });
 
   onMounted(async () => {
-    const id = route.params.id;
+    const movie_id = route.params.id as string;
 
-    if (!id) return;
+    if (!movie_id) return;
 
-    appStore.addNewUserView({ user_id: loginStore.id, movie_id: id });
+    const loadedMovie = await db.movies.get(parseInt(movie_id));
 
-    movie.value = await appStore.getMovieById(id);
+    if (!loadedMovie) {
+      error.value = true;
+      return;
+    }
 
-    const matches = window.matchMedia("screen and (min-width: 885px)");
-    mobile.value = !matches.matches;
-    matches.onchange = (match) => {
-      mobile.value = !match.matches;
-    };
+    movie.value = loadedMovie;
+
+    addNewUserView(loginStore.id!, parseInt(movie_id));
   });
 </script>
 

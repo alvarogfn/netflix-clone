@@ -6,7 +6,7 @@ export interface User {
   password: string;
   name: string;
   picture: Blob;
-  preferences: Map<string, number>;
+  preferences: Map<number, number>;
 }
 
 export interface History {
@@ -32,6 +32,7 @@ export interface Movie {
 export interface Genre {
   id?: number;
   name: string;
+  views: number;
 }
 /**
  * Creation of class to define dexie database typing.
@@ -45,11 +46,11 @@ export class AppDatabase extends Dexie {
   constructor() {
     super("app");
 
-    this.version(1).stores({
+    this.version(2).stores({
       users: "++id,&email,password",
       history: "++id,user_id,movie_id,played_at",
-      movies: "++id,title,*genres,*genres_name",
-      genres: "++id,name",
+      movies: "++id,title,*genres,*genres_name,views",
+      genres: "++id,name,views",
     });
   }
 }

@@ -15,13 +15,14 @@
 </template>
 
 <script setup lang="ts">
-  import type { Genre, Movie } from "@/db";
-  import { useAppStore } from "@/stores/app";
+  import { db, type Genre, type Movie } from "@/database/database";
+  import { getAllGenresByUserRelevance } from "@/services/relevance";
+  import { useLoginStore } from "@/stores/login";
   import { ref, onMounted } from "vue";
   import HeaderBrowse from "../components/header/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
 
-  const appStore = useAppStore();
+  const loginStore = useLoginStore();
 
   const genres = ref<Genre[]>([]);
   const movies = ref<Movie[]>([]);
@@ -37,8 +38,9 @@
   }
 
   onMounted(async () => {
-    genres.value = await appStore.getAllGenresByUserRelevance();
-    movies.value = await appStore.getAllMovies();
+    genres.value = [];
+    genres.value = await getAllGenresByUserRelevance(loginStore.id!);
+    movies.value = await db.movies.orderBy("views").toArray();
   });
 </script>
 

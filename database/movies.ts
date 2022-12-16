@@ -1,4 +1,4 @@
-import type { Movie } from "../src/db";
+import type { Movie } from "../src/database/database";
 
 export const data: Movie[] = [
   {
