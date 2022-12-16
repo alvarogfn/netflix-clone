@@ -25,19 +25,28 @@
   import HeaderBrowse from "../components/header/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import { useLoginStore } from "../stores/login";
-  import { useAppStore } from "../stores/app";
   import TitleTextLabel from "../components/utils/title-text-label.vue";
   import { onMounted, ref } from "vue";
   import { useBlobURL } from "@/composables/useBlobURL";
+  import { db } from "@/database/database";
 
-  const appStore = useAppStore();
   const loginStore = useLoginStore();
   const url = useBlobURL(loginStore.picture!);
 
   const movies = ref<any[]>([]);
 
   onMounted(async () => {
-    movies.value = await appStore.getUserHistory(loginStore.id, 99);
+    let history = await db.history
+      .where("user_id")
+      .equals(loginStore.id!)
+      .toArray();
+
+    history = history.sort((a, b) => a.played_at - b.played_at).reverse();
+
+    movies.value = await db.movies
+      .where("id")
+      .anyOf(history.map(({ movie_id }) => movie_id))
+      .sortBy("views");
   });
 </script>
 

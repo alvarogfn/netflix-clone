@@ -13,7 +13,7 @@
           <picture-with-name-card
             class="top-users__card"
             :name="user.name"
-            :picture="useBlobURL(user.picture!).value"
+            :picture="user.picture"
           />
         </metrics-position-card>
       </li>
@@ -23,14 +23,14 @@
 
 <script lang="ts" setup>
   import { useBlobURL } from "@/composables/useBlobURL";
-  import type { Movie, User } from "@/db";
+  import type { User } from "@/database/database";
   import { computed } from "vue";
   import ListHorizontal from "../utils/list-horizontal.vue";
   import PictureWithNameCard from "../utils/picture-with-name-card.vue";
   import MetricsPositionCard from "./metrics-position-card.vue";
 
   interface Props {
-    users: { user: User; movies: Movie[] }[];
+    users: { user: User; views: number }[];
   }
 
   const props = defineProps<Props>();
@@ -38,7 +38,7 @@
   const ranking = computed(() => {
     return props.users
       .slice()
-      .sort((a, b) => a.movies.length - b.movies.length)
+      .sort((a, b) => a.views - b.views)
       .reverse();
   });
 </script>

@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
-import { db } from "../db";
+import { db } from "../database/database";
 
 interface State {
   email: string | null;
   picture: Blob | null;
   name: string | null;
   id: number | null;
-  preferences: Map<string, number>;
+  preferences: Map<number, number>;
 }
 
 export const useLoginStore = defineStore("login", {
