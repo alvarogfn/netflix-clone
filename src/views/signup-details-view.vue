@@ -8,23 +8,35 @@
         </h1>
         <p class="form__paragraph">Just a few more steps to go!</p>
         <p class="form__paragraph">We also hate forms.</p>
-        <signup-input v-model:value="name" label="Add your name" required />
-        <signup-input
-          v-model:value="email"
-          type="email"
-          label="add your email"
+        <form-input
+          id="name"
+          v-model:value="registerForm.name.value"
+          @valid="registerForm.name.isValid = $event"
+          label="Full name"
           required
         />
-        <signup-input
-          v-model:value="password"
+        <form-input
+          id="email"
+          v-model:value="registerForm.email.value"
+          @valid="registerForm.email.isValid = $event"
+          label="email"
+          :pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
+          patternMessage="Please write a valid e-mail."
+          required
+        />
+        <form-input
+          id="password"
+          v-model:value="registerForm.password.value"
+          @valid="registerForm.password.isValid = $event"
           label="create your password"
           type="password"
           required
         />
-        <signup-image-input
-          required
-          v-model:value="picture"
-          label="Select your profile picture"
+        <form-input-image
+          id="avatar"
+          label="Upload your profile picture"
+          v-model:value="registerForm.picture.value"
+          @valid="registerForm.picture.isValid = $event"
         />
         <button class="form__submit" :disabled="!isSubmittable">
           Iniciar Assinatura
@@ -36,36 +48,58 @@
 
 <script lang="ts" setup>
   import HeaderSignup from "../components/header/header-signup.vue";
-  import SignupInput from "../components/signup/signup-input.vue";
-  import SignupImageInput from "../components/signup/signup-image-input.vue";
+  import FormInput from "@/components/shared/form/form-input.vue";
   import { useLoginStore } from "../stores/login";
-  import { ref, computed } from "vue";
+  import { computed, reactive } from "vue";
   import { useRouter } from "vue-router";
+  import FormInputImage from "@/components/shared/form/form-input-image.vue";
 
   const loginStore = useLoginStore();
   const router = useRouter();
 
-  const name = ref("");
-  const password = ref("");
-  const picture = ref<Blob | null>(null);
-  const email = ref(loginStore.email ?? "");
+  const registerForm = reactive({
+    name: {
+      value: "",
+      isValid: false,
+    },
+    email: {
+      value: "",
+      isValid: false,
+    },
+    password: {
+      value: "",
+      isValid: false,
+    },
+    picture: {
+      value: new Blob(),
+      isValid: false,
+    },
+  });
 
   const isSubmittable = computed(() => {
-    return email.value && password.value && name.value && picture.value;
+    return (
+      registerForm.name.isValid &&
+      registerForm.password.isValid &&
+      registerForm.email.isValid &&
+      registerForm.picture.isValid
+    );
   });
 
   async function submit() {
     if (!isSubmittable.value) return;
 
     const response = await loginStore.signup(
-      email.value!,
-      password.value!,
-      name.value!,
-      picture.value!
+      registerForm.email.value!,
+      registerForm.password.value!,
+      registerForm.name.value!,
+      registerForm.picture.value!
     );
 
     if (!response) return;
-    const isAuth = await loginStore.login(email.value, password.value);
+    const isAuth = await loginStore.login(
+      registerForm.email.value,
+      registerForm.password.value
+    );
     if (isAuth) router.push({ name: "browse" });
   }
 </script>
@@ -84,6 +118,7 @@
       margin: 0 auto;
     }
   }
+
   .form {
     max-width: 400px;
     margin: 0 auto;
@@ -116,6 +151,10 @@
         filter: grayscale(100%);
         opacity: 0.3;
       }
+    }
+
+    &__label {
+      border: 1px solid red;
     }
   }
 </style>

@@ -16,7 +16,6 @@
 
 <style lang="scss" scoped>
   @use "../../styles/colors.scss" as *;
-  
   @use "../../styles/components.scss" as *;
   .header {
     display: flex;
@@ -37,11 +36,6 @@
       &__logo {
         width: 110px;
       }
-
-      &__link {
-        // width: 85px;
-        // height: 35px;
-      }
     }
   }
 
@@ -49,11 +43,6 @@
     .header {
       &__logo {
         width: 130px;
-      }
-
-      &__link {
-        // width: 85px;
-        // height: 35px;
       }
     }
   }

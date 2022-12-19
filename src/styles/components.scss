@@ -13,8 +13,12 @@
   cursor: pointer;
 }
 
-@mixin input() {
+@mixin input($padding: 15px 10px) {
+  padding: $padding;
 }
 
 @mixin label() {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 0.9rem;
 }
