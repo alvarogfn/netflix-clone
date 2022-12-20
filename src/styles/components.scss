@@ -1,13 +1,13 @@
 @use "./colors.scss" as *;
 
-@mixin button($padding: 10px 20px) {
+@mixin button($padding: 15px 20px) {
   color: #fff;
   background-color: $red;
   padding: $padding;
 
   border-radius: 2.5px;
 
-  font-weight: 400;
+  font-weight: 600;
   text-transform: capitalize;
 
   cursor: pointer;
@@ -21,4 +21,15 @@
   display: flex;
   flex-flow: column nowrap;
   font-size: 0.9rem;
+}
+
+@mixin alert-card($color: $orange, $border-radius: 5px, $font-size: 1rem) {
+  background-color: $color;
+  padding: 15px 20px;
+
+  border-radius: $border-radius;
+
+  font-size: $font-size;
+
+  line-height: 1rem;
 }

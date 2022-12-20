@@ -25,6 +25,7 @@
 </template>
 
 <script setup lang="ts">
+  import type { PatternType as PatternTypeProp } from "@/utils/Patterns";
   import { ref, watch, type VNodeRef } from "vue";
 
   interface Props {
@@ -35,16 +36,16 @@
     required?: boolean;
     value: any;
     placeholder?: string;
-    pattern?: RegExp;
-    patternMessage?: string;
-    labelClass?: string;
+    patterns?: PatternTypeProp[];
   }
+
   const props = withDefaults(defineProps<Props>(), {
     required: false,
     type: "text",
     label: "",
     placeholder: " ",
     showLabel: true,
+    patterns: () => [],
   });
 
   interface Emit {
@@ -67,18 +68,33 @@
     emit("valid", error.value === "");
   });
 
+  watch(focus, (newState, oldState) => {
+    if (oldState && !newState) validate();
+    emit("valid", error.value === "");
+  });
+
   function validate() {
-    if (props.required && input.value.length === 0) {
-      error.value = "Required";
-      return;
-    }
-
-    if (props.pattern && !props.pattern.test(input.value)) {
-      error.value = props.patternMessage ?? "No matches the pattern.";
-      return;
-    }
-
     error.value = "";
+    const value = input.value;
+    if (props.required && value.length === 0) {
+      error.value = "Required.";
+      return;
+    }
+
+    props.patterns.forEach((pattern) => {
+      if (pattern.type === "length") {
+        if (
+          pattern.minLength > value.length ||
+          pattern.maxLength < value.length
+        )
+          error.value = pattern.message;
+      }
+      if (pattern.type === "mask") {
+        if (!pattern.mask.test(value)) {
+          error.value = pattern.message;
+        }
+      }
+    });
   }
 
   watch(error, (newError) => {
@@ -98,7 +114,7 @@
 
     &__label {
       position: absolute;
-      top: 25px;
+      top: 37%;
       left: 10px;
       transform: translateY(-50%);
 
@@ -106,12 +122,7 @@
 
       font-size: 0.85rem;
 
-      text-transform: capitalize;
-
-      color: #0005;
-
       &--focus {
-        font-weight: 500;
         top: 12.5px;
         left: 10px;
       }
@@ -121,33 +132,11 @@
       width: 100%;
       padding: 25px 10px 5px 10px;
 
-      border: 1px solid rgba(0, 0, 0, 0.5);
-      box-shadow: 0 0 1px #0005 inset;
-
-      border-radius: 2px;
-
       transition: 200ms;
-
-      &--error {
-        border-color: $red;
-        margin-bottom: 15px;
-      }
-
-      &::placeholder {
-        text-transform: capitalize;
-      }
-
-      &:not(:placeholder-shown):not(:invalid) {
-        border: 1px solid #5fa53f;
-      }
     }
 
     &__error {
-      position: absolute;
       bottom: 0;
-      margin-top: 2.5px;
-      font-size: 0.8rem;
-      color: $red;
     }
   }
 </style>
