@@ -114,7 +114,7 @@
 
     &__label {
       position: absolute;
-      top: 37%;
+      top: 28px;
       left: 10px;
       transform: translateY(-50%);
 
