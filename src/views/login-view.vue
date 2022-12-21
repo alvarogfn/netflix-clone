@@ -136,7 +136,7 @@
       &-fieldset {
         display: flex;
         flex-flow: column nowrap;
-        row-gap: 15px;
+        row-gap: 25px;
         border: none;
       }
 
@@ -230,12 +230,12 @@
         }
 
         &--error {
-          margin-bottom: 5px;
           border-bottom: 2px solid $orange;
         }
       }
 
       &__error {
+        bottom: -12.5px;
         color: $orange;
         font-size: 0.8rem;
       }

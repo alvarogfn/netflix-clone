@@ -134,7 +134,7 @@
 
     display: flex;
     flex-flow: column nowrap;
-    row-gap: 10px;
+    row-gap: 15px;
 
     &__title {
       font-weight: 600;

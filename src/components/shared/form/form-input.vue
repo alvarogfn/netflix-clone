@@ -114,7 +114,7 @@
 
     &__label {
       position: absolute;
-      top: 28px;
+      top: 50%;
       left: 10px;
       transform: translateY(-50%);
 
@@ -131,12 +131,12 @@
     &__field {
       width: 100%;
       padding: 25px 10px 5px 10px;
-
       transition: 200ms;
     }
 
     &__error {
-      bottom: 0;
+      position: absolute;
+      bottom: -12.5px;
     }
   }
 </style>
