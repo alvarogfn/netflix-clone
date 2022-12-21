@@ -58,6 +58,7 @@
 <style lang="scss" scoped>
   @use "../../styles/colors.scss" as *;
   .header {
+    z-index: 2;
     width: 100vw;
     max-width: 100%;
 
@@ -120,6 +121,7 @@
 
     &__menu {
       position: absolute;
+
       top: 60px;
       left: 0;
     }
