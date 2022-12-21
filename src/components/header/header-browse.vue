@@ -1,13 +1,14 @@
 <template>
   <header class="header" :class="{ 'header--black': menuOpen }" v-if="!desktop">
     <button class="header__menu-button" @click="menuOpen = !menuOpen">
-      <img class="header__menu-icon" src="../../assets/hamburger.gif" />
+      <icon-menu class="header__menu-icon" />
     </button>
     <router-link class="header__link" :to="{ name: 'browse' }">
       <app-logo-icon class="header__logo" />
     </router-link>
-
-    <movies-lateral-menu v-show="menuOpen" class="header__menu" />
+    <appear-from from="right">
+      <movies-lateral-menu v-if="menuOpen" class="header__menu" />
+    </appear-from>
   </header>
   <header class="header header--match885px" v-else>
     <router-link
@@ -44,6 +45,8 @@
   import { ref } from "vue";
   import { useLoginStore } from "../../stores/login";
   import AppLogoIcon from "../icons/app-logo-icon.vue";
+  import IconMenu from "../icons/icon-menu.vue";
+  import AppearFrom from "../shared/transitions/appear-from.vue";
   import MoviesLateralMenu from "./header-lateral-menu.vue";
   const loginStore = useLoginStore();
 
@@ -70,6 +73,12 @@
 
     background-color: #00000099;
 
+    transition: 200ms;
+
+    &--black {
+      background-color: #000;
+    }
+
     &--match885px {
       height: calc(2vw + 45px);
       min-width: 45px;
@@ -88,10 +97,6 @@
       margin-right: 30px;
     }
 
-    &--black {
-      background-color: #000;
-    }
-
     &__logo {
       fill: $red;
       width: 90px;
@@ -103,11 +108,14 @@
 
     &__menu-button {
       order: 0;
+      background-color: transparent;
     }
 
     &__menu-icon {
       width: 25px;
       height: 25px;
+
+      fill: #ffffff;
     }
 
     &__menu {

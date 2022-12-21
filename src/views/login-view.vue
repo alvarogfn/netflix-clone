@@ -94,7 +94,7 @@
 
       if (remember.value) {
         localStorage.setItem("email", email);
-        localStorage.setItem("email", password);
+        localStorage.setItem("password", password);
       }
 
       router.push({ name: "browse" });
