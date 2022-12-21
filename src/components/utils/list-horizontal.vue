@@ -1,19 +1,26 @@
 <template>
   <section class="container">
     <h1 class="container__title">{{ title }}</h1>
-    <ul class="container__list">
+    <ul ref="listElement" class="container__list">
       <slot></slot>
     </ul>
   </section>
 </template>
 
 <script setup lang="ts">
+  import { useDragScroll } from "@/composables/useDragScroll";
+  import { ref } from "vue";
+
   interface Props {
     title: string;
     listHeight?: string;
   }
 
-  withDefaults(defineProps<Props>(), { listHeight: "200px" });
+  const props = withDefaults(defineProps<Props>(), { listHeight: "200px" });
+
+  const listElement = ref<HTMLElement | null>(null);
+
+  useDragScroll(listElement);
 </script>
 
 <style lang="scss" scoped>
@@ -40,6 +47,7 @@
 
     &__title {
       height: 40px;
+      margin-bottom: 10px;
       max-width: calc(100vw - 30px);
       color: #999;
       font-size: 1.2rem;

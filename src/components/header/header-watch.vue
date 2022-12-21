@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <button @click="router.back" class="header__button">
+    <button @click="router.push({ name: 'browse' })" class="header__button">
       <go-back-icon class="header__icon" />
     </button>
   </header>
