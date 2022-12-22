@@ -88,7 +88,7 @@
 
 <style lang="scss" scoped>
   .container {
-    // overflow: hidden;
+    overflow: hidden;
     position: relative;
 
     &__list {
@@ -100,6 +100,8 @@
 
       margin-bottom: -15px;
       padding-bottom: 15px;
+
+      overflow-x: scroll;
 
       max-width: calc(100vw - 17px);
       width: fit-content;

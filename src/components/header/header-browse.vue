@@ -1,5 +1,12 @@
 <template>
-  <header class="header" :class="{ 'header--black': menuOpen }" v-if="!desktop">
+  <header
+    class="header"
+    :class="{
+      'header--black': menuOpen,
+    }"
+    v-if="!desktop"
+    ref="header"
+  >
     <button class="header__menu-button" @click="menuOpen = !menuOpen">
       <icon-menu class="header__menu-icon" />
     </button>
@@ -10,7 +17,13 @@
       <movies-lateral-menu v-if="menuOpen" class="header__menu" />
     </appear-from>
   </header>
-  <header class="header header--match885px" v-else>
+  <header
+    class="header header--match885px"
+    :class="{
+      'header--transparent': !scrolled,
+    }"
+    v-else
+  >
     <router-link
       class="header__link header__link--match885px"
       :to="{ name: 'browse' }"
@@ -42,7 +55,7 @@
 <script setup lang="ts">
   import { useBlobURL } from "@/composables/useBlobURL";
   import { useMatchMedia } from "@/composables/useMatchMedia";
-  import { ref } from "vue";
+  import { ref, onMounted, onUnmounted } from "vue";
   import { useLoginStore } from "../../stores/login";
   import AppLogoIcon from "../icons/app-logo-icon.vue";
   import IconMenu from "../icons/icon-menu.vue";
@@ -53,6 +66,21 @@
   const menuOpen = ref<boolean>(false);
   const desktop = useMatchMedia("screen and (min-width: 885px)");
   const picture = useBlobURL(loginStore.picture!);
+
+  const scrolled = ref<boolean>(true);
+
+  function isScrolled() {
+    scrolled.value = window.scrollY > 10;
+    console.log(scrolled.value);
+  }
+
+  onMounted(() => {
+    window.addEventListener("scroll", isScrolled);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener("scroll", isScrolled);
+  });
 </script>
 
 <style lang="scss" scoped>
@@ -78,6 +106,10 @@
 
     &--black {
       background-color: #000;
+    }
+
+    &--transparent {
+      background-color: transparent;
     }
 
     &--match885px {

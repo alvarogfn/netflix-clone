@@ -1,50 +1,53 @@
 <template>
-  <section
-    class="card"
-    :class="{ 'card--hover': preview.open }"
-    @mouseenter="handleHover"
-    @mouseleave="handleLeave"
-  >
-    <router-link
-      class="card__link"
-      :to="{ name: 'watch', params: { id: movie.id! } }"
-    >
-      <img class="card__img" :src="movie.backdrop" v-if="!preview.open" />
-      <youtube-iframe
-        class="card__img"
-        @load="videoLoaded = true"
-        :allow-controls="false"
-        :src="getYoutubeEmbedFromLink(movie.video)"
-        v-else
-      />
-      <transition name="details">
-        <div class="card__details" v-if="preview.open">
-          <p class="card__rating">{{ movie.rating ?? "L" }}</p>
-          <p class="card__views">
-            <span>
-              {{ movie.views }}
-            </span>
-            {{ movie.views > 1 ? "visualizações" : "visualização" }}...
-          </p>
-          <ul class="card__tags">
-            <li
-              class="card__tag"
-              v-for="genre in movie.genre_names"
-              :key="genre"
-            >
-              <span>•</span>{{ genre }}
-            </li>
-          </ul>
-        </div>
-      </transition>
-    </router-link>
-  </section>
+  <Teleport to="#app" :disabled="!preview.open">
+    <Transition name="details">
+      <section
+        class="card"
+        ref="card"
+        :class="{ 'card--hover': preview.open }"
+        :style="styles"
+        @mouseenter="handleHover"
+        @mouseleave="handleLeave"
+      >
+        <router-link
+          class="card__link"
+          :to="{ name: 'watch', params: { id: movie.id! } }"
+        >
+          <img class="card__img" :src="movie.backdrop" v-if="!preview.open" />
+          <youtube-iframe
+            class="card__img"
+            :allow-controls="false"
+            :src="getYoutubeEmbedFromLink(movie.video)"
+            v-else
+          />
+          <div class="card__details" v-if="preview.open">
+            <p class="card__rating">{{ movie.rating ?? "L" }}</p>
+            <p class="card__views">
+              <span>
+                {{ movie.views === 0 ? "nenhuma" : movie.views }}
+              </span>
+              {{ movie.views > 1 ? "visualizações" : "visualização" }}...
+            </p>
+            <ul class="card__tags">
+              <li
+                class="card__tag"
+                v-for="genre in movie.genre_names"
+                :key="genre"
+              >
+                <span>•</span>{{ genre }}
+              </li>
+            </ul>
+          </div>
+        </router-link>
+      </section>
+    </Transition>
+  </Teleport>
 </template>
 
 <script lang="ts" setup>
   import type { Movie as MovieProp } from "@/database/database";
   import { getYoutubeEmbedFromLink } from "@/utils/getYoutubeEmbedFromLink";
-  import { reactive, watch, ref } from "vue";
+  import { reactive, computed, ref, onMounted, onUnmounted } from "vue";
   import YoutubeIframe from "../shared/utils/youtube-iframe.vue";
 
   interface Props {
@@ -56,37 +59,48 @@
     timeout: 0,
   });
 
-  const props = defineProps<Props>();
+  defineProps<Props>();
 
-  const videoLoaded = ref(false);
-
-  function handleHover(event: Event) {
-    const element = event.target as HTMLElement;
-    element.style.zIndex = "2";
+  function handleHover() {
     clearTimeout(preview.timeout);
     preview.timeout = setTimeout(() => {
       preview.open = true;
     }, 500);
   }
 
-  function handleLeave(event: Event) {
-    const element = event.target as HTMLElement;
-    element.style.zIndex = "";
-
+  function handleLeave() {
     clearTimeout(preview.timeout);
     preview.open = false;
   }
+  const card = ref<HTMLElement | null>(null);
+
+  const position = reactive({
+    left: 0,
+    top: 0,
+  });
+
+  const styles = computed(() => ({
+    top: position.top + "px",
+    left: position.left + "px",
+  }));
+
+  onMounted(() => {
+    window.addEventListener("scroll", () => {
+      if (!card.value) return;
+      const bounding = card.value.getBoundingClientRect();
+      position.left = bounding.left;
+      position.top = bounding.top;
+    });
+  });
 </script>
 
 <style lang="scss" scoped>
   @use "@/styles/colors.scss" as *;
   .card {
-    position: relative;
     transition: scale 500ms, z-index 4s;
 
     &--hover {
-      z-index: 3;
-      position: relative;
+      position: fixed;
       scale: 1.3;
 
       .card {
@@ -180,35 +194,27 @@
   .details {
     &-enter {
       &-active {
-        transition: 200ms;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
+        border: 2px solid red;
+        transition: 4s;
       }
 
       &-from {
-        opacity: 0;
+        scale: 0;
       }
 
       &-to {
-        opacity: 1;
+        scale: 1;
       }
     }
 
     &-leave {
       &-active {
-        transition: 200ms;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
+        border: 2px solid red;
+        transition: 4s;
       }
       &-from {
-        opacity: 1;
       }
       &-to {
-        opacity: 0;
       }
     }
   }
