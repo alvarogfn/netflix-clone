@@ -7,7 +7,7 @@
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     :allowfullscreen="props.allowfullscreen"
-    @load="emit('load', $event)"
+    @loadstart="$emit('loadstart')"
   ></iframe>
 </template>
 

@@ -9,7 +9,7 @@
 
       <router-link to="" class="container__link">Assistir</router-link>
     </section>
-    <video class="container__video" autoplay>
+    <video class="container__video" autoplay muted>
       <source src="@/assets/promotional.mp4" />
     </video>
     <div class="container__gradient"></div>
