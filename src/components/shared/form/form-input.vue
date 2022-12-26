@@ -136,7 +136,7 @@
 
     &__error {
       position: absolute;
-      bottom: -12.5px;
+      bottom: -15.5px;
     }
   }
 </style>
