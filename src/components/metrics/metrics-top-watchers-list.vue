@@ -22,7 +22,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { useBlobURL } from "@/composables/useBlobURL";
   import type { User } from "@/database/database";
   import { computed } from "vue";
   import ListHorizontal from "../utils/list-horizontal.vue";

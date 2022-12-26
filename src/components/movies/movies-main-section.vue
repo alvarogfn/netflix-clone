@@ -2,11 +2,7 @@
   <section class="movie-section">
     <list-horizontal :title="title" list-height="150px">
       <li class="movie-section__item" v-for="movie in movies" :key="movie.id">
-        <movie-card
-          class="movie-section__card"
-          :thumb="movie.backdrop"
-          :id="movie.id!"
-        />
+        <movie-card class="movie-section__card" :movie="movie" />
       </li>
     </list-horizontal>
   </section>

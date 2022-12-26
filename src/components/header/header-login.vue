@@ -18,32 +18,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 80px;
+      width: 100%;
     }
 
     &__icon {
       fill: $red;
-      width: 80px;
-    }
-  }
-
-  @media screen and (min-width: 550px) {
-    .header {
-      margin-bottom: 10px;
-
-      &__link {
-        width: 190px;
-      }
-
-      &__icon {
-        width: 190px;
-      }
-    }
-
-    @media screen and (min-width: 740px) {
-      .header {
-        margin-bottom: 100px;
-      }
+      width: 100%;
     }
   }
 </style>

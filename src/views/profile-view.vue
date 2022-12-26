@@ -2,7 +2,6 @@
   <div class="profile">
     <header-browse class="profile__header" />
     <main class="profile__content">
-      <button class="profile__logout" @click="loginStore.logout">logout</button>
       <title-text-label
         class="profile__field profile__field--name"
         title="name"
@@ -15,7 +14,16 @@
       />
       <img class="profile__img" :src="url" alt="Profile Picture" />
       <section class="profile__history">
-        <movies-main-section title="Ultimos filmes vistos" :movies="movies" />
+        <h1 class="profile__history-title">ultimos filmes vistos:</h1>
+        <ul class="profile__movies">
+          <li
+            class="profile__movies-item"
+            v-for="movie in movies"
+            :key="movie.id"
+          >
+            <movie-card class="profile__movie" :movie="movie" />
+          </li>
+        </ul>
       </section>
     </main>
   </div>
@@ -23,17 +31,17 @@
 
 <script setup lang="ts">
   import HeaderBrowse from "../components/header/header-browse.vue";
-  import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import { useLoginStore } from "../stores/login";
   import TitleTextLabel from "../components/utils/title-text-label.vue";
   import { onMounted, ref } from "vue";
   import { useBlobURL } from "@/composables/useBlobURL";
-  import { db } from "@/database/database";
+  import { db, type Movie } from "@/database/database";
+  import MovieCard from "@/components/movies/movie-card.vue";
 
   const loginStore = useLoginStore();
   const url = useBlobURL(loginStore.picture!);
 
-  const movies = ref<any[]>([]);
+  const movies = ref<Movie[]>([]);
 
   onMounted(async () => {
     let history = await db.history
@@ -51,13 +59,10 @@
 </script>
 
 <style lang="scss" scoped>
-  @use "../styles/colors.scss" as *;
+  @use "../styles/components.scss" as *;
 
   .profile {
-    height: 100vh;
-    max-height: 100%;
-    background-color: #141414;
-
+    position: relative;
     &__header {
       position: fixed;
       top: 0;
@@ -70,12 +75,11 @@
       display: grid;
       grid-template-areas:
         "picture"
-        "logout"
         "name"
         "email"
         "history";
 
-      padding: 80px 10px;
+      padding: 120px 10px;
 
       gap: 20px;
     }
@@ -83,9 +87,9 @@
     &__field {
       color: #fff;
       font-weight: 600;
-      text-transform: capitalize;
 
       &--name {
+        text-transform: capitalize;
         grid-area: name;
       }
 
@@ -109,33 +113,47 @@
       grid-area: history;
     }
 
+    &__history-title {
+      height: 40px;
+      max-width: calc(100vw - 30px);
+
+      color: #999;
+
+      font-size: 1.2rem;
+      font-weight: 700;
+
+      display: flex;
+      align-items: flex-end;
+
+      text-transform: capitalize;
+    }
+    &__movies {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 275px));
+      gap: 20px;
+    }
+
     &__logout {
-      background-color: $red;
-      color: #fff;
-      padding: 10px;
-      border-radius: 2px;
+      position: absolute;
+      top: 80px;
 
-      width: 100px;
-
-      grid-area: logout;
-
-      justify-self: flex-end;
+      @include button();
     }
   }
 
   @media screen and (min-width: 885px) {
     .profile {
       &__header {
-        padding-left: calc(15px + 5vw);
+        padding-inline: calc(10px + 2.5vw);
       }
       &__content {
-        padding-left: calc(15px + 5vw);
+        padding-inline: calc(10px + 2.5vw);
 
         grid-template-areas:
-          "picture . logout"
-          "picture email email"
-          "picture name name"
-          "history history history";
+          "picture name name name"
+          "picture email email email"
+          "history history history history";
       }
     }
   }

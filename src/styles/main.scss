@@ -1,7 +1,12 @@
 @use "normalize.scss" as *;
+@use "fonts.scss" as *;
 
 :root {
-  font-size: 16px;
+  font-size: 13px;
+
+  @media screen and (min-width: 700px) {
+    font-size: 18px;
+  }
 }
 
 * {
@@ -11,7 +16,7 @@
 }
 
 body {
-  font-family: "Segoe UI", Roboto, Ubuntu, sans-serif;
+  font-family: "Netflix Sans", "Segoe UI", Roboto, Ubuntu, sans-serif;
 }
 
 a {
@@ -28,6 +33,7 @@ input {
   border: none;
   color: inherit;
   outline: none;
+  background-color: initial;
 }
 
 button {
@@ -48,4 +54,14 @@ ol {
 img {
   max-height: 100%;
   max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }

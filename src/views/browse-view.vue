@@ -1,7 +1,11 @@
 <template>
   <div class="browse">
     <header-browse class="browse__header" />
-    <section class="browse__content">
+    <section
+      class="browse__content"
+      :class="{ 'browse__content--desktop': desktop }"
+    >
+      <movie-main class="browse__main" v-if="desktop" />
       <template v-for="genre in genres" :key="genre.id">
         <movies-main-section
           class="browse__categories"
@@ -15,6 +19,8 @@
 </template>
 
 <script setup lang="ts">
+  import MovieMain from "@/components/movies/movie-main.vue";
+  import { useMatchMedia } from "@/composables/useMatchMedia";
   import { db, type Genre, type Movie } from "@/database/database";
   import { getAllGenresByUserRelevance } from "@/services/relevance";
   import { useLoginStore } from "@/stores/login";
@@ -23,6 +29,8 @@
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
 
   const loginStore = useLoginStore();
+
+  const desktop = useMatchMedia("screen and (min-width: 780px)");
 
   const genres = ref<Genre[]>([]);
   const movies = ref<Movie[]>([]);
@@ -49,7 +57,7 @@
     display: flex;
     flex-flow: column nowrap;
 
-    padding-left: 15px;
+    // padding-left: 15px;
 
     &__header {
       padding-left: 15px;
@@ -57,6 +65,13 @@
 
     &__content {
       padding-top: 60px;
+      &--desktop {
+        padding-top: 0px;
+      }
+    }
+
+    &__categories {
+      padding-left: 15px;
     }
 
     &__header {
@@ -67,7 +82,13 @@
 
   @media screen and (min-width: 885px) {
     .browse {
-      padding-left: calc(15px + 2.5vw);
+      &__content {
+        margin-top: -100px;
+      }
+      &__categories {
+        padding-left: calc(15px + 2.5vw);
+        margin-bottom: 30px;
+      }
 
       &__header {
         padding-left: calc(15px + 2.5vw);

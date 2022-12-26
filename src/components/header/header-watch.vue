@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <button @click="router.back" class="header__button">
+    <button @click="back" class="header__button">
       <go-back-icon class="header__icon" />
     </button>
   </header>
@@ -11,6 +11,11 @@
   import GoBackIcon from "../icons/go-back-icon.vue";
 
   const router = useRouter();
+
+  function back() {
+    if (history.state.back === null) return router.push({ name: "browse" });
+    router.back();
+  }
 </script>
 
 <style lang="scss" scoped>

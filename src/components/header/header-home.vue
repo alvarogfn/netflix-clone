@@ -16,7 +16,7 @@
 
 <style lang="scss" scoped>
   @use "../../styles/colors.scss" as *;
-
+  @use "../../styles/components.scss" as *;
   .header {
     display: flex;
     justify-content: space-between;
@@ -27,21 +27,7 @@
     }
 
     &__link {
-      width: 65px;
-      height: 30px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-flow: column wrap;
-
-      background-color: $red;
-      color: #fff;
-
-      font-weight: 400;
-      text-transform: capitalize;
-
-      border-radius: 5px;
+      @include button();
     }
   }
 
@@ -50,11 +36,6 @@
       &__logo {
         width: 110px;
       }
-
-      &__link {
-        width: 85px;
-        height: 35px;
-      }
     }
   }
 
@@ -62,11 +43,6 @@
     .header {
       &__logo {
         width: 130px;
-      }
-
-      &__link {
-        width: 85px;
-        height: 35px;
       }
     }
   }

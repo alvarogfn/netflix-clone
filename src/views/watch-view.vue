@@ -48,7 +48,7 @@
 
   const movie = ref<Movie | null>(null);
   const error = ref(false);
-  const mobile = useMatchMedia("screen and (min-width: 885px)");
+  const mobile = useMatchMedia("screen and (max-width: 885px)");
 
   const iframe = computed(() => {
     if (movie.value?.video) {
@@ -79,6 +79,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @use "@/styles/colors.scss" as *;
+
   .watch {
     display: flex;
     flex-flow: column nowrap;
@@ -145,8 +147,9 @@
     }
 
     &__rating {
-      background-color: orangered;
-      max-width: 20px;
+      margin-top: 2.5px;
+      background-color: $orange;
+      width: max-content;
     }
 
     &__plot {
