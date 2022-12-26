@@ -235,7 +235,7 @@
       }
 
       &__error {
-        bottom: -12.5px;
+        bottom: -19.5px;
         color: $orange;
         font-size: 0.8rem;
       }
