@@ -30,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+  import { useDragScroll } from "@/composables/useDragScroll";
   import { ref, onMounted, onUnmounted, computed, reactive } from "vue";
 
   interface Props {
@@ -37,9 +38,11 @@
     listHeight?: string;
   }
 
-  const props = withDefaults(defineProps<Props>(), { listHeight: "200px" });
+  withDefaults(defineProps<Props>(), { listHeight: "200px" });
 
   const listElement = ref<HTMLElement | null>(null);
+
+  useDragScroll(listElement);
 
   const showButtons = ref<boolean>(false);
 

@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, watch } from "vue";
+  import { computed } from "vue";
 
   interface Props {
     src: string;
@@ -31,7 +31,7 @@
     title: "Youtube Media",
   });
 
-  const emit = defineEmits<Emit>();
+  defineEmits<Emit>();
 
   const src = computed(() => {
     const url = new URL(props.src);

@@ -10,7 +10,6 @@ export function useDragScroll(el: Ref<HTMLElement | null>) {
 
   watch(el, (newElement) => {
     if (newElement !== null) {
-      newElement.removeEventListener("mousedown", mouseDownHandler);
       newElement.addEventListener("mousedown", mouseDownHandler);
     }
   });

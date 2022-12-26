@@ -2,7 +2,6 @@
   <div class="profile">
     <header-browse class="profile__header" />
     <main class="profile__content">
-      <button class="profile__logout" @click="loginStore.logout">logout</button>
       <title-text-label
         class="profile__field profile__field--name"
         title="name"
@@ -22,11 +21,7 @@
             v-for="movie in movies"
             :key="movie.id"
           >
-            <movie-card
-              class="profile__movie"
-              :thumb="movie.backdrop"
-              :id="movie.id!"
-            />
+            <movie-card class="profile__movie" :movie="movie" />
           </li>
         </ul>
       </section>
@@ -36,7 +31,6 @@
 
 <script setup lang="ts">
   import HeaderBrowse from "../components/header/header-browse.vue";
-  import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import { useLoginStore } from "../stores/login";
   import TitleTextLabel from "../components/utils/title-text-label.vue";
   import { onMounted, ref } from "vue";
@@ -68,6 +62,7 @@
   @use "../styles/components.scss" as *;
 
   .profile {
+    position: relative;
     &__header {
       position: fixed;
       top: 0;
@@ -80,12 +75,11 @@
       display: grid;
       grid-template-areas:
         "picture"
-        "logout"
         "name"
         "email"
         "history";
 
-      padding: 80px 10px;
+      padding: 120px 10px;
 
       gap: 20px;
     }
@@ -136,15 +130,15 @@
     &__movies {
       margin-top: 30px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 275px));
       gap: 20px;
     }
 
     &__logout {
-      grid-area: logout;
+      position: absolute;
+      top: 80px;
 
       @include button();
-      justify-self: end;
     }
   }
 
@@ -157,10 +151,9 @@
         padding-inline: calc(10px + 2.5vw);
 
         grid-template-areas:
-          "picture . logout"
-          "picture email email"
-          "picture name name"
-          "history history history";
+          "picture name name name"
+          "picture email email email"
+          "history history history history";
       }
     }
   }
