@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ name }}</p>
+    <p>{{ name.split(" ")[0].substring(0, 10) }}</p>
     <img :src="src" />
   </div>
 </template>
