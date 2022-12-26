@@ -87,9 +87,9 @@
     &__field {
       color: #fff;
       font-weight: 600;
-      text-transform: capitalize;
 
       &--name {
+        text-transform: capitalize;
         grid-area: name;
       }
 
