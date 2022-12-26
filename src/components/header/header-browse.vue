@@ -71,7 +71,6 @@
 
   function isScrolled() {
     scrolled.value = window.scrollY > 10;
-    console.log(scrolled.value);
   }
 
   onMounted(() => {
