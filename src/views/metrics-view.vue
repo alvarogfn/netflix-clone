@@ -19,9 +19,9 @@
 </template>
 
 <script lang="ts" setup>
-  import HeaderBrowse from "../components/header/header-browse.vue";
-  import MoviesMainSection from "../components/movies/movies-main-section.vue";
-  import MetricsTopWatchersList from "../components/metrics/metrics-top-watchers-list.vue";
+  import HeaderBrowse from "@/components/shared/header/header-browse.vue";
+  import MoviesMainSection from "@/components/shared/movies/movies-main-section.vue";
+  import MetricsTopWatchersList from "@/components/metrics/metrics-top-watchers-list.vue";
   import { onMounted, ref } from "vue";
   import { db, type Genre, type Movie, type User } from "@/database/database";
   import { topUsersMetrics } from "@/services/history";

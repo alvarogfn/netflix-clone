@@ -1,13 +1,13 @@
 <template>
   <header class="header">
     <router-link class="header__link" :to="{ name: 'home' }">
-      <app-logo-icon class="header__icon" />
+      <icon-app-logo class="header__icon" />
     </router-link>
   </header>
 </template>
 
 <script lang="ts" setup>
-  import AppLogoIcon from "../icons/app-logo-icon.vue";
+  import IconAppLogo from "@/components/icons/icon-app-logo.vue";
 </script>
 
 <style lang="scss" scoped>

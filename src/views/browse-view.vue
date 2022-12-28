@@ -19,14 +19,14 @@
 </template>
 
 <script setup lang="ts">
-  import MovieMain from "@/components/movies/movie-main.vue";
+  import MovieMain from "@/components/shared/movies/movie-main.vue";
   import { useMatchMedia } from "@/composables/useMatchMedia";
   import { db, type Genre, type Movie } from "@/database/database";
   import { getAllGenresByUserRelevance } from "@/services/relevance";
   import { useLoginStore } from "@/stores/login";
   import { ref, onMounted } from "vue";
-  import HeaderBrowse from "../components/header/header-browse.vue";
-  import MoviesMainSection from "../components/movies/movies-main-section.vue";
+  import HeaderBrowse from "@/components/shared/header/header-browse.vue";
+  import MoviesMainSection from "@/components/shared/movies/movies-main-section.vue";
 
   const loginStore = useLoginStore();
 
@@ -56,8 +56,6 @@
   .browse {
     display: flex;
     flex-flow: column nowrap;
-
-    // padding-left: 15px;
 
     &__header {
       padding-left: 15px;

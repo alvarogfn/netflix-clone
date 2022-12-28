@@ -25,7 +25,7 @@
 <script setup lang="ts">
   import type { Movie as MovieProp } from "@/database/database";
   import { getYoutubeEmbedFromLink } from "@/utils/getYoutubeEmbedFromLink";
-  import YoutubeIframe from "../shared/utils/youtube-iframe.vue";
+  import YoutubeIframe from "@/components/shared/utils/youtube-iframe.vue";
 
   interface Props {
     movie: MovieProp;

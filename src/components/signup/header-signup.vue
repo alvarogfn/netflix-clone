@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <router-link class="header__home" :to="{ name: 'home' }">
-      <app-logo-icon class="header__icon" />
+      <icon-app-logo class="header__icon" />
     </router-link>
     <router-link class="header__login" :to="{ name: 'login' }">
       Sign In
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-  import AppLogoIcon from "../icons/app-logo-icon.vue";
+  import IconAppLogo from "@/components/icons/icon-app-logo.vue";
 </script>
 
 <style lang="scss" scoped>
