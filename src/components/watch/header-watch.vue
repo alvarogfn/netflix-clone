@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
   import { useRouter } from "vue-router";
-  import GoBackIcon from "../icons/go-back-icon.vue";
+  import GoBackIcon from "../icons/icon-go-back.vue";
 
   const router = useRouter();
 
