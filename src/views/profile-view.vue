@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import HeaderBrowse from "../components/app/header-browse.vue";
   import { useLoginStore } from "../stores/login";
-  import TitleTextLabel from "../components/utils/title-text-label.vue";
+  import TitleTextLabel from "../components/profile/profile-text-field.vue";
   import { onMounted, ref } from "vue";
   import { useBlobURL } from "@/composables/useBlobURL";
   import { db, type Movie } from "@/database/database";

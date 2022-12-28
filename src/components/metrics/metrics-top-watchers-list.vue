@@ -24,8 +24,8 @@
 <script lang="ts" setup>
   import type { User } from "@/database/database";
   import { computed } from "vue";
-  import ListHorizontal from "../utils/list-horizontal.vue";
-  import PictureWithNameCard from "../utils/picture-with-name-card.vue";
+  import ListHorizontal from "../shared/list/list-horizontal.vue";
+  import PictureWithNameCard from "./metrics-picture-name-card.vue";
   import MetricsPositionCard from "./metrics-position-card.vue";
 
   interface Props {

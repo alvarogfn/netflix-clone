@@ -11,7 +11,7 @@
       <icon-menu class="header__menu-icon" />
     </button>
     <router-link class="header__link" :to="{ name: 'browse' }">
-      <app-logo-icon class="header__logo" />
+      <icon-app-logo class="header__logo" />
     </router-link>
     <appear-from from="right">
       <movies-lateral-menu v-if="menuOpen" class="header__menu" />
@@ -28,7 +28,7 @@
       class="header__link header__link--match885px"
       :to="{ name: 'browse' }"
     >
-      <app-logo-icon class="header__logo header__logo--match885px" />
+      <icon-app-logo class="header__logo header__logo--match885px" />
     </router-link>
     <nav class="header__nav">
       <ul class="header__list">
@@ -57,7 +57,7 @@
   import { useMatchMedia } from "@/composables/useMatchMedia";
   import { ref, onMounted, onUnmounted } from "vue";
   import { useLoginStore } from "../../stores/login";
-  import AppLogoIcon from "../icons/app-logo-icon.vue";
+  import IconAppLogo from "../icons/icon-app-logo.vue";
   import IconMenu from "../icons/icon-menu.vue";
   import AppearFrom from "../shared/transitions/appear-from.vue";
   import MoviesLateralMenu from "./header-lateral-menu.vue";
