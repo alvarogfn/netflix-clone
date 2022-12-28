@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-  import HeaderBrowse from "../components/header/header-browse.vue";
+  import HeaderBrowse from "../components/app/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
   import MetricsTopWatchersList from "../components/metrics/metrics-top-watchers-list.vue";
   import { onMounted, ref } from "vue";

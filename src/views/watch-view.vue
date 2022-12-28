@@ -38,7 +38,7 @@
   import { db, type Movie } from "@/database/database";
   import { ref, computed, onMounted } from "vue";
   import { useRoute } from "vue-router";
-  import HeaderWatch from "../components/header/header-watch.vue";
+  import HeaderWatch from "../components/watch/header-watch.vue";
   import { useLoginStore } from "../stores/login";
   import { addNewUserView } from "@/services/history";
 

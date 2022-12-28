@@ -25,7 +25,7 @@
   import { getAllGenresByUserRelevance } from "@/services/relevance";
   import { useLoginStore } from "@/stores/login";
   import { ref, onMounted } from "vue";
-  import HeaderBrowse from "../components/header/header-browse.vue";
+  import HeaderBrowse from "../components/app/header-browse.vue";
   import MoviesMainSection from "../components/movies/movies-main-section.vue";
 
   const loginStore = useLoginStore();

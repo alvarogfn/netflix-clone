@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-  import HeaderBrowse from "../components/header/header-browse.vue";
+import HeaderBrowse from "../components/app/header-browse.vue";
   import { useLoginStore } from "../stores/login";
   import TitleTextLabel from "../components/utils/title-text-label.vue";
   import { onMounted, ref } from "vue";
