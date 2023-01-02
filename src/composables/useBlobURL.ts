@@ -1,9 +1,15 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
-export function useBlobURL(blob: Blob) {
+export function useBlobURL(blob?: Blob) {
   const url = ref("");
 
-  onMounted(() => (url.value = URL.createObjectURL(blob)));
+  onMounted(() => {
+    try {
+      if (blob) url.value = URL.createObjectURL(blob);
+    } catch (e) {
+      URL.revokeObjectURL(url.value);
+    }
+  });
 
   onUnmounted(() => URL.revokeObjectURL(url.value));
 

@@ -56,10 +56,14 @@
 
   watch(file, (newBlob) => {
     if (newBlob === null) return;
-    if (fileHref.value) URL.revokeObjectURL(fileHref.value);
-    fileHref.value = URL.createObjectURL(newBlob);
-    emit("update:value", newBlob);
-    emit("valid", true);
+    try {
+      if (fileHref.value) URL.revokeObjectURL(fileHref.value);
+      fileHref.value = URL.createObjectURL(newBlob);
+      emit("update:value", newBlob);
+      emit("valid", true);
+    } catch (e) {
+      emit("valid", false);
+    }
   });
 
   onUnmounted(() => {

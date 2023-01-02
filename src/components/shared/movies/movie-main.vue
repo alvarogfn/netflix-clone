@@ -6,7 +6,6 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate qui
         sequi sunt tempore laboriosam sed vitae.
       </p>
-
       <router-link to="" class="container__link">Assistir</router-link>
     </section>
     <video class="container__video" autoplay muted>

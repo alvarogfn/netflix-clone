@@ -1,10 +1,18 @@
 <template>
   <header class="header">
-    <router-link v-if="$route.path !== '/'" :to="{ name: 'home' }">
+    <router-link
+      data-testid="toHome"
+      v-if="route.path !== '/'"
+      :to="{ name: 'home' }"
+    >
       <icon-app-logo class="header__logo" />
     </router-link>
     <icon-app-logo v-else class="header__logo" />
-    <router-link class="header__link" :to="{ name: 'login' }">
+    <router-link
+      data-testid="toLogin"
+      class="header__link"
+      :to="{ name: 'login' }"
+    >
       Sign in
     </router-link>
   </header>
@@ -12,6 +20,9 @@
 
 <script lang="ts" setup>
   import IconAppLogo from "@/components/icons/icon-app-logo.vue";
+  import { useRoute } from "vue-router";
+
+  const route = useRoute();
 </script>
 
 <style lang="scss" scoped>

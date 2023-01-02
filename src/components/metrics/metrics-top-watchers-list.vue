@@ -10,7 +10,7 @@
         :key="user.id"
       >
         <metrics-position-card :position="index + 1">
-          <picture-with-name-card
+          <metrics-picture-name-card
             class="top-users__card"
             :name="user.name"
             :picture="user.picture"
@@ -25,7 +25,7 @@
   import type { User } from "@/database/database";
   import { computed } from "vue";
   import ListHorizontal from "@/components/shared/list/list-horizontal.vue";
-  import PictureWithNameCard from "@/components/metrics/metrics-picture-name-card.vue";
+  import MetricsPictureNameCard from "@/components/metrics/metrics-picture-name-card.vue";
   import MetricsPositionCard from "@/components/metrics/metrics-position-card.vue";
 
   interface Props {

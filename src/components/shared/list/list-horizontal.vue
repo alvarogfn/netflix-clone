@@ -1,31 +1,23 @@
 <template>
   <section class="container">
     <h1 class="container__title">{{ title }}</h1>
+    <button
+      class="container__move container__move--prev"
+      v-if="showPrevButton"
+      @click="slidePrev"
+    >
+      <img class="container__move-img" src="@/assets/left-arrow.png" alt="<" />
+    </button>
     <ul ref="listElement" class="container__list">
-      <button
-        class="container__move container__move--prev"
-        v-if="showPrevButton"
-        @click="slidePrev"
-      >
-        <img
-          class="container__move-img"
-          src="@/assets/left-arrow.png"
-          alt="<"
-        />
-      </button>
       <slot></slot>
-      <button
-        class="container__move container__move--next"
-        v-if="showButtons"
-        @click="slideNext"
-      >
-        <img
-          class="container__move-img"
-          src="@/assets/right-arrow.png"
-          alt=">"
-        />
-      </button>
     </ul>
+    <button
+      class="container__move container__move--next"
+      v-if="showButtons"
+      @click="slideNext"
+    >
+      <img class="container__move-img" src="@/assets/right-arrow.png" alt=">" />
+    </button>
   </section>
 </template>
 
