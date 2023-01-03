@@ -29,8 +29,8 @@
 
 <script lang="ts" setup>
   import { useBlobURL } from "@/composables/useBlobURL";
-  import { useLoginStore } from "../../stores/login";
-  import ProfileCardLink from "../profile/profile-card-link.vue";
+  import { useLoginStore } from "@/stores/login";
+  import ProfileCardLink from "@/components/profile/profile-card-link.vue";
 
   const loginStore = useLoginStore();
 

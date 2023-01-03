@@ -3,5 +3,5 @@ export function getYoutubeEmbedFromLink(link: string) {
     /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
   const match = link.match(regExp);
   if (match === null) return "";
-  return `https://www.youtube.com/embed/${match[2]}?autoplay=1`;
+  return `https://www.youtube.com/embed/${match[2]}`;
 }

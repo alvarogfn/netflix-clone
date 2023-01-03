@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
   import type { Movie as MovieProp } from "@/database/database";
-  import { reactive, computed, ref, onMounted, onUnmounted } from "vue";
+  import { reactive, computed, ref } from "vue";
   import MovieExpandedCard from "./movie-expanded-card.vue";
 
   interface Props {
@@ -76,12 +76,6 @@
     position.top = event.y;
     position.left = event.x;
   }
-
-  onMounted(() => {
-    window.addEventListener("scroll", () => {});
-  });
-
-  onUnmounted(() => {});
 </script>
 
 <style lang="scss" scoped>

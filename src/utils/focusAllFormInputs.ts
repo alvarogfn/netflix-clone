@@ -1,7 +1,9 @@
-export function focusAllFormInputs(el: HTMLFormElement) {
+import { timeout } from "./timeout";
+
+export async function focusAllFormInputs(el: HTMLFormElement) {
   for (const element of el.elements) {
     const input = element as HTMLInputElement;
-    setTimeout(() => input.focus(), 100);
-    setTimeout(() => input.blur(), 100);
+    await timeout(() => input.focus(), 100);
+    await timeout(() => input.blur(), 100);
   }
 }

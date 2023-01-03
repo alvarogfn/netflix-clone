@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-  import HeaderSignup from "../components/header/header-signup.vue";
+  import HeaderSignup from "../components/signup/header-signup.vue";
   import FormInput from "@/components/shared/form/form-input.vue";
   import { useLoginStore } from "../stores/login";
   import { computed, reactive, ref } from "vue";

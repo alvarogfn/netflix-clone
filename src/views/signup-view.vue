@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import HeaderHome from "../components/header/header-home.vue";
+  import HeaderHome from "../components/home/header-home.vue";
 </script>
 
 <style lang="scss" scoped>

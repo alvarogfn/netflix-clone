@@ -1,5 +1,5 @@
 <template>
-  <route-link :to="{ name: 'watch', params: { id: movie.id } }" class="card">
+  <router-link :to="{ name: 'watch', params: { id: movie.id } }" class="card">
     <youtube-iframe
       class="card__video"
       :allow-controls="false"
@@ -19,13 +19,13 @@
         </li>
       </ul>
     </div>
-  </route-link>
+  </router-link>
 </template>
 
 <script setup lang="ts">
   import type { Movie as MovieProp } from "@/database/database";
   import { getYoutubeEmbedFromLink } from "@/utils/getYoutubeEmbedFromLink";
-  import YoutubeIframe from "../shared/utils/youtube-iframe.vue";
+  import YoutubeIframe from "@/components/shared/utils/youtube-iframe.vue";
 
   interface Props {
     movie: MovieProp;

@@ -50,7 +50,7 @@
   import { Patterns } from "@/utils/Patterns";
   import { reactive, ref, computed } from "vue";
   import { useRouter } from "vue-router";
-  import HeaderLogin from "../components/header/header-login.vue";
+  import HeaderLogin from "../components/login/header-login.vue";
 
   const loginStore = useLoginStore();
   const router = useRouter();
