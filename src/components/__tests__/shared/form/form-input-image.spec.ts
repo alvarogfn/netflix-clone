@@ -1,6 +1,4 @@
-import { describe, it, expect, afterEach } from "vitest";
-import { mount } from "@vue/test-utils";
-import FormInputImage from "@/components/shared/form/form-input-image.vue";
+import { describe, it, expect } from "vitest";
 
 describe("", () => {
   it("", () => {

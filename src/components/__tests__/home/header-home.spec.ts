@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, afterEach, beforeEach } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import HeaderHome from "@/components/home/header-home.vue";
 import { createTestingPinia } from "@pinia/testing";
@@ -15,7 +15,7 @@ describe("should test the header-home implementation", () => {
     vi.restoreAllMocks();
   });
 
-it("tests that the logo does not appear in anchora if the path is different from /", () => {
+  it("tests that the logo does not appear in anchora if the path is different from /", () => {
     vi.mocked(useRoute, { partial: true }).mockImplementationOnce(() => ({
       path: "/",
     }));

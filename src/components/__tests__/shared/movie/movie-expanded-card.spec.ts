@@ -1,6 +1,5 @@
 import { mount, RouterLinkStub } from "@vue/test-utils";
 import { describe, it, expect, vi } from "vitest";
-import { useRoute } from "vue-router";
 import MovieExpandedCard from "@/components/shared/movies/movie-expanded-card.vue";
 import type { Movie } from "@/database/database";
 
