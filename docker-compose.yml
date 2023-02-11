@@ -1,7 +1,0 @@
-version: "3.7"
-services:
-  app: 
-   build: "."
-   container_name: "netflix_clone"
-   ports: 
-    - "3003:8080"

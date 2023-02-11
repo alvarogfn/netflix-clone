@@ -28,3 +28,5 @@ coverage
 *.sw?
 
 src/apis/keys.json
+# Local Netlify folder
+.netlify
